@@ -1,0 +1,68 @@
+.footer {
+  background-color: rgb(14, 14, 14);
+  display: flex;
+  color: $text-color-light;
+  justify-content: space-between;
+  padding: 40px;
+
+  .footer-col-one {
+    width: 40%;
+
+    .logo {
+      background-color: aliceblue;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: $text-color-dark;
+      float: left;
+      margin: 10px;
+    }
+
+    .footer-text {
+      font-size: small;
+    }
+  }
+
+  .border {
+    width: 1px;
+    height: 250px;
+    background-color: aliceblue;
+  }
+
+  .footer-col-two,
+  .footer-col-three {
+    .footer-list {
+      list-style: none;
+
+      .list-item {
+        font-size: 0.8rem;
+
+        &:not(:first-child) {
+          margin-top: 20px;
+        }
+
+        &:hover {
+          cursor: pointer;
+          text-decoration: underline;
+        }
+      }
+    }
+
+    .site {
+      margin-top: 70px;
+      margin-left: 50px;
+      text-transform: uppercase;
+
+      #site-text {
+        color: $secondary;
+
+        span {
+          color: $primary;
+        }
+      }
+    }
+  }
+}
