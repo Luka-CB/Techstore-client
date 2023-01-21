@@ -1,0 +1,26 @@
+.msg-modal-container {
+  position: fixed;
+  top: 1%;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 20px;
+  min-width: 250px;
+  text-align: center;
+  text-transform: capitalize;
+  letter-spacing: 3px;
+  border-radius: 10px;
+}
+
+.error {
+  box-shadow: 0 0 8px $danger-hover;
+  color: $text-color-light;
+  text-shadow: 5px 0 4px black;
+  background-color: $danger;
+}
+
+.success {
+  background-color: $success;
+  box-shadow: 0 0 8px $success-hover;
+  color: $text-color-light;
+  text-shadow: 5px 0 4px black;
+}

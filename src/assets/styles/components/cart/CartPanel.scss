@@ -1,0 +1,117 @@
+.cart-panel-container {
+  background-color: $dark;
+  width: 20%;
+  min-height: 30vh;
+  margin: 50px;
+  border-radius: 20px;
+  border-left: 2px solid rgb(65, 65, 65);
+  border-top: 2px solid rgb(65, 65, 65);
+  box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.486);
+  padding: 10px;
+
+  #total-items {
+    color: $secondary;
+    font-size: 1.4rem;
+
+    span {
+      margin-left: 10px;
+      color: $text-color-light;
+      font-weight: 400;
+    }
+  }
+
+  #tax {
+    color: $secondary;
+    margin-top: 20px;
+    font-size: 1.4rem;
+
+    span {
+      margin-left: 10px;
+      color: $text-color-light;
+      font-weight: 400;
+    }
+  }
+
+  #total-price {
+    color: $secondary;
+    margin-top: 20px;
+    font-size: 1.4rem;
+
+    span {
+      margin-left: 10px;
+      color: $text-color-light;
+      font-weight: 400;
+    }
+  }
+
+  .btns {
+    display: flex;
+    justify-content: space-between;
+
+    #order {
+      margin-top: 50px;
+      width: 45%;
+      padding: 7px;
+      border: none;
+      outline: none;
+      background-color: $primary;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      color: rgb(199, 199, 199);
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $primary-hover;
+        color: $text-color-light;
+      }
+
+      &:active {
+        transform: scale(0.9);
+        background-color: $primary-active;
+        color: $text-color-light;
+      }
+
+      &:disabled {
+        background-color: #d800a634;
+        color: rgba(199, 199, 199, 0.288);
+        cursor: default;
+      }
+    }
+
+    #clear {
+      margin-top: 50px;
+      width: 45%;
+      padding: 7px;
+      border: none;
+      outline: none;
+      background-color: $danger;
+      border-radius: 10px;
+      font-size: 1.1rem;
+      font-family: inherit;
+      color: rgb(199, 199, 199);
+      font-weight: 600;
+      transition: all 0.2s ease-in-out;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $danger-hover;
+        color: $text-color-light;
+      }
+
+      &:active {
+        transform: scale(0.9);
+        background-color: $danger-active;
+        color: $text-color-light;
+      }
+
+      &:disabled {
+        background-color: #c210102d;
+        color: rgba(199, 199, 199, 0.288);
+        cursor: default;
+      }
+    }
+  }
+}

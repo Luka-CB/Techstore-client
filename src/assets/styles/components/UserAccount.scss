@@ -1,0 +1,152 @@
+.user-account-container {
+  width: 100%;
+  min-height: 100vh;
+
+  .account-form-container {
+    display: flex;
+    flex-direction: column;
+    background-color: $dark;
+    width: 60%;
+    min-height: 70vh;
+    margin: 50px auto;
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.397);
+
+    .user-info {
+      padding-bottom: 10px;
+      align-self: flex-end;
+
+      .info-text {
+        color: rgba(240, 248, 255, 0.719);
+        font-size: 0.8rem;
+
+        #date,
+        #name {
+          font-size: 1.1rem;
+          color: $primary;
+        }
+      }
+    }
+
+    #form-container-text {
+      text-align: center;
+      color: $text-color-light;
+    }
+
+    #account-form {
+      display: flex;
+      flex-direction: column;
+      width: 70%;
+      margin: auto;
+
+      .form-input {
+        margin-top: 30px;
+        font-family: inherit;
+        font-size: 1rem;
+        padding: 15px 10px;
+        border-radius: 10px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid rgba(255, 255, 255, 0.445);
+        color: $text-color-light;
+        transition: all 0.2s ease-in-out;
+
+        &:focus {
+          border-color: aliceblue;
+        }
+      }
+
+      .provider {
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        width: 100%;
+
+        label {
+          color: $text-color-light;
+        }
+
+        .provider-value {
+          font-family: inherit;
+          font-size: 1rem;
+          padding: 15px 10px;
+          border-radius: 10px;
+          border: none;
+          outline: none;
+          background-color: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.445);
+          color: $text-color-light;
+          flex: 1;
+          margin-left: 20px;
+          text-transform: capitalize;
+        }
+      }
+
+      #update-btn {
+        margin-top: 40px;
+        width: 200px;
+        height: 50px;
+        border: none;
+        outline: none;
+        background-color: transparent;
+        border: 1px solid $primary;
+        font-family: inherit;
+        color: $primary;
+        font-size: 1.1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          border-color: $primary-hover;
+          color: $primary-hover;
+          background-color: #d800a60e;
+        }
+
+        &:active {
+          border-color: $primary-active;
+          color: $primary-active;
+          transform: scale(0.95);
+        }
+
+        &:disabled {
+          border-color: #463d44;
+          color: #463d44;
+          cursor: default;
+          background-color: transparent;
+        }
+      }
+    }
+
+    #delete-btn {
+      margin-top: 50px;
+      align-self: flex-end;
+      width: 250px;
+      height: 50px;
+      border: none;
+      outline: none;
+      background-color: transparent;
+      border: 1px solid $danger;
+      font-family: inherit;
+      color: $danger;
+      font-size: 1.1rem;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        border-color: $danger-hover;
+        color: $danger-hover;
+        background-color: #c2101013;
+      }
+
+      &:active {
+        border-color: $danger-active;
+        color: $danger-active;
+        transform: scale(0.95);
+      }
+    }
+  }
+}

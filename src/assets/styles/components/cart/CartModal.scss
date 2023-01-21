@@ -1,0 +1,189 @@
+.cart-modal-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 100%;
+  height: 100%;
+
+  .cart-modal-container {
+    background-color: $dark;
+    width: 450px;
+    padding: 10px 20px 20px 20px;
+    border-radius: 15px;
+    border: 2px solid rgb(73, 73, 73);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 32px rgba(0, 0, 0, 0.438);
+    display: flex;
+    flex-direction: column;
+
+    #title {
+      text-align: center;
+      color: $primary;
+      text-shadow: 1px 1px 1px $secondary;
+      letter-spacing: 2px;
+    }
+
+    #error-text {
+      color: $danger;
+      text-shadow: 0 0 1px $danger-hover;
+      letter-spacing: 1px;
+      text-align: center;
+      margin-top: 10px;
+      text-transform: capitalize;
+    }
+
+    .attributes {
+      min-height: 50px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      margin: 20px 0;
+
+      .size-wrapper,
+      .size-wrapper-active,
+      .size-wrapper-disabled {
+        cursor: pointer;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+        margin-left: 15px;
+
+        #price {
+          color: aliceblue;
+          margin-top: 5px;
+        }
+
+        .size {
+          border: 1px solid rgba(255, 255, 255, 0.466);
+          width: 40px;
+          height: 40px;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          color: aliceblue;
+          transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+          .size {
+            border-color: white;
+            color: $text-color-light;
+          }
+
+          #price {
+            text-decoration: underline;
+          }
+        }
+      }
+
+      .size-wrapper-disabled {
+        cursor: default;
+
+        #price {
+          color: rgb(114, 114, 114);
+          font-size: 0.9rem;
+        }
+
+        .size {
+          border: 1px solid rgba(114, 114, 114, 0.486);
+          width: 38px;
+          height: 38px;
+          color: rgb(114, 114, 114);
+          font-size: 0.9rem;
+        }
+
+        &:hover {
+          .size {
+            border: 1px solid rgba(114, 114, 114, 0.486);
+            color: rgb(114, 114, 114);
+          }
+
+          #price {
+            text-decoration: none;
+          }
+        }
+      }
+
+      .size-wrapper-active {
+        #price {
+          text-decoration: underline;
+          color: white;
+        }
+
+        .size {
+          border-color: white;
+          color: $text-color-light;
+        }
+      }
+
+      .color-disabled {
+        width: 38px;
+        height: 38px;
+        margin: 10px 0 0 10px;
+        border: 1px solid rgba(255, 255, 255, 0.288);
+        opacity: 0.4;
+        border-radius: 5px;
+        cursor: default;
+      }
+
+      .color,
+      .color-active {
+        width: 40px;
+        height: 40px;
+        margin: 10px 0 0 10px;
+        border-radius: 5px;
+        border: 1px solid white;
+        cursor: pointer;
+
+        &:hover {
+          border: 2px solid $success;
+        }
+      }
+
+      .color-active {
+        border: 3px solid $success;
+
+        &:hover {
+          border: 3px solid $success;
+        }
+      }
+    }
+
+    #done-btn {
+      align-self: flex-end;
+      border: none;
+      outline: none;
+      width: 100px;
+      padding: 7px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background-color: $success;
+      color: $text-color-dark;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      &:hover {
+        background-color: $success-hover;
+        color: black;
+      }
+
+      &:active {
+        background-color: $success-active;
+        color: black;
+      }
+
+      &:disabled {
+        background-color: rgb(111, 117, 100);
+        color: rgb(78, 78, 78);
+      }
+    }
+  }
+}

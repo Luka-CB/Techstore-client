@@ -1,4 +1,4 @@
-import Products from "../components/Products";
+import Products from "../components/products/Products";
 import { tvs } from "../data";
 
 const Tv = () => {

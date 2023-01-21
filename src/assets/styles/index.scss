@@ -1,10 +1,15 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@700&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,400;0,600;0,800;0,900;1,100;1,200;1,400;1,600;1,800;1,900&display=swap");
 
-@import "./vars", "./components/Home", "./components/SlideShow",
-  "./components/LastAdded", "./components/Footer", "./components/Navigation",
-  "./components/About", "./components/Search", "./components/Products",
-  "./components/ProductCard";
+@import "./vars", "./components/home/Home", "./components/home/SlideShow",
+  "./components/home/LastAdded", "./components/Footer",
+  "./components/Navigation", "./components/About", "./components/Search",
+  "./components/products/Products", "./components/products/ProductCard",
+  "./components/cart/CartModal", "./components/MsgModal",
+  "./components/cart/Cart", "./components/cart/CartPanel",
+  "./components/cart/CartItem", "./components//auth/AuthModal",
+  "./components/auth/AuthForm", "./components/UserAccount",
+  "./components/DeleteModal";
 
 * {
   margin: 0;
@@ -15,4 +20,27 @@
 body {
   background-color: rgb(49, 49, 49);
   font-family: "Montserrat", sans-serif;
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 5px rgb(199, 199, 199);
+  border-radius: 10px;
+  background-color: rgb(66, 68, 70);
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rgb(207, 207, 207);
+  border-radius: 10px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: rgb(250, 250, 250);
 }

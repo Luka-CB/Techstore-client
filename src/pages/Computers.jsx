@@ -1,5 +1,5 @@
 import React from "react";
-import Products from "../components/Products";
+import Products from "../components/products/Products";
 import { computers } from "../data";
 
 const Computers = () => {

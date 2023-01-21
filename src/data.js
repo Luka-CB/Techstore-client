@@ -39,9 +39,22 @@ export const tvs = [
     year: 2022,
     type: "OLED",
     resolution: "4k",
-    Sizes: ["56", "65"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '56"',
+        qty: 6,
+        price: 999.19,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 4,
+        price: 1128.33,
+      },
+    ],
     images: tvImgs,
-    quantity: 5,
+    totalQuantity: 10,
   },
   {
     _id: uuid(),
@@ -50,9 +63,46 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["43", "50", "55", "65", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '43"',
+        qty: 7,
+        price: 1055.29,
+      },
+      {
+        _id: uuid(),
+        size: '50"',
+        qty: 9,
+        price: 1239.79,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 5,
+        price: 1449.89,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 6,
+        price: 1599.99,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 3,
+        price: 1649.59,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 2,
+        price: 1777.79,
+      },
+    ],
     images: tvImgs,
-    quantity: 3,
+    totalQuantity: 32,
   },
   {
     _id: uuid(),
@@ -61,9 +111,40 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["50", "55", "65", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '50"',
+        qty: 4,
+        price: 1656.59,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 7,
+        price: 1789.29,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 0,
+        price: 1899.39,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 5,
+        price: 1999.99,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 9,
+        price: 2189.49,
+      },
+    ],
     images: tvImgs,
-    quantity: 0,
+    totalQuantity: 24,
   },
   {
     _id: uuid(),
@@ -72,9 +153,58 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["43", "50", "55", "60", "65", "70", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '43"',
+        qty: 8,
+        price: 749.39,
+      },
+      {
+        _id: uuid(),
+        size: '50"',
+        qty: 0,
+        price: 969.89,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 3,
+        price: 1169.79,
+      },
+      {
+        _id: uuid(),
+        size: '60"',
+        qty: 0,
+        price: 1299.99,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 7,
+        price: 1444.19,
+      },
+      {
+        _id: uuid(),
+        size: '70"',
+        qty: 5,
+        price: 1599.29,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 2,
+        price: 1776.59,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 6,
+        price: 1899.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 8,
+    totalQuantity: 31,
   },
   {
     _id: uuid(),
@@ -83,9 +213,46 @@ export const tvs = [
     year: 2022,
     type: "OLED",
     resolution: "4k",
-    Sizes: ["42", "48", "55", "65", "77", "83"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '42"',
+        qty: 4,
+        price: 1329.99,
+      },
+      {
+        _id: uuid(),
+        size: '48"',
+        qty: 0,
+        price: 1429.29,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 7,
+        price: 1699.99,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 9,
+        price: 1869.99,
+      },
+      {
+        _id: uuid(),
+        size: '77"',
+        qty: 3,
+        price: 2099.39,
+      },
+      {
+        _id: uuid(),
+        size: '83"',
+        qty: 5,
+        price: 2229.19,
+      },
+    ],
     images: tvImgs,
-    quantity: 10,
+    totalQuantity: 27,
   },
   {
     _id: uuid(),
@@ -94,9 +261,34 @@ export const tvs = [
     year: 2022,
     type: "OLED",
     resolution: "4k",
-    Sizes: ["48", "55", "65", "77"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '48"',
+        qty: 8,
+        price: 1684.99,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 11,
+        price: 1863.39,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 4,
+        price: 2279.99,
+      },
+      {
+        _id: uuid(),
+        size: '77"',
+        qty: 6,
+        price: 2599.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 0,
+    totalQuantity: 29,
   },
   {
     _id: uuid(),
@@ -105,9 +297,28 @@ export const tvs = [
     year: 2022,
     type: "OLED",
     resolution: "4k",
-    Sizes: ["55", "65", "77"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 0,
+        price: 1565.19,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 0,
+        price: 1866.49,
+      },
+      {
+        _id: uuid(),
+        size: '77"',
+        qty: 0,
+        price: 2139.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 6,
+    totalQuantity: 0,
   },
   {
     _id: uuid(),
@@ -116,9 +327,28 @@ export const tvs = [
     year: 2022,
     type: "OLED",
     resolution: "4k",
-    Sizes: ["48", "55", "65"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '48"',
+        qty: 12,
+        price: 1336.36,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 0,
+        price: 1879.99,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 9,
+        price: 1999.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 7,
+    totalQuantity: 21,
   },
   {
     _id: uuid(),
@@ -127,9 +357,34 @@ export const tvs = [
     year: 2022,
     type: "LED-LCD",
     resolution: "4k",
-    Sizes: ["55", "65", "75", "86"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 3,
+        price: 1549.49,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 0,
+        price: 1749.99,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 11,
+        price: 1999.99,
+      },
+      {
+        _id: uuid(),
+        size: '86"',
+        qty: 6,
+        price: 2239.49,
+      },
+    ],
     images: tvImgs,
-    quantity: 2,
+    totalQuantity: 20,
   },
   {
     _id: uuid(),
@@ -138,9 +393,22 @@ export const tvs = [
     year: 2022,
     type: "OLED",
     resolution: "4k",
-    Sizes: ["55", "65"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 8,
+        price: 1855.39,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 9,
+        price: 2139.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 4,
+    totalQuantity: 17,
   },
   {
     _id: uuid(),
@@ -149,9 +417,28 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["65", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 4,
+        price: 2099.49,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 0,
+        price: 2223.99,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 7,
+        price: 2469.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 11,
+    totalQuantity: 11,
   },
   {
     _id: uuid(),
@@ -160,9 +447,34 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["55", "65", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 6,
+        price: 1745.29,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 3,
+        price: 1999.99,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 0,
+        price: 2149.29,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 11,
+        price: 2469.49,
+      },
+    ],
     images: tvImgs,
-    quantity: 0,
+    totalQuantity: 20,
   },
   {
     _id: uuid(),
@@ -171,9 +483,46 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["40", "50", "55", "65", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '40"',
+        qty: 0,
+        price: 1469.79,
+      },
+      {
+        _id: uuid(),
+        size: '50"',
+        qty: 4,
+        price: 1678.99,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 0,
+        price: 1889.99,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 9,
+        price: 2112.19,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 7,
+        price: 2412.1,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 8,
+        price: 2779.79,
+      },
+    ],
     images: tvImgs,
-    quantity: 5,
+    totalQuantity: 28,
   },
   {
     _id: uuid(),
@@ -182,9 +531,16 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["75"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 7,
+        price: 1249.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 3,
+    totalQuantity: 7,
   },
   {
     _id: uuid(),
@@ -193,9 +549,28 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["55", "65", "75"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 13,
+        price: 1029.29,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 0,
+        price: 1399.99,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 10,
+        price: 1689.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 0,
+    totalQuantity: 23,
   },
   {
     _id: uuid(),
@@ -204,9 +579,34 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["55", "65", "75", "85"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 6,
+        price: 1279.99,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 0,
+        price: 1349.99,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 7,
+        price: 1569.77,
+      },
+      {
+        _id: uuid(),
+        size: '85"',
+        qty: 11,
+        price: 1799.69,
+      },
+    ],
     images: tvImgs,
-    quantity: 8,
+    totalQuantity: 24,
   },
   {
     _id: uuid(),
@@ -215,9 +615,34 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["50", "55", "65", "75"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '50"',
+        qty: 4,
+        price: 1799.99,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 15,
+        price: 2012.33,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 9,
+        price: 2259.99,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 6,
+        price: 2499.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 8,
+    totalQuantity: 34,
   },
   {
     _id: uuid(),
@@ -226,9 +651,40 @@ export const tvs = [
     year: 2022,
     type: "LED",
     resolution: "4k",
-    Sizes: ["43", "50", "55", "65", "75"],
+    sizes: [
+      {
+        _id: uuid(),
+        size: '43"',
+        qty: 12,
+        price: 899.99,
+      },
+      {
+        _id: uuid(),
+        size: '50"',
+        qty: 8,
+        price: 1239.49,
+      },
+      {
+        _id: uuid(),
+        size: '55"',
+        qty: 0,
+        price: 1449.79,
+      },
+      {
+        _id: uuid(),
+        size: '65"',
+        qty: 17,
+        price: 1869.59,
+      },
+      {
+        _id: uuid(),
+        size: '75"',
+        qty: 9,
+        price: 2099.99,
+      },
+    ],
     images: tvImgs,
-    quantity: 2,
+    totalQuantity: 46,
   },
 ];
 
@@ -250,18 +706,22 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Business Black",
         code: "#1e1f1e",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Foggy White",
         code: "#f2f8f7",
+        qty: 4,
       },
     ],
     camera: "720p",
     weight: "6.81kg",
     price: 699.99,
-    quantity: 6,
+    totalQuantity: 12,
     images: computerImgs,
   },
   {
@@ -281,14 +741,16 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#252626",
+        qty: 4,
       },
     ],
     camera: "yes",
     weight: "1.81kg",
     price: 389.99,
-    quantity: 4,
+    totalQuantity: 4,
     images: computerImgs,
   },
   {
@@ -308,14 +770,16 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Gray",
         code: "#808080",
+        qty: 0,
       },
     ],
     camera: "",
     weight: "8kg",
     price: 1734.16,
-    quantity: 4,
+    totalQuantity: 0,
     images: computerImgs,
   },
   {
@@ -335,14 +799,16 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Charcoal Black",
         code: "#36454f",
+        qty: 7,
       },
     ],
     camera: "",
     weight: "8kg",
     price: 516.3,
-    quantity: 7,
+    totalQuantity: 7,
     images: computerImgs,
   },
   {
@@ -362,14 +828,16 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Silver",
         code: "#c0c0c0",
+        qty: 4,
       },
     ],
     camera: "1080p",
     weight: "7.71kg",
     price: 791.98,
-    quantity: 4,
+    totalQuantity: 4,
     images: computerImgs,
   },
   {
@@ -389,18 +857,22 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#242323",
+        qty: 12,
       },
       {
+        _id: uuid(),
         name: "Iron Gray",
         code: "#52595d",
+        qrty: 7,
       },
     ],
     camera: "720p",
     weight: "1.7kg",
     price: 737.73,
-    quantity: 8,
+    totalQuantity: 19,
     images: computerImgs,
   },
   {
@@ -420,26 +892,34 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Blue",
         code: "#007aff",
+        qty: 6,
       },
       {
+        _id: uuid(),
         name: "Green",
         code: "#8db600",
+        qty: 11,
       },
       {
+        _id: uuid(),
         name: "Pink",
         code: "#fb9bcb",
+        qty: 6,
       },
       {
+        _id: uuid(),
         name: "Silver",
         code: "#aaa9ad",
+        qty: 3,
       },
     ],
     camera: "1080p",
     weight: "4.48kg",
     price: 2202.85,
-    quantity: 3,
+    totalQuantity: 26,
     images: computerImgs,
   },
   {
@@ -459,18 +939,22 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Silver",
         code: "#aaa9ad",
+        qty: 10,
       },
       {
+        _id: uuid(),
         name: "Space Gray",
         code: "#707070",
+        qty: 5,
       },
     ],
     camera: "1080p",
     weight: "1.6kg",
     price: 2509.16,
-    quantity: 5,
+    totalQuantity: 15,
     images: computerImgs,
   },
   {
@@ -490,18 +974,22 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Carbon Black",
         code: "#293542",
+        qty: 7,
       },
       {
+        _id: uuid(),
         name: "Titan Gray",
         code: "#52576c",
+        qty: 8,
       },
     ],
     camera: "yes",
     weight: "1.69kg",
     price: 848.44,
-    quantity: 4,
+    totalQuantity: 15,
     images: computerImgs,
   },
   {
@@ -521,14 +1009,16 @@ export const computers = [
     },
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#242323",
+        qty: 0,
       },
     ],
     camera: "720p",
     weight: "9kg",
     price: 1032.97,
-    quantity: 6,
+    totalQuantity: 0,
     images: computerImgs,
   },
 ];
@@ -582,16 +1072,20 @@ export const cellPhones = [
     Battery: "Li-Po 4500 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Gray Mirror",
-        code: "#d4e1ec",
+        code: "#93969b",
+        qty: 7,
       },
       {
+        _id: uuid(),
         name: "Bahama Blue",
-        code: "#355e94",
+        code: "#addee3",
+        qty: 12,
       },
     ],
     price: 219,
-    quantity: 8,
+    totalQuantity: 19,
     images: cellImgs,
   },
   {
@@ -645,16 +1139,20 @@ export const cellPhones = [
     Battery: "Li-Po 4500 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Gray Shadow",
-        code: "#8d9093",
+        code: "#424647",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Jade Fog",
-        code: "#d6e9d9",
+        code: "#c0cdc3",
+        qty: 6,
       },
     ],
     price: 309,
-    quantity: 5,
+    totalQuantity: 6,
     images: cellImgs,
   },
   {
@@ -708,20 +1206,26 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Sierra Black",
-        code: "#291811",
+        code: "#45474b",
+        qty: 4,
       },
       {
+        _id: uuid(),
         name: "Forest Green",
-        code: "#228b22",
+        code: "#c3dfd3",
+        qty: 13,
       },
       {
+        _id: uuid(),
         name: "Prime Blue",
-        code: "#0064a1",
+        code: "#dddde6",
+        qty: 6,
       },
     ],
     price: 499.49,
-    quantity: 7,
+    totalQuantity: 21,
     images: cellImgs,
   },
   {
@@ -775,32 +1279,44 @@ export const cellPhones = [
     Battery: "Li-Ion 4500 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Cloud Lavender",
-        code: "#c8c6df",
+        code: "#f7dcfb",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Cloud Mint",
-        code: "#c0fcee",
+        code: "#a4d1bc",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Cloud Navy",
-        code: "#597cde",
+        code: "#313747",
+        qty: 6,
       },
       {
+        _id: uuid(),
         name: "Cloud White",
-        code: "#f2f2ed",
+        code: "#f4f0ef",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Cloud Red",
-        code: "#d0cccc",
+        code: "#d0333a",
+        qty: 14,
       },
       {
+        _id: uuid(),
         name: "Cloud Orange",
-        code: "#c9c8c5",
+        code: "#fcc08a",
+        qty: 2,
       },
     ],
     price: 309.99,
-    quantity: 3,
+    totalQuantity: 30,
     images: cellImgs,
   },
   {
@@ -855,24 +1371,32 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#222222",
+        qty: 7,
       },
       {
+        _id: uuid(),
         name: "White",
         code: "#ffffff",
+        qty: 5,
       },
       {
+        _id: uuid(),
         name: "Blue",
         code: "#d6e7f7",
+        qty: 12,
       },
       {
+        _id: uuid(),
         name: "Peach",
         code: "#f7d4b8",
+        qty: 4,
       },
     ],
     price: 334,
-    quantity: 9,
+    totalQuantity: 28,
     images: cellImgs,
   },
   {
@@ -928,40 +1452,56 @@ export const cellPhones = [
     Battery: "Li-Ion 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Phantom Black",
         code: "#262626",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "White",
         code: "#f5f5f5",
+        qty: 9,
       },
       {
+        _id: uuid(),
         name: "Burgundy",
         code: "#6a4b51",
+        qty: 2,
       },
       {
+        _id: uuid(),
         name: "Green",
         code: "#465f5b",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Graphite",
         code: "#797d80",
+        qty: 16,
       },
       {
+        _id: uuid(),
         name: "Red",
         code: "#c35642",
+        qty: 6,
       },
       {
+        _id: uuid(),
         name: "Sky Blue",
         code: "#bacee9",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Bora Purple",
         code: "#b89fc9",
+        qty: 5,
       },
     ],
     price: 729,
-    quantity: 5,
+    totalQuantity: 38,
     images: cellImgs,
   },
   {
@@ -1017,20 +1557,26 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Green",
         code: "#416768",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Black",
         code: "#303030",
+        qty: 5,
       },
       {
+        _id: uuid(),
         name: "Ecru White",
         code: "#ebeae5",
+        qty: 4,
       },
     ],
     price: 769.99,
-    quantity: 4,
+    totalQuantity: 17,
     images: cellImgs,
   },
   {
@@ -1087,12 +1633,14 @@ export const cellPhones = [
     Battery: "Li-Po 4500 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Frosted Black",
         code: "#323232",
+        qty: 7,
       },
     ],
     price: 990,
-    quantity: 2,
+    totalQuantity: 7,
     images: cellImgs,
   },
   {
@@ -1148,24 +1696,32 @@ export const cellPhones = [
     Battery: "Li-Ion 3200 mAh, non-removable (12.38 Wh)",
     colors: [
       {
+        _id: uuid(),
         name: "Space Black",
         code: "#41403e",
+        qty: 16,
       },
       {
+        _id: uuid(),
         name: "Silver",
         code: "#fdfffc",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Gold",
         code: "#fef0d6",
+        qty: 11,
       },
       {
+        _id: uuid(),
         name: "Deep Purple",
         code: "#7e7182",
+        qty: 6,
       },
     ],
     price: 975,
-    quantity: 6,
+    totalQuantity: 41,
     images: cellImgs,
   },
   {
@@ -1222,28 +1778,38 @@ export const cellPhones = [
     Battery: "Li-Ion 3095 mAh, non-removable (12.11 Wh)",
     colors: [
       {
+        _id: uuid(),
         name: "Graphite",
         code: "#1a2129",
+        qty: 7,
       },
       {
+        _id: uuid(),
         name: "Silver",
         code: "#f9f4f0",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Gold",
         code: "#fee2de",
+        qty: 4,
       },
       {
+        _id: uuid(),
         name: "Sierra Blue",
         code: "#256080",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Alpine Green",
         code: "#586958",
+        qty: 3,
       },
     ],
     price: 892,
-    quantity: 7,
+    totalQuantity: 22,
     images: cellImgs,
   },
   {
@@ -1297,20 +1863,26 @@ export const cellPhones = [
     Battery: "Li-Po 4300 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#677786",
+        qty: 11,
       },
       {
+        _id: uuid(),
         name: "Lite Green",
         code: "#bef9f7",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Lite Pink",
         code: "#fad6f8",
+        qty: 0,
       },
     ],
     price: 359,
-    quantity: 9,
+    totalQuantity: 19,
     images: cellImgs,
   },
   {
@@ -1364,20 +1936,26 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#3b3c41",
+        qty: 14,
       },
       {
+        _id: uuid(),
         name: "Silver",
         code: "#b0b1b6",
+        qty: 11,
       },
       {
+        _id: uuid(),
         name: "Blue",
         code: "#82b1cf",
+        qty: 6,
       },
     ],
     price: 591,
-    quantity: 12,
+    totalQuantity: 31,
     images: cellImgs,
   },
   {
@@ -1431,20 +2009,26 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#4f4e53",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "White",
         code: "#efefef",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Blue",
         code: "#9fc7e1",
+        qty: 0,
       },
     ],
     price: 339,
-    quantity: 15,
+    totalQuantity: 0,
     images: cellImgs,
   },
   {
@@ -1498,20 +2082,26 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Black",
         code: "#1f2025",
+        qty: 10,
       },
       {
+        _id: uuid(),
         name: "Starlight",
         code: "#c0d4cc",
+        qty: 3,
       },
       {
+        _id: uuid(),
         name: "Blue",
         code: "#b2def3",
+        qty: 9,
       },
     ],
     price: 429.69,
-    quantity: 15,
+    totalQuantity: 22,
     images: cellImgs,
   },
   {
@@ -1565,16 +2155,20 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Glowing Black",
         code: "#131522",
+        qty: 12,
       },
       {
+        _id: uuid(),
         name: "Glowing Green",
         code: "#c7e1be",
+        qty: 9,
       },
     ],
     price: 156,
-    quantity: 9,
+    totalQuantity: 21,
     images: cellImgs,
   },
   {
@@ -1628,20 +2222,26 @@ export const cellPhones = [
     Battery: "Li-Po 5000 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Obsidian",
         code: "#292929",
+        qty: 3,
       },
       {
+        _id: uuid(),
         name: "Snow",
         code: "#eeeeee",
+        qty: 8,
       },
       {
+        _id: uuid(),
         name: "Hazel",
         code: "#9b9d9a",
+        qty: 16,
       },
     ],
     price: 708,
-    quantity: 8,
+    totalQuantity: 27,
     images: cellImgs,
   },
   {
@@ -1694,20 +2294,26 @@ export const cellPhones = [
     Battery: "Li-Ion 4614 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Sorta Seafoam",
         code: "#bec9c5",
+        qty: 5,
       },
       {
+        _id: uuid(),
         name: "Kinda Coral",
         code: "#e7c8b3",
+        qty: 2,
       },
       {
+        _id: uuid(),
         name: "Stormy Black",
         code: "#292a2c",
+        qty: 0,
       },
     ],
     price: 399.99,
-    quantity: 14,
+    totalQuantity: 7,
     images: cellImgs,
   },
   {
@@ -1760,20 +2366,26 @@ export const cellPhones = [
     Battery: "Li-Po 2915 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Clearly White",
         code: "#f8f8f8",
+        qty: 4,
       },
       {
+        _id: uuid(),
         name: "Just Black",
         code: "#303032",
+        qty: 2,
       },
       {
+        _id: uuid(),
         name: "Not Pink",
         code: "#ecdedd",
+        qty: 6,
       },
     ],
     price: 278.99,
-    quantity: 7,
+    totalQuantity: 12,
     images: cellImgs,
   },
   {
@@ -1826,20 +2438,26 @@ export const cellPhones = [
     Battery: "Li-Po 3700 mAh, non-removable",
     colors: [
       {
+        _id: uuid(),
         name: "Clearly White",
         code: "#e9edf0",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Just Black",
         code: "#141414",
+        qty: 0,
       },
       {
+        _id: uuid(),
         name: "Oh So Orange",
         code: "#e47a62",
+        qty: 0,
       },
     ],
     price: 365.99,
-    quantity: 4,
+    totalQuantity: 0,
     images: cellImgs,
   },
 ];
