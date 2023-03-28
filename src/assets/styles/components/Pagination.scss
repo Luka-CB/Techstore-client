@@ -1,0 +1,65 @@
+.pagination {
+  display: flex;
+  margin: 200px 50px 100px 0;
+  justify-content: flex-end;
+  align-items: center;
+
+  @media (max-width: 800px) {
+    justify-content: center;
+    margin-right: 0;
+  }
+
+  .icon-btn {
+    font-size: 1.7rem;
+    height: 30px;
+    border: none;
+    outline: none;
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    background-color: transparent;
+    color: $text-color-light;
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:disabled {
+      color: gray;
+
+      &:hover {
+        background-color: transparent;
+        cursor: default;
+      }
+
+      &:active {
+        color: gray;
+        transform: none;
+      }
+    }
+
+    &:hover {
+      background-color: #ffa1ce3a;
+    }
+
+    &:active {
+      color: $secondary-active;
+      transform: scale(0.95);
+    }
+  }
+
+  .icon-btn-first,
+  .icon-btn-last {
+    font-size: 2rem;
+  }
+
+  .icon-btn-left {
+    margin-right: 10px;
+  }
+
+  .icon-btn-right {
+    margin-left: 10px;
+  }
+
+  .page-nums {
+    color: $text-color-light;
+  }
+}

@@ -8,8 +8,10 @@
   border-bottom: 3px solid rgb(63, 63, 63);
   box-shadow: 3px 4px 6px black;
   transition: all 0.2s ease-in-out;
+  cursor: pointer;
 
-  .prod-card-image {
+  .prod-card-image,
+  .accessory-prod-card-image {
     width: 450px;
     height: 300px;
     border-top-left-radius: 20px;
@@ -93,6 +95,14 @@
     }
   }
 
+  .accessory-prod-card-image {
+    height: auto;
+
+    #img {
+      max-height: 550px;
+    }
+  }
+
   .prod-card-body {
     text-align: center;
     position: relative;
@@ -119,14 +129,6 @@
         color: $secondary;
         margin-top: 5px;
         font-weight: 600;
-      }
-
-      &:hover {
-        cursor: pointer;
-
-        #name {
-          text-decoration: underline;
-        }
       }
     }
 
@@ -163,6 +165,80 @@
 
   &:hover {
     box-shadow: 3px 4px 18px rgba(0, 0, 0, 0.644);
+
+    .prod-card-body {
+      #name {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  @media (max-width: 1500px) {
+    width: 250px;
+    border-radius: 10px;
+
+    .prod-card-image,
+    .accessory-prod-card-image {
+      width: 250px;
+      height: 150px;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+
+      #img {
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+
+      .change-image-arrows {
+        .left-arrow,
+        .right-arrow {
+          #chevron-icon {
+            font-size: 1.1rem;
+          }
+        }
+      }
+    }
+
+    .accessory-prod-card-image {
+      height: auto;
+
+      #img {
+        max-height: 450px;
+      }
+    }
+
+    .prod-card-body {
+      .card-body-details {
+        padding: 10px;
+
+        #name {
+          font-size: medium;
+        }
+
+        #year {
+          font-size: small;
+        }
+
+        #price {
+          font-size: small;
+        }
+
+        #specs {
+          font-size: small;
+        }
+      }
+
+      .cart-btn {
+        top: -40%;
+        right: 5%;
+        width: 35px;
+        height: 35px;
+
+        #cart-icon {
+          font-size: 1.2rem;
+        }
+      }
+    }
   }
 }
 
@@ -172,6 +248,14 @@
 
   .prod-card-image {
     height: 500px;
+  }
+
+  @media (max-width: 1500px) {
+    min-height: 530px;
+
+    .prod-card-image {
+      height: 350px;
+    }
   }
 }
 

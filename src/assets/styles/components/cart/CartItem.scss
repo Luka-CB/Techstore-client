@@ -16,12 +16,23 @@
       color: $primary;
       text-shadow: 1px 1px 1px $secondary;
       letter-spacing: 2px;
+
+      &:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
 
     #item-year {
       margin-top: 10px;
       letter-spacing: 3px;
       color: $secondary;
+    }
+
+    #item-category {
+      margin-top: 10px;
+      letter-spacing: 3px;
+      color: $text-color-light;
     }
 
     #item-memory {
@@ -112,25 +123,20 @@
     justify-content: center;
     position: relative;
 
-    .item-images,
-    .item-images-cell {
-      width: 250px;
-      height: 150px;
+    .item-images {
+      width: 100%;
+      height: auto;
       border-radius: 15px;
       box-shadow: 0 0 28px rgba(0, 0, 0, 0.171);
 
       #item-img {
         width: 100%;
         height: 100%;
+        max-height: 450px;
         object-fit: cover;
         border-radius: 15px;
         box-shadow: 0 0 28px rgba(0, 0, 0, 0.151);
       }
-    }
-
-    .item-images-cell {
-      width: 200px;
-      height: 250px;
     }
 
     .change-image-handles {
@@ -147,12 +153,12 @@
       transition: all 0.3s ease-in-out;
 
       .left {
-        background-color: rgba(138, 135, 135, 0.61);
-        height: 50px;
+        background-color: rgba(138, 135, 135, 0.39);
+        height: 100%;
         padding: 5px;
-        border-bottom-left-radius: 20px;
+        border-bottom-left-radius: 15px;
         border-bottom-right-radius: 5px;
-        border-top-left-radius: 20px;
+        border-top-left-radius: 15px;
         border-top-right-radius: 5px;
         display: flex;
         align-items: center;
@@ -160,13 +166,13 @@
         cursor: pointer;
 
         #chevron-icon {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           color: rgb(70, 70, 70);
           transition: all 0.4s ease-in-out;
         }
 
         &:hover {
-          background-color: rgba(138, 135, 135, 0.822);
+          background-color: rgba(138, 135, 135, 0.63);
 
           #chevron-icon {
             color: black;
@@ -175,12 +181,12 @@
       }
 
       .right {
-        background-color: rgba(138, 135, 135, 0.61);
-        height: 50px;
+        background-color: rgba(138, 135, 135, 0.39);
+        height: 100%;
         padding: 5px;
-        border-bottom-right-radius: 20px;
+        border-bottom-right-radius: 15px;
         border-bottom-left-radius: 5px;
-        border-top-right-radius: 20px;
+        border-top-right-radius: 15px;
         border-top-left-radius: 5px;
         display: flex;
         align-items: center;
@@ -188,13 +194,13 @@
         transition: all 0.2s ease-in-out;
 
         #chevron-icon {
-          font-size: 1.5rem;
+          font-size: 1.2rem;
           color: rgb(70, 70, 70);
           transition: all 0.4s ease-in-out;
         }
 
         &:hover {
-          background-color: rgba(138, 135, 135, 0.822);
+          background-color: rgba(138, 135, 135, 0.63);
 
           #chevron-icon {
             color: black;

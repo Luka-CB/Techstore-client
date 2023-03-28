@@ -5,6 +5,7 @@ import { FaFacebook } from "react-icons/fa";
 import {
   setRegSuccessMsg,
   toggleAuthModal,
+  toggleIsModalOpen,
 } from "../../redux/features/statesSlice";
 import { getUser, login } from "../../redux/actions/authActions";
 import { resetLogin } from "../../redux/features/users/loginSlice";
@@ -42,6 +43,7 @@ const Login = () => {
     if (isSuccess) {
       dispatch(getUser());
       dispatch(toggleAuthModal(false));
+      dispatch(toggleIsModalOpen());
       dispatch(resetLogin());
     }
 

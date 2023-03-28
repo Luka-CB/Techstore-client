@@ -2461,3 +2461,307 @@ export const cellPhones = [
     images: cellImgs,
   },
 ];
+
+const accessories = [
+  {
+    name: "Samsung Galaxy SmartTag",
+    brand: "Samsung",
+    category: "GPS Tag",
+    price: 29.99,
+    colors: [
+      {
+        name: "Black",
+        code: "#33343c",
+        qty: 8,
+      },
+      {
+        name: "Oatmeal",
+        code: "#c9c6bc",
+        qty: 12,
+      },
+    ],
+    description:
+      "Galaxy SmartTag makes your on-the-go life more worry-free than ever. Keep track of something precious while it's on the move, or find your car keys that fell behind the couch. With the Galaxy Find Network, easily find what you lost within 130 yards, even when offline. You can even control various smart products at home with just a tap and the SmartThings app",
+  },
+  {
+    name: "Apple AirTag 4 Pack",
+    brand: "Apple",
+    category: "GPS Tag",
+    price: 99.0,
+    colors: [{ name: "White", code: "#f5f7fb", qty: 11 }],
+    description:
+      "AirTag is a supereasy way to keep track of your stuff. Attach one to your keys. Put another in your backpack. And just like that, they’re on your radar in the Find My app, where you can also track down your Apple devices and keep up with friends and family",
+  },
+  {
+    name: "Baseus Intelligent T2 ropetype anti-loss device",
+    brand: "Baseus",
+    category: "GPS Tag",
+    price: 14.95,
+    colors: [{ name: "White", code: "#f5f7fb", qty: 17 }],
+    description:
+      "You will love this compact design with lanyard to help locate and track your pets, keys, phones and tablets. You can attach it with the fine nylon lanyard to anything and use the tracker phone app to find your item fast. Compact design is so small, it fits in your fingertips. The Simple Tracker app will show last known location on a map, using Bluetooth to tell if you are near or far. With its one-touch object finder, you press FIND and it will ring. Separation alarm to alert you if you left something behind",
+  },
+  {
+    name: "iPhone 11 Pro Silicone Case",
+    brand: "Apple",
+    category: "Cellpone Case",
+    price: 39.0,
+    colors: [
+      {
+        name: "Seafoam",
+        code: "#ddece7",
+        qty: 14,
+      },
+      {
+        name: "Vitamin C",
+        code: "#ff885d",
+        qty: 6,
+      },
+      {
+        name: "Pomegranate",
+        code: "#c33b5f",
+        qty: 4,
+      },
+      {
+        name: "Linen Blue",
+        code: "#576089",
+        qty: 8,
+      },
+      {
+        name: "Beryl",
+        code: "#c2d7c4",
+        qty: 5,
+      },
+      {
+        name: "Grapefruit",
+        code: "#fec0ab",
+        qty: 3,
+      },
+      {
+        name: "Clementine",
+        code: "#f06e5e",
+        qty: 7,
+      },
+      {
+        name: "Alaskan Blue",
+        code: "#5c6477",
+        qty: 9,
+      },
+      {
+        name: "Midnight Blue",
+        code: "#494c5d",
+        qty: 2,
+      },
+      {
+        name: "Black",
+        code: "#4e4a49",
+        qty: 16,
+      },
+      {
+        name: "Red",
+        code: "#c33e43",
+        qty: 13,
+      },
+    ],
+    description:
+      "Designed by Apple to complement iPhone 11 Pro, the form of the silicone case fits snugly over the volume buttons, side button, and curves of your device without adding bulk. A soft microfiber lining on the inside helps protect your iPhone. On the outside, the silky, soft-touch finish of the silicone exterior feels great in your hand. And you can keep it on all the time, even when you’re charging wirelessly",
+  },
+  {
+    name: "45W EU Travel Adapter (Super Fast Charging 2.0 with USB Type-C Cable)",
+    brand: "Samsung",
+    category: "Charger",
+    price: 79.99,
+    colors: [
+      {
+        name: "Black",
+        code: "#212023",
+        qty: 11,
+      },
+      {
+        name: "White",
+        code: "#f7f7f7",
+        qty: 7,
+      },
+    ],
+    description:
+      "Plug your Galaxy Note10+ into the 45W Travel Adapter to fully charge with incredible speed. More powerful than previous travel adapters, it harnesses the power of Super Fast Charging 2.0 to get to make sure you're not down for long",
+  },
+  {
+    name: "Baseus  Compact  Charger 2U",
+    brand: "Baseus",
+    category: "Charger",
+    price: 9.99,
+    colors: [
+      {
+        name: "Black",
+        code: "#303030",
+        qty: 8,
+      },
+      {
+        name: "White",
+        code: "#ececec",
+        qty: 6,
+      },
+    ],
+    description: "Cool charger",
+  },
+  {
+    name: "Google 30W USB-C Power Adapter",
+    brand: "Google",
+    category: "Charger",
+    price: 49.99,
+    colors: [
+      {
+        name: "White",
+        code: "#e8e8e8",
+        qty: 12,
+      },
+    ],
+    description:
+      "Use the fast charging Google 30W USB-C Charger to power up Pixel phones and other compatible Google products.Compatible devices:Tablets.Special Feature:Fast Charging.Input voltage: 120 volts",
+  },
+  {
+    name: "HP Spectre Rechargeable Mouse 700",
+    brand: "HP",
+    category: "Mouse",
+    price: 79.99,
+    colors: [
+      {
+        name: "Blue",
+        code: "#0d5bac",
+        qty: 6,
+      },
+      {
+        name: "White",
+        code: "#f1f1ee",
+        qty: 4,
+      },
+      {
+        name: "burgundy",
+        code: "#800020",
+        qty: 9,
+      },
+    ],
+    description:
+      "This wireless, rechargeable mouse is packed with technology that helps you be more productive. Plus, its exquisite design makes it the perfect match to your HP Spectre laptop.",
+  },
+  {
+    name: "JBL Tune T750 BTNC Wireless On-Ear Headphones",
+    brand: "JBL",
+    category: "Headphone",
+    price: 199.99,
+    colors: [
+      {
+        name: "Black",
+        code: "#0f0f0f",
+        qty: 8,
+      },
+      {
+        name: "Coral",
+        code: "#c33209",
+        qty: 11,
+      },
+      {
+        name: "Blue",
+        code: "#0d5bac",
+        qty: 7,
+      },
+      {
+        name: "White",
+        code: "#dadad8",
+        qty: 12,
+      },
+    ],
+    description:
+      "JBL TUNE 750BTNC wireless headphones feature powerful JBL Pure Bass Sound and active noise-cancelling for punchy bass and an immersive audio experience. The lightweight over-ear design offers maximum comfort and sound quality while ready to travel everywhere you go with its compact foldable competence. Up to 15 hours of battery life which recharge in only 2 hours enables noise-free, wireless playback. Allowing connection with two Bluetooth® devices simultaneously, the multipoint connection makes sure you won't miss a call on your phone while streaming videos on your tablet",
+  },
+  {
+    name: "Bose QuietComfort® 45 headphones",
+    brand: "Bose",
+    category: "Headphone",
+    price: 329.0,
+    colors: [
+      {
+        name: "Black",
+        code: "#000000",
+        qty: 14,
+      },
+      {
+        name: "Midnight Blue",
+        code: "#253746",
+        qty: 7,
+      },
+      {
+        name: "Eclipse Gray",
+        code: "#333333",
+        qty: 5,
+      },
+      {
+        name: "White Smoke",
+        code: "#eee8e5",
+        qty: 16,
+      },
+    ],
+    description:
+      "That's the power of Bose QuietComfort headphones: a best-in-class combination of noise cancelling, audio performance, and comfort. Add in Adjustable EQ so you can tune your music to your liking, and it’s love at first listen",
+  },
+  {
+    name: "JBL Club 950NC Bluetooth Headphones",
+    brand: "JBL",
+    category: "Headphone",
+    price: 250.0,
+    colors: [
+      {
+        name: "Black",
+        code: "#000000",
+        qty: 19,
+      },
+    ],
+    description:
+      "Put JBL CLUB 950NC headphones over your ears and bring the stage to you. Legendary JBL Pro Sound and Hi-Res audio gives you a wide range of detail and clarity for the ultimate listening experience",
+  },
+  {
+    name: "SanDisk Cruzer Force 64GB SDCZ71-064G-B35",
+    brand: "SanDisk",
+    category: "Flesh Drive",
+    price: 19.49,
+    colors: [
+      {
+        name: "silver",
+        code: "#c7c7c7",
+        qty: 15,
+      },
+    ],
+    description: "Nice Product",
+  },
+  {
+    name: "SanDisk Ultra Dual Drive 128GB USB 3.0 SDDD3-0128G-G46",
+    brand: "SanDisk",
+    category: "Flesh Drive",
+    price: 44.99,
+    colors: [
+      {
+        name: "silver",
+        code: "#c7c7c7",
+        qty: 9,
+      },
+    ],
+    description: "Cool Flash Drive",
+  },
+  {
+    name: "SanDisk 128GB Extreme MicroSD/XC UHS-I Card 190MB/S V30/4k Class 10 SDSQXAA-128G-GN6MN",
+    brand: "SanDisk",
+    category: "Memory Card",
+    price: 49.39,
+    colors: [],
+    description: "Nice!",
+  },
+  {
+    name: "SanDisk 256GB Ultra MicroSD/HC UHS-I Card 150MB/S Class 10 /Adapter SDSQUAC-256G-GN6MN",
+    brand: "SanDisk",
+    category: "Memory Card",
+    price: 79.99,
+    colors: [],
+    description: "Cool!",
+  },
+];

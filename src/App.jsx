@@ -6,20 +6,48 @@ import Computers from "./pages/Computers";
 import CellPhones from "./pages/CellPhones";
 import Accessories from "./pages/Accessories";
 import About from "./pages/About";
-import Navigation from "./components/Navigation";
+import Navigation from "./components/navigation/Navigation";
 import RouteWrapper from "./components/RouteWrapper";
 import Cart from "./pages/Cart";
 import { useDispatch, useSelector } from "react-redux";
 import AuthModal from "./components/auth/AuthModal";
-import { toggleUserOptionModal } from "./redux/features/statesSlice";
+import {
+  toggleIsModalOpen,
+  toggleUserOptionModal,
+} from "./redux/features/statesSlice";
 import { getUser } from "./redux/actions/authActions";
 import { useEffect } from "react";
 import UserAccount from "./pages/UserAccount";
+import Details from "./pages/Details";
+import { toggleWarningPopup } from "./redux/features/warningPopupSlice";
+import MsgModal from "./components/MsgModal";
+import { toggleSearchResultModal } from "./redux/features/searchResultModalSlice";
+import FilteredProducts from "./pages/FilteredProducts";
+import ShippingInfo from "./pages/ShippingInfo";
+import Checkout from "./pages/Checkout";
+import MyOrders from "./pages/MyOrders";
+import FullOrder from "./pages/FullOrder";
+import { toggleFilterOptionPopup } from "./redux/features/filters/filterOptionPopupSlice";
+import useWindowWidth from "./hooks/windowWidth";
+import MobileNavigation from "./components/navigation/MobileNavigation";
+
+const routsToExclude = ["/", "/shipping", "/checkout"];
 
 const App = () => {
+  const windowWidth = useWindowWidth();
+
   const dispatch = useDispatch();
-  const { authModal } = useSelector((state) => state.states);
+  const { authModal, isModalOpen, userOptionModal } = useSelector(
+    (state) => state.states
+  );
   const { user } = useSelector((state) => state.user);
+  const { showMsgModal, msg, msgType } = useSelector((state) => state.msgModal);
+  const { isSearchResultModalOpen } = useSelector(
+    (state) => state.searchResultModal
+  );
+  const { isFilterOptionPopupOpen } = useSelector(
+    (state) => state.filterOptionPopup
+  );
 
   const { pathname } = useLocation();
 
@@ -27,10 +55,34 @@ const App = () => {
     dispatch(getUser());
   }, []);
 
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+
+    return () => (document.body.style.overflow = "unset");
+  }, [isModalOpen]);
+
+  const handleBgClick = () => {
+    dispatch(toggleIsModalOpen(false));
+    dispatch(toggleWarningPopup(false));
+    if (userOptionModal) dispatch(toggleUserOptionModal(false));
+    if (isSearchResultModalOpen) dispatch(toggleSearchResultModal(false));
+    if (isFilterOptionPopupOpen) dispatch(toggleFilterOptionPopup(false));
+  };
+
   return (
-    <div className="app" onClick={() => dispatch(toggleUserOptionModal(false))}>
-      {authModal && <AuthModal />}
-      {pathname !== "/" && <Navigation />}
+    <div className="app" onClick={handleBgClick}>
+      {authModal ? <AuthModal /> : null}
+      {routsToExclude.includes(pathname) ? null : windowWidth < 1300 &&
+        window.innerWidth < 1300 ? (
+        <MobileNavigation />
+      ) : (
+        <Navigation />
+      )}
+      {showMsgModal ? <MsgModal text={msg} classname={msgType} /> : null}
       <RouteWrapper>
         <Routes>
           <Route path="/" element={<Home />} />
@@ -38,8 +90,17 @@ const App = () => {
           <Route path="/computers" element={<Computers />} />
           <Route path="/cellphones" element={<CellPhones />} />
           <Route path="/accessories" element={<Accessories />} />
+          <Route path="/filtered/:contentType" element={<FilteredProducts />} />
           <Route path="/about" element={<About />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/shipping" element={<ShippingInfo />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/order/:orderId" element={<FullOrder />} />
+          <Route
+            path="/:contentRoute/details/:productId"
+            element={<Details />}
+          />
           <Route
             path="/account"
             element={user?.id ? <UserAccount /> : <Navigate to="/" />}

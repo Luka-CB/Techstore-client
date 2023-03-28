@@ -1,0 +1,300 @@
+.reviews-container {
+  width: 100%;
+  padding: 5px;
+  margin: 50px 0 30px 0;
+  position: relative;
+
+  .reviews-count {
+    position: absolute;
+    right: 0;
+    top: -45px;
+    color: $text-color-light;
+
+    b {
+      color: $secondary;
+    }
+  }
+
+  #no-reviews {
+    text-align: center;
+    color: $danger;
+  }
+
+  .review {
+    min-height: 200px;
+    display: flex;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.219);
+    margin-top: 20px;
+    padding: 10px;
+
+    .reviewer-info {
+      width: 15%;
+      min-width: 130px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $primary;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 2rem;
+        font-weight: 700;
+        color: $text-color-light;
+        box-shadow: 0 0 6px $primary;
+      }
+
+      #author {
+        margin-top: 5px;
+        color: $text-color-light;
+      }
+
+      #post-date {
+        margin-top: 5px;
+        color: rgb(142, 143, 143);
+        font-weight: 400;
+        text-align: center;
+      }
+
+      .icons {
+        margin-top: 30px;
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        position: relative;
+
+        .del-icon {
+          font-size: 1.7rem;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          color: $text-color-light;
+          transition: all 0.2s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(240, 248, 255, 0.158);
+            color: $danger;
+          }
+        }
+
+        .edit-icon {
+          font-size: 1.7rem;
+          width: 40px;
+          height: 40px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50%;
+          color: $text-color-light;
+          transition: all 0.2s ease-in-out;
+          cursor: pointer;
+
+          &:hover {
+            background-color: rgba(240, 248, 255, 0.158);
+            color: $warning;
+          }
+        }
+
+        .warning {
+          background-color: aliceblue;
+          position: absolute;
+          left: 50%;
+          width: 150px;
+          padding: 10px;
+          border-radius: 10px;
+          box-shadow: 0 0 25px rgba(0, 0, 0, 0.336);
+          border: 1px solid $danger;
+
+          #warn-text {
+            text-align: center;
+            color: $danger;
+          }
+
+          .warn-icon-btns {
+            margin-top: 10px;
+            display: flex;
+            justify-content: space-around;
+
+            .yes-btn {
+              border: none;
+              outline: none;
+              position: relative;
+              background-color: transparent;
+              border: 1px solid $success;
+              width: 35px;
+              height: 35px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              box-shadow: 0 0 2px black;
+              cursor: pointer;
+              transition: all 0.2s ease-in-out;
+
+              #yes-icon {
+                font-size: 1.7rem;
+                color: $success;
+                transition: all 0.2s ease-in-out;
+              }
+
+              &:hover {
+                background-color: rgba(0, 128, 0, 0.075);
+                box-shadow: 0 0 3px black;
+
+                #yes-icon {
+                  color: black;
+                }
+              }
+
+              &:active {
+                transform: scale(0.97);
+                box-shadow: 0 0 1px black;
+                border-color: rgb(141, 141, 141);
+
+                #yes-icon {
+                  color: rgb(97, 97, 97);
+                  font-size: 1.5rem;
+                }
+              }
+
+              &:disabled {
+                border-color: gray;
+                box-shadow: none;
+                cursor: default;
+
+                #yes-icon {
+                  color: gray;
+                }
+
+                &:hover {
+                  background-color: transparent;
+                  box-shadow: none;
+                }
+
+                &:active {
+                  transform: none;
+
+                  #yes-icon {
+                    font-size: 1.7rem;
+                  }
+                }
+              }
+            }
+
+            .no-btn {
+              border: none;
+              outline: none;
+              position: relative;
+              background-color: transparent;
+              border: 1px solid $danger;
+              width: 35px;
+              height: 35px;
+              border-radius: 50%;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              box-shadow: 0 0 2px black;
+              cursor: pointer;
+              transition: all 0.2s ease-in-out;
+
+              #no-icon {
+                font-size: 1.7rem;
+                color: $danger;
+                transition: all 0.2s ease-in-out;
+              }
+
+              &:hover {
+                background-color: rgba(128, 0, 0, 0.075);
+                box-shadow: 0 0 3px black;
+
+                #no-icon {
+                  color: black;
+                }
+              }
+
+              &:active {
+                transform: scale(0.95);
+                box-shadow: 0 0 1px black;
+                border-color: rgb(141, 141, 141);
+
+                #no-icon {
+                  color: rgb(97, 97, 97);
+                  font-size: 1.5rem;
+                }
+              }
+
+              &:disabled {
+                border-color: gray;
+                box-shadow: none;
+                cursor: default;
+
+                #no-icon {
+                  color: gray;
+                }
+
+                &:hover {
+                  background-color: transparent;
+                  box-shadow: none;
+                }
+
+                &:active {
+                  transform: none;
+
+                  #no-icon {
+                    font-size: 1.7rem;
+                  }
+                }
+              }
+            }
+          }
+          @media (max-width: 350px) {
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+    }
+
+    .divider {
+      width: 1px;
+      height: 200px;
+      margin: 0 10px;
+      background-color: rgb(86, 86, 87);
+    }
+
+    .post {
+      flex: 1;
+      color: $text-color-light;
+      font-size: small;
+    }
+
+    @media (max-width: 500px) {
+      min-width: 250px;
+      display: flex;
+      flex-direction: column;
+
+      .reviewer-info {
+        width: 100%;
+
+        .icons {
+          margin-top: 20px;
+          justify-content: space-around;
+        }
+      }
+
+      .divider {
+        width: 100%;
+        height: 1px;
+        margin: 20px 0;
+      }
+    }
+  }
+}

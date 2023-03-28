@@ -3,13 +3,24 @@
 
 @import "./vars", "./components/home/Home", "./components/home/SlideShow",
   "./components/home/LastAdded", "./components/Footer",
-  "./components/Navigation", "./components/About", "./components/Search",
+  "./components/navigation/Navigation",
+  "./components/navigation/MobileNavigation",
+  "./components/navigation/MobileNaviationHome",
+  "./components/navigation/NavDrawer", "./components/About",
+  "./components/search/Search", "./components/search/SearchResult",
   "./components/products/Products", "./components/products/ProductCard",
   "./components/cart/CartModal", "./components/MsgModal",
   "./components/cart/Cart", "./components/cart/CartPanel",
   "./components/cart/CartItem", "./components//auth/AuthModal",
-  "./components/auth/AuthForm", "./components/UserAccount",
-  "./components/DeleteModal";
+  "./components/auth/MobileAuth", "./components/auth/AuthForm",
+  "./components/UserAccount", "./components/DeleteModal",
+  "./components/Pagination", "./components/details/Details",
+  "./components/details/FullDescriptionModal", "./components/details/ReviewForm",
+  "./components/details/Reviews", "./components/Dots", "./components/Spinner",
+  "./components/details/UpdateReviewModal", "./components/products/Filters",
+  "./components/products/FiltersSm", "./components/products/FilteredProducts",
+  "./components/order/Shipping", "./components/order/Checkout",
+  "./components/order/MyOrders", "./components/order/FullOrder";
 
 * {
   margin: 0;

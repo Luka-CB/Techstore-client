@@ -1,6 +1,19 @@
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { Carousel } from "react-responsive-carousel";
+import { useNavigate } from "react-router-dom";
+import { getRandomProducts } from "../../redux/actions/productActions";
 
-const SlideShow = ({ content }) => {
+const SlideShow = () => {
+  const { randomProducts } = useSelector((state) => state.randomProducts);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    dispatch(getRandomProducts());
+  }, []);
+
   return (
     <Carousel
       className="carousel"
@@ -8,19 +21,20 @@ const SlideShow = ({ content }) => {
       autoPlay={true}
       infiniteLoop={true}
     >
-      {content.map((item) => (
+      {randomProducts?.map((item) => (
         <div key={item._id} className="content">
-          <div
-            className={
-              item.contentType === "cell" ? "slide-image-cell" : "slide-image"
-            }
-          >
-            <img src={item.images[3]} alt={item.name} id="carousel-img" />
+          <div className="slide-image">
+            <img
+              src={item.images?.imageUrl}
+              alt={item.name}
+              id="carousel-img"
+            />
           </div>
           <div className="item-info">
-            {item.contentType === "computer" && (
+            {item.contentType === "computers" && (
               <div className="info">
                 <h1 id="item-brand">{item.brand}</h1>
+                <h2 id="item-price">${item.price}</h2>
                 <p className="item-description">
                   <span className="spec">{item.type}</span> computer with{" "}
                   <span className="spec">{item.processor}</span> processor,{" "}
@@ -29,13 +43,13 @@ const SlideShow = ({ content }) => {
                 </p>
                 <p className="item-description">
                   <span className="spec">
-                    {item.storage.size} {item.storage.type}
+                    {item.storage?.size} {item.storage?.type}
                   </span>{" "}
-                  storage with <span className="spec">{item.memory}</span> ram
+                  storage with <span className="spec">{item.ram}</span> ram
                 </p>
               </div>
             )}
-            {item.contentType === "tv" && (
+            {item.contentType === "tvs" && (
               <div className="info">
                 <h1 id="item-brand">{item.brand}</h1>
                 <p className="item-description">
@@ -45,24 +59,41 @@ const SlideShow = ({ content }) => {
                 </p>
               </div>
             )}
-            {item.contentType === "cell" && (
+            {item.contentType === "cellphones" && (
               <div className="info">
                 <h1 id="item-brand">{item.brand}</h1>
+                <h2 id="item-price">${item.price}</h2>
                 <p className="item-description">
                   <span className="spec">{item.year}</span> cell phone with{" "}
-                  <span className="spec">{item.platform.chipset}</span> chipset,{" "}
-                  <span className="spec">{item.display.size} /</span>{" "}
-                  <span className="spec">{item.display.type}</span> display and{" "}
-                  <span className="spec">{item.platform.os}</span>
+                  <span className="spec">{item.platform?.chipset}</span>{" "}
+                  chipset, <span className="spec">{item.display?.size} /</span>{" "}
+                  <span className="spec">{item.display?.type}</span> display and{" "}
+                  <span className="spec">{item.platform?.os}</span>
                 </p>
                 <p className="item-description">
-                  <span className="spec">{item.memory.internal}</span> storage
-                  with <span className="spec">{item.memory.ram}</span> ram
+                  <span className="spec">{item.memory?.internal}</span> storage
+                  with <span className="spec">{item.memory?.ram}</span> ram
                 </p>
               </div>
             )}
+            {item.contentType === "accessories" && (
+              <div className="info">
+                <h1 id="item-brand">{item.brand}</h1>
+                <p className="item-description">
+                  <span className="spec">{item.category}</span>
+                </p>
+                <h2 id="item-price" style={{ marginTop: "30px" }}>
+                  ${item.price}
+                </h2>
+              </div>
+            )}
           </div>
-          <h1 className="legend">{item.name}</h1>
+          <h1
+            className="legend"
+            onClick={() => navigate(`/${item.contentType}/details/${item._id}`)}
+          >
+            {item.name}
+          </h1>
         </div>
       ))}
     </Carousel>

@@ -1,0 +1,427 @@
+.navigation {
+  position: relative;
+  background-color: dimgrey;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.425);
+
+  .nav-logo-wrapper {
+    border: 1px solid aliceblue;
+    width: 150px;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px $primary;
+    cursor: pointer;
+
+    .nav-logo {
+      background-color: aliceblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 50px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 10px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 1px $secondary;
+      margin-left: 50px;
+      color: $primary;
+    }
+  }
+
+  nav {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-links {
+      color: $text-color-light;
+      width: 550px;
+      display: flex;
+      justify-content: space-between;
+
+      .link {
+        text-decoration: none;
+        color: $text-color-light;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: $primary-hover;
+        }
+        &:active {
+          color: $primary-active;
+        }
+      }
+    }
+
+    .right-half {
+      display: flex;
+      width: 600px;
+      justify-content: flex-end;
+      align-items: center;
+
+      .nav-search {
+        margin-right: 20px;
+      }
+
+      .nav-cart {
+        position: relative;
+        margin-right: 20px;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        #cart-icon {
+          font-size: 1.7rem;
+          color: $secondary;
+          transition: all 0.2s ease-in-out;
+        }
+
+        .pill {
+          background-color: $primary;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transition: all 0.2s ease-in-out;
+
+          #item-count {
+            color: $text-color-light;
+            font-size: small;
+          }
+        }
+
+        &:hover {
+          #cart-icon {
+            color: $secondary-hover;
+          }
+
+          .pill {
+            background-color: $primary-hover;
+          }
+        }
+      }
+
+      .auth {
+        .sign-in,
+        .auth-user {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          #sign-in-link {
+            color: $text-color-light;
+          }
+
+          #user-icon {
+            font-size: 1.5rem;
+            margin-left: 5px;
+            color: $secondary;
+            transition: all 0.2s ease-in-out;
+          }
+
+          &:hover {
+            #sign-in-link,
+            #user-name {
+              text-decoration: underline;
+              color: white;
+            }
+
+            #user-icon {
+              color: $secondary-hover;
+            }
+          }
+        }
+
+        .auth-user {
+          position: relative;
+          z-index: 100;
+          align-items: flex-end;
+
+          #user-name {
+            color: $text-color-light;
+            font-size: 0.8rem;
+          }
+
+          .user-option {
+            position: absolute;
+            background-color: aliceblue;
+            top: 120%;
+            right: 10%;
+            width: 150px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.473);
+
+            .option-link {
+              &:first-child {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+              }
+              padding: 10px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: rgba(208, 210, 211, 0.301);
+                color: $primary;
+              }
+            }
+
+            #logout {
+              padding: 10px;
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: rgba(208, 210, 211, 0.301);
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .search-result-nav {
+    position: absolute;
+    width: 45%;
+    height: 80vh;
+    right: 190px;
+    top: 80px;
+  }
+}
+
+.home-navigation {
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+
+  .nav-logo-wrapper {
+    border: 1px solid aliceblue;
+    width: 150px;
+    height: 40px;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px $primary;
+    cursor: default;
+
+    .nav-logo {
+      background-color: aliceblue;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 50px;
+      border-top-left-radius: 30px;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 30px;
+      border-bottom-left-radius: 10px;
+      text-transform: uppercase;
+      font-size: 0.9rem;
+      text-shadow: 1px 1px 1px $secondary;
+      margin-left: 50px;
+      color: $primary;
+    }
+  }
+
+  nav {
+    width: 85%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-links {
+      color: $text-color-light;
+      width: 550px;
+      display: flex;
+      justify-content: space-between;
+
+      .link {
+        text-decoration: none;
+        color: $text-color-light;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        &:hover {
+          color: $primary-hover;
+        }
+        &:active {
+          color: $primary-active;
+        }
+      }
+
+      @media (max-width: 1250px) {
+        color: $text-color-light;
+        width: 450px;
+        display: flex;
+        justify-content: space-around;
+
+        .link {
+          text-decoration: none;
+          color: $text-color-light;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          &:hover {
+            color: $primary-hover;
+          }
+          &:active {
+            color: $primary-active;
+          }
+        }
+      }
+    }
+
+    .right-half {
+      display: flex;
+      min-width: 170px;
+      justify-content: space-between;
+      align-items: center;
+
+      .nav-cart {
+        position: relative;
+        width: 50px;
+        height: 50px;
+        margin-right: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.2s ease-in-out;
+
+        #cart-icon {
+          font-size: 1.7rem;
+          color: $secondary;
+          transition: all 0.2s ease-in-out;
+        }
+
+        .pill {
+          background-color: $primary;
+          width: 25px;
+          height: 25px;
+          border-radius: 50%;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transition: all 0.2s ease-in-out;
+
+          #item-count {
+            color: $text-color-light;
+            font-size: small;
+          }
+        }
+
+        &:hover {
+          #cart-icon {
+            color: $secondary-hover;
+          }
+
+          .pill {
+            background-color: $primary-hover;
+          }
+        }
+      }
+
+      .auth {
+        .sign-in,
+        .auth-user {
+          display: flex;
+          align-items: center;
+          cursor: pointer;
+
+          #sign-in-link {
+            color: $text-color-light;
+          }
+
+          #user-icon {
+            font-size: 1.5rem;
+            margin-left: 5px;
+            color: $secondary;
+            transition: all 0.2s ease-in-out;
+          }
+
+          &:hover {
+            #sign-in-link,
+            #user-name {
+              text-decoration: underline;
+              color: white;
+            }
+
+            #user-icon {
+              color: $secondary-hover;
+            }
+          }
+        }
+
+        .auth-user {
+          position: relative;
+          align-items: flex-end;
+
+          #user-name {
+            color: $text-color-light;
+            font-size: 0.8rem;
+          }
+
+          .user-option {
+            position: absolute;
+            background-color: aliceblue;
+            top: 120%;
+            right: 10%;
+            width: 150px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0, 0, 0, 0.473);
+            z-index: 5;
+
+            .option-link {
+              &:first-child {
+                border-top-left-radius: 10px;
+                border-top-right-radius: 10px;
+              }
+              padding: 10px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: rgba(208, 210, 211, 0.301);
+                color: $primary;
+              }
+            }
+
+            #logout {
+              padding: 10px;
+              border-bottom-left-radius: 10px;
+              border-bottom-right-radius: 10px;
+              cursor: pointer;
+
+              &:hover {
+                background-color: rgba(208, 210, 211, 0.301);
+                color: $primary;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,170 @@
+.my-orders-container {
+  min-height: 100vh;
+  position: relative;
+
+  #no-orders {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.6rem;
+    color: $danger;
+  }
+
+  .card-wrapper {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    padding: 20px;
+    margin: 40px 0;
+    gap: 2em;
+
+    .card {
+      background-color: rgb(3, 3, 3);
+      width: 550px;
+      padding: 10px 20px;
+      border-radius: 10px;
+      border: 1px solid rgba(141, 143, 145, 0.644);
+      box-shadow: 2px 2px 8px black;
+
+      .card-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid gray;
+        padding: 5px;
+        padding-bottom: 10px;
+
+        .card-icon-wrapper {
+          width: 50px;
+          height: 50px;
+          background-color: rgba(240, 248, 255, 0.096);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+
+          #card-icon {
+            color: aliceblue;
+            font-size: 1.8rem;
+          }
+        }
+
+        .detail-icon-wrapper {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          background-color: rgba(240, 248, 255, 0.062);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          #detail-icon {
+            color: $secondary;
+            font-size: 1.5rem;
+            transition: all 0.2s ease-in-out;
+          }
+
+          &:hover {
+            background-color: transparent;
+
+            #detail-icon {
+              color: $secondary-hover;
+            }
+          }
+        }
+
+        #card-id {
+          color: aliceblue;
+        }
+      }
+
+      .card-body {
+        margin: 10px 0;
+        padding-bottom: 20px;
+        border-bottom: 1px solid gray;
+        display: flex;
+        justify-content: space-around;
+
+        .paid,
+        .delivered {
+          text-align: center;
+          margin-top: 20px;
+
+          #key {
+            color: aliceblue;
+          }
+
+          .value {
+            display: flex;
+            align-items: center;
+
+            #check-icon {
+              color: $success-hover;
+              font-size: 1.5rem;
+            }
+
+            span {
+              color: aliceblue;
+              font-size: 2rem;
+              margin-left: 10px;
+            }
+
+            #date {
+              color: aliceblue;
+              margin-left: 10px;
+            }
+          }
+
+          #value {
+            color: $secondary;
+            margin-top: 5px;
+
+            #close-icon {
+              color: $danger-hover;
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      .card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        #created {
+          color: aliceblue;
+        }
+
+        .delete-card {
+          width: 50px;
+          height: 50px;
+          background-color: rgba(240, 248, 255, 0.068);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          cursor: pointer;
+          transition: all 0.2s ease-in-out;
+
+          #delete-icon {
+            color: $danger;
+            font-size: 1.8rem;
+            transition: all 0.2s ease-in-out;
+          }
+
+          &:hover {
+            background-color: transparent;
+
+            #delete-icon {
+              color: $danger-hover;
+            }
+          }
+        }
+      }
+    }
+  }
+}

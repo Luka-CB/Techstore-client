@@ -1,0 +1,289 @@
+.full-order-container {
+  min-height: 100vh;
+  display: flex;
+  align-items: flex-start;
+  margin: 50px 0;
+
+  .order-info-wrapper {
+    width: 60%;
+    min-height: 50vh;
+    box-shadow: 0 0 6px rgba(0, 0, 0, 0.253);
+    border-radius: 30px;
+    padding: 20px;
+    margin-left: 50px;
+    position: relative;
+
+    .order-info {
+      padding: 20px;
+
+      .row1 {
+        display: flex;
+        justify-content: space-around;
+
+        .row1-col1,
+        .row1-col2 {
+          display: flex;
+          justify-content: space-between;
+          width: 320px;
+
+          .keys {
+            .key {
+              &:not(:first-child) {
+                margin-top: 20px;
+              }
+              color: $text-color-light;
+            }
+          }
+
+          .values {
+            .value {
+              &:not(:first-child) {
+                margin-top: 20px;
+              }
+              color: $secondary;
+              text-transform: uppercase;
+            }
+          }
+        }
+      }
+
+      hr {
+        margin: 30px 0;
+      }
+
+      .row2 {
+        display: flex;
+        justify-content: center;
+
+        table {
+          thead {
+            tr {
+              th {
+                color: $text-color-light;
+                padding: 10px;
+              }
+            }
+          }
+          tbody {
+            tr {
+              .name {
+                max-width: 450px;
+              }
+
+              .item {
+                padding: 10px;
+                border: 1px solid rgba(255, 255, 255, 0.123);
+                text-align: center;
+                color: aliceblue;
+
+                #color {
+                  width: 50px;
+                  height: 50px;
+                  border-radius: 50%;
+                  margin: auto;
+                  border: 1px solid rgba(240, 248, 255, 0.5);
+                }
+
+                .image {
+                  max-width: 150px;
+                  width: auto;
+                  height: auto;
+
+                  img {
+                    width: 100%;
+                    height: 100%;
+                    max-height: 250px;
+                    object-fit: cover;
+                    border-radius: 10px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .payment-panel {
+    flex: 1;
+    height: 80vh;
+
+    .payment-container {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+
+      .row1 {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .sum {
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.384);
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 80%;
+          height: 200px;
+          border-radius: 15px;
+          padding: 10px;
+
+          .keys {
+            .key {
+              &:not(:first-child) {
+                margin-top: 25px;
+              }
+              color: aliceblue;
+            }
+          }
+
+          .values {
+            .value {
+              &:not(:first-child) {
+                margin-top: 25px;
+              }
+              color: $secondary;
+              font-size: 1.2rem;
+            }
+          }
+        }
+
+        .payment-info {
+          box-shadow: 0 0 3px rgba(0, 0, 0, 0.384);
+          display: flex;
+          align-items: center;
+          justify-content: space-around;
+          width: 80%;
+          border-radius: 15px;
+          padding: 10px;
+          margin-top: 40px;
+
+          .paid {
+            text-align: center;
+
+            #key {
+              color: aliceblue;
+            }
+
+            .value {
+              display: flex;
+              align-items: center;
+
+              #check-icon {
+                color: $success-hover;
+                font-size: 1.5rem;
+              }
+
+              span {
+                color: aliceblue;
+                font-size: 2rem;
+                margin-left: 10px;
+              }
+
+              #date {
+                color: aliceblue;
+                margin-left: 10px;
+              }
+            }
+
+            #value {
+              margin-top: 10px;
+
+              #close-icon {
+                color: $danger-hover;
+                font-size: 1.8rem;
+              }
+            }
+          }
+
+          .delivered {
+            text-align: center;
+
+            #key {
+              color: aliceblue;
+            }
+
+            #value {
+              margin-top: 10px;
+
+              #close-icon {
+                color: $danger-hover;
+                font-size: 1.8rem;
+              }
+            }
+          }
+        }
+
+        .paypal {
+          margin-top: 100px;
+          width: 350px;
+        }
+      }
+
+      .action-btns {
+        align-self: center;
+
+        .btns {
+          width: 350px;
+
+          #exit-btn {
+            border: none;
+            outline: none;
+            background-color: transparent;
+            border: 1px solid rgb(189, 189, 189);
+            width: 100%;
+            height: 40px;
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            #exit-icon {
+              color: rgb(189, 189, 189);
+              font-size: 1.5rem;
+              transition: all 0.2s ease-in-out;
+              margin-right: 10px;
+            }
+
+            span {
+              color: rgb(189, 189, 189);
+              transition: all 0.2s ease-in-out;
+              font-size: large;
+            }
+
+            &:hover {
+              border-color: aliceblue;
+              background-color: rgba(240, 248, 255, 0.11);
+
+              #exit-icon {
+                color: aliceblue;
+              }
+
+              span {
+                color: aliceblue;
+              }
+            }
+
+            &:active {
+              border-color: rgb(142, 143, 143);
+              transform: scale(0.97);
+
+              #exit-icon {
+                color: rgb(142, 143, 143);
+              }
+
+              span {
+                color: rgb(142, 143, 143);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

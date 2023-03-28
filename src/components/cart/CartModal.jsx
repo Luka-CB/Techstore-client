@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { cartModalStateHandler } from "../../redux/features/cartModalSlice";
+import { cartModalStateHandler } from "../../redux/features/cart/cartModalSlice";
 import { msgModalStateHandler } from "../../redux/features/msgModalSlice";
-import { addToCart } from "../../redux/features/cartSlice";
+import { addToCart } from "../../redux/features/cart/cartSlice";
+import { toggleIsModalOpen } from "../../redux/features/statesSlice";
 
 const CartModal = ({ contentType }) => {
   const [pickedAttr, setPickedAttr] = useState(null);
@@ -15,25 +16,31 @@ const CartModal = ({ contentType }) => {
   const closeCartModalHandler = () => {
     dispatch(cartModalStateHandler({ state: false, item: [] }));
     setPickedAttr(null);
+    dispatch(toggleIsModalOpen(false));
   };
 
   const addToCartHandler = () => {
+    const filteredImages = item.images.filter(
+      (img) => img.colorName === pickedAttr.name
+    );
+
     const itemData = {
       id: item._id,
       key: item._id + new Date().getTime(),
       name: item.name,
       year: item.year || "",
+      category: contentType === "accessories" ? item.category : "",
       memory:
-        contentType === "computer"
-          ? `${item.memory} Ram / ${item.storage.size} ${item.storage.type}`
-          : contentType === "cell"
+        contentType === "computers"
+          ? `${item.ram} Ram / ${item.storage.size} ${item.storage.type}`
+          : contentType === "cellphones"
           ? `${item.memory.internal} / ${item.memory.ram} Ram`
           : "",
       attr: pickedAttr,
-      images: item.images,
+      images: contentType === "tvs" ? item.images : filteredImages,
       inStockQty: item.totalQuantity,
       inCartQty: 1,
-      price: contentType === "tv" ? pickedAttr.price : item.price,
+      price: contentType === "tvs" ? pickedAttr.price : item.price,
       contentType,
     };
 
@@ -57,6 +64,7 @@ const CartModal = ({ contentType }) => {
       dispatch(addToCart(itemData));
       dispatch(cartModalStateHandler({ state: false, item: [] }));
       setPickedAttr(null);
+      dispatch(toggleIsModalOpen(false));
       dispatch(
         msgModalStateHandler({
           state: true,
@@ -77,11 +85,11 @@ const CartModal = ({ contentType }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <h3 id="title">
-          {item.contentType === "tv" ? "Choose Screen Size" : "Choose Color"}
+          {item.contentType === "tvs" ? "Choose Screen Size" : "Choose Color"}
         </h3>
         <div className="attributes">
-          {item.contentType === "tv"
-            ? item.sizes.map((size, i) => (
+          {item.contentType === "tvs"
+            ? item.sizes?.map((size, i) => (
                 <div key={size._id}>
                   {size.qty === 0 ? (
                     <div
@@ -89,7 +97,7 @@ const CartModal = ({ contentType }) => {
                       className="size-wrapper-disabled"
                     >
                       <div className="size">
-                        <span>{size.size}</span>
+                        <span>{size.size}"</span>
                       </div>
                       <p id="price">{size.price}$</p>
                     </div>
@@ -103,14 +111,14 @@ const CartModal = ({ contentType }) => {
                       }
                     >
                       <div className="size">
-                        <span>{size.size}</span>
+                        <span>{size.size}"</span>
                       </div>
                       <p id="price">${size.price}</p>
                     </div>
                   )}
                 </div>
               ))
-            : item.colors.map((color) => (
+            : item.colors?.map((color) => (
                 <div key={color._id}>
                   {color.qty === 0 ? (
                     <div

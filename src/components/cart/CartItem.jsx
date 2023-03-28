@@ -1,12 +1,17 @@
 import { useState } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import { useDispatch } from "react-redux";
-import { removeCartItem, updateCart } from "../../redux/features/cartSlice";
+import { useNavigate } from "react-router-dom";
+import {
+  removeCartItem,
+  updateCart,
+} from "../../redux/features/cart/cartSlice";
 
 const CartItem = ({ cartItem }) => {
   const [currentImage, setCurrentImage] = useState(0);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const nextImage = () => {
     const newImage =
@@ -40,8 +45,16 @@ const CartItem = ({ cartItem }) => {
   return (
     <div className="cartItem">
       <div className="item-info">
-        <h2 id="item-name">{cartItem.name}</h2>
+        <h2
+          id="item-name"
+          onClick={() =>
+            navigate(`/${cartItem.contentType}/details/${cartItem.id}`)
+          }
+        >
+          {cartItem.name}
+        </h2>
         <h3 id="item-year">{cartItem.year}</h3>
+        <p id="item-category">{cartItem.category}</p>
         <p id="item-memory">{cartItem.memory}</p>
         <h3 id="item-price">${cartItem.price}</h3>
       </div>
@@ -54,7 +67,7 @@ const CartItem = ({ cartItem }) => {
           ></div>
         ) : (
           <div className="size">
-            <span>{cartItem.attr.size}</span>
+            <span>{cartItem.attr.size}"</span>
           </div>
         )}
       </div>
@@ -85,25 +98,23 @@ const CartItem = ({ cartItem }) => {
         </button>
       </div>
       <div className="item-image-wrapper">
-        <div
-          className={
-            cartItem.contentType === "cell" ? "item-images-cell" : "item-images"
-          }
-        >
+        <div className="item-images">
           <img
-            src={cartItem.images[currentImage]}
+            src={cartItem.images[currentImage]?.imageUrl}
             alt={cartItem.name}
             id="item-img"
           />
         </div>
-        <div className="change-image-handles">
-          <div className="left" onClick={previousImage}>
-            <FaChevronCircleLeft id="chevron-icon" />
+        {cartItem.images.length > 1 && (
+          <div className="change-image-handles">
+            <div className="left" onClick={previousImage}>
+              <FaChevronCircleLeft id="chevron-icon" />
+            </div>
+            <div className="right" onClick={nextImage}>
+              <FaChevronCircleRight id="chevron-icon" />
+            </div>
           </div>
-          <div className="right" onClick={nextImage}>
-            <FaChevronCircleRight id="chevron-icon" />
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

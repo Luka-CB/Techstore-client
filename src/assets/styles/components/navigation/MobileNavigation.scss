@@ -1,0 +1,230 @@
+.mobile-navigation {
+  position: relative;
+  background-color: dimgrey;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 6px 12px -4px rgba(0, 0, 0, 0.425);
+
+  @media (max-width: 800px) {
+    padding: 10px;
+    align-items: flex-start;
+    height: 120px;
+  }
+
+  @media (max-width: 500px) {
+    height: 200px;
+  }
+
+  .col1 {
+    .logo {
+      @media (max-width: 500px) {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+
+  .col2 {
+    display: flex;
+    width: 700px;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media (max-width: 500px) {
+      width: 100%;
+      justify-content: space-between;
+    }
+
+    .nav-search {
+      margin-right: 20px;
+    }
+
+    .nav-cart {
+      position: relative;
+      width: 50px;
+      height: 50px;
+      margin-right: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      #cart-icon {
+        font-size: 1.7rem;
+        color: $secondary;
+        transition: all 0.2s ease-in-out;
+      }
+
+      .pill {
+        background-color: $primary;
+        width: 25px;
+        height: 25px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transition: all 0.2s ease-in-out;
+
+        #item-count {
+          color: $text-color-light;
+          font-size: small;
+        }
+      }
+
+      &:hover {
+        #cart-icon {
+          color: $secondary-hover;
+        }
+
+        .pill {
+          background-color: $primary-hover;
+        }
+      }
+    }
+
+    .auth {
+      margin-right: 20px;
+      .sign-in,
+      .auth-user {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        #sign-in-link {
+          color: $text-color-light;
+        }
+
+        #user-icon {
+          font-size: 1.5rem;
+          margin-left: 5px;
+          color: $secondary;
+          transition: all 0.2s ease-in-out;
+        }
+
+        &:hover {
+          #sign-in-link,
+          #user-name {
+            text-decoration: underline;
+            color: white;
+          }
+
+          #user-icon {
+            color: $secondary-hover;
+          }
+        }
+      }
+
+      .auth-user {
+        position: relative;
+        align-items: flex-end;
+
+        #user-name {
+          color: $text-color-light;
+          font-size: 0.8rem;
+        }
+
+        .user-option {
+          position: absolute;
+          background-color: aliceblue;
+          top: 120%;
+          right: 10%;
+          width: 150px;
+          text-align: center;
+          border-radius: 10px;
+          box-shadow: 0 0 40px rgba(0, 0, 0, 0.473);
+          z-index: 5;
+
+          .option-link {
+            &:first-child {
+              border-top-left-radius: 10px;
+              border-top-right-radius: 10px;
+            }
+            padding: 10px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: rgba(208, 210, 211, 0.301);
+              color: $primary;
+            }
+          }
+
+          #logout {
+            padding: 10px;
+            border-bottom-left-radius: 10px;
+            border-bottom-right-radius: 10px;
+            cursor: pointer;
+
+            &:hover {
+              background-color: rgba(208, 210, 211, 0.301);
+              color: $primary;
+            }
+          }
+        }
+      }
+    }
+
+    .menu {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: rgba(240, 248, 255, 0.062);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease-in-out;
+
+      #menu-icon {
+        font-size: 2rem;
+        color: rgb(207, 207, 207);
+        transition: all 0.2s ease-in-out;
+      }
+
+      &:hover {
+        background-color: transparent;
+
+        #menu-icon {
+          color: aliceblue;
+        }
+      }
+    }
+
+    @media (max-width: 800px) {
+      .nav-search {
+        margin: 10px 0;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+
+    @media (max-width: 500px) {
+      .nav-search {
+        width: 100%;
+        margin: 10px 0;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
+
+  .search-result-nav-mob {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+}

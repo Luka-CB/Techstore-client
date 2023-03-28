@@ -43,11 +43,31 @@
         text-transform: uppercase;
         transition: all 0.2s ease-in-out;
         cursor: pointer;
+
+        &:disabled {
+          border-color: gray;
+          cursor: default;
+
+          &:hover {
+            border-color: gray;
+            color: gray;
+          }
+
+          &:active {
+            border-color: gray;
+            color: gray;
+            transform: none;
+          }
+        }
       }
 
       #yes-btn {
         color: $success;
         border: 1px solid $success;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
 
         &:hover {
           border-color: $success-hover;

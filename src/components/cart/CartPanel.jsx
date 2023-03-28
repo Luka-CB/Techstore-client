@@ -1,10 +1,21 @@
 import { useDispatch, useSelector } from "react-redux";
-import { clearCart } from "../../redux/features/cartSlice";
+import { useNavigate } from "react-router-dom";
+import {
+  addCartItemsInfo,
+  clearCart,
+} from "../../redux/features/cart/cartSlice";
+import { setOriginRoute } from "../../redux/features/order/orderSlice";
+import {
+  toggleAuthModal,
+  toggleIsModalOpen,
+} from "../../redux/features/statesSlice";
 
 const CartPanel = () => {
   const { cartItems, cartItemCount } = useSelector((state) => state.cart);
+  const { user } = useSelector((state) => state.user);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const priceSum = cartItems.reduce(
     (acc, curr) => acc + curr.inCartQty * curr.price,
@@ -16,6 +27,24 @@ const CartPanel = () => {
   const totalPrice = priceSum + tax;
 
   const clearCartHandler = () => dispatch(clearCart());
+
+  const handleOrderNowClick = (e) => {
+    if (!user.id) {
+      e.stopPropagation();
+      dispatch(toggleAuthModal(true));
+      dispatch(toggleIsModalOpen(true));
+    } else {
+      navigate("/shipping");
+      dispatch(
+        addCartItemsInfo({
+          totalItems: cartItemCount,
+          tax,
+          totalPrice,
+        })
+      );
+      dispatch(setOriginRoute("/cart"));
+    }
+  };
 
   return (
     <div className="cart-panel-container">
@@ -29,7 +58,11 @@ const CartPanel = () => {
         Total Price: <span>${totalPrice.toFixed(2)}</span>
       </h2>
       <div className="btns">
-        <button id="order" disabled={cartItemCount === 0}>
+        <button
+          id="order"
+          disabled={cartItemCount === 0}
+          onClick={handleOrderNowClick}
+        >
           Order Now
         </button>
         <button

@@ -2,9 +2,11 @@ import { useState } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
-import { cartModalStateHandler } from "../../redux/features/cartModalSlice";
+import { cartModalStateHandler } from "../../redux/features/cart/cartModalSlice";
 import { msgModalStateHandler } from "../../redux/features/msgModalSlice";
-import { addToCart } from "../../redux/features/cartSlice";
+import { addToCart } from "../../redux/features/cart/cartSlice";
+import { toggleIsModalOpen } from "../../redux/features/statesSlice";
+import { useNavigate } from "react-router-dom";
 
 const ProductCard = ({ data, contentType }) => {
   const [displayImage, setDisplayImage] = useState(0);
@@ -13,17 +15,27 @@ const ProductCard = ({ data, contentType }) => {
   const { cartItems } = useSelector((state) => state.cart);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const nextImage = () => {
+  const mainImage = data.images?.find((img) => img.isMain);
+  const filteredImages = data.images?.filter(
+    (img) => img.colorName === mainImage.colorName
+  );
+
+  const nextImage = (e) => {
+    e.stopPropagation();
+
     const newImage =
-      displayImage === data.images.length - 1 ? 0 : displayImage + 1;
+      displayImage === filteredImages.length - 1 ? 0 : displayImage + 1;
 
     setDisplayImage(newImage);
   };
 
-  const previousImage = () => {
+  const previousImage = (e) => {
+    e.stopPropagation();
+
     const newImage =
-      displayImage === 0 ? data.images.length - 1 : displayImage - 1;
+      displayImage === 0 ? filteredImages.length - 1 : displayImage - 1;
 
     setDisplayImage(newImage);
   };
@@ -36,20 +48,21 @@ const ProductCard = ({ data, contentType }) => {
       key: data._id + new Date().getTime(),
       name: data.name,
       year: data.year || "",
+      category: contentType === "accessories" ? data.category : "",
       memory:
-        contentType === "computer"
-          ? `${data.memory} Ram / ${data.storage.size} ${data.storage.type}`
-          : contentType === "cell"
-          ? `${data.memory.internal} / ${data.memory.ram} Ram`
+        contentType === "computers"
+          ? `${data.ram} Ram / ${data?.storage?.size} ${data?.storage?.type}`
+          : contentType === "cellphones"
+          ? `${data.memory?.internal} / ${data.memory?.ram} Ram`
           : "",
       attr:
-        contentType === "tv"
+        contentType === "tvs"
           ? { ...data.sizes[0], type: "size" }
           : { ...data.colors[0], type: "color" },
       images: data.images,
       inStockQty: data.totalQuantity,
       inCartQty: 1,
-      price: contentType === "tv" ? data.sizes[0].price : data.price,
+      price: contentType === "tvs" ? data.sizes[0].price : data.price,
       contentType,
     };
 
@@ -59,12 +72,13 @@ const ProductCard = ({ data, contentType }) => {
     );
 
     if (
-      (contentType === "tv" && data.sizes.length > 1) ||
-      (contentType !== "tv" && data.colors.length > 1)
+      (contentType === "tvs" && data.sizes.length > 1) ||
+      (contentType !== "tvs" && data.colors.length > 1)
     ) {
       dispatch(
         cartModalStateHandler({ state: true, item: { ...data, contentType } })
       );
+      dispatch(toggleIsModalOpen(true));
     } else {
       if (isItemInCart) {
         dispatch(
@@ -101,52 +115,69 @@ const ProductCard = ({ data, contentType }) => {
     <div
       onMouseEnter={() => data.totalQuantity !== 0 && setShowCartBtn(true)}
       onMouseLeave={() => setShowCartBtn(false)}
+      onClick={() => navigate(`/${contentType}/details/${data._id}`)}
       className={
-        data.totalQuantity === 0 && contentType === "cell"
+        data.totalQuantity === 0 && contentType === "cellphones"
           ? "product-card-cell-disabled"
           : data.totalQuantity === 0
           ? "product-card-disabled"
-          : contentType === "cell"
+          : contentType === "cellphones"
           ? "product-card-cell"
           : "product-card"
       }
     >
-      <div className="prod-card-image">
-        <img src={data.images[displayImage]} alt={data.name} id="img" />
-        <div className="change-image-arrows">
-          <div className="left-arrow" onClick={previousImage}>
-            <FaChevronCircleLeft id="chevron-icon" />
+      <div
+        className={
+          contentType === "accessories"
+            ? "accessory-prod-card-image"
+            : "prod-card-image"
+        }
+      >
+        <img
+          src={filteredImages[displayImage].imageUrl}
+          alt={data.name}
+          id="img"
+        />
+        {data?.images?.length > 1 && (
+          <div className="change-image-arrows">
+            <div className="left-arrow" onClick={previousImage}>
+              <FaChevronCircleLeft id="chevron-icon" />
+            </div>
+            <div className="right-arrow" onClick={nextImage}>
+              <FaChevronCircleRight id="chevron-icon" />
+            </div>
           </div>
-          <div className="right-arrow" onClick={nextImage}>
-            <FaChevronCircleRight id="chevron-icon" />
-          </div>
-        </div>
+        )}
         {data.totalQuantity === 0 && <h1 id="not-in-stock">not in stock</h1>}
       </div>
-      <div className="prod-card-body" onClick={() => console.log("clicked")}>
+      <div className="prod-card-body">
         <div className="card-body-details">
           <h2 id="name">{data.name}</h2>
           <h3 id="year">
-            {contentType === "computer" ? data.type : data.year}
+            {contentType === "computers"
+              ? data.type
+              : contentType === "accessories"
+              ? data.category
+              : data.year}
           </h3>
-          {contentType !== "tv" && <h4 id="price">${data.price}</h4>}
-          {contentType === "tv" && (
+          {contentType !== "tvs" && <h4 id="price">${data.price}</h4>}
+          {contentType === "tvs" && (
             <p id="specs">
               {data.type} / {data.resolution}
             </p>
           )}
 
-          {contentType === "computer" && (
+          {contentType === "computers" && (
             <p id="specs">
-              {data.display} / {data.storage.size} {data.storage.type} /{" "}
-              {data.memory} Ram
+              {data.screen} / {data.storage?.size} {data.storage?.type} /{" "}
+              {data.ram} Ram
             </p>
           )}
 
-          {contentType === "cell" && (
+          {contentType === "cellphones" && (
             <p id="specs">
-              {data.display.size} / {data.display.type} / {data.memory.internal}{" "}
-              / {data.memory.ram} Ram
+              {data.display?.size} / {data.display?.type} /{" "}
+              {data.memory?.internal} / {data.memory?.ram} Ram
             </p>
           )}
         </div>

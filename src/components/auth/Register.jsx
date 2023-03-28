@@ -3,9 +3,12 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { register } from "../../redux/actions/authActions";
 import { resetRegister } from "../../redux/features/users/registerSlice";
-import { setRegSuccessMsg } from "../../redux/features/statesSlice";
+import {
+  setRegSuccessMsg,
+  toggleSignUp,
+} from "../../redux/features/statesSlice";
 
-const Register = ({ setAddClass }) => {
+const Register = ({ setAddClass, windowWidth }) => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -33,8 +36,12 @@ const Register = ({ setAddClass }) => {
     }
 
     if (isSuccess) {
+      if (windowWidth < 800 && window.innerWidth < 800) {
+        dispatch(toggleSignUp(false));
+      } else {
+        setAddClass("");
+      }
       dispatch(setRegSuccessMsg("Registration Success! Now you can sign in"));
-      setAddClass("");
       setUsername("");
       setEmail("");
       setPassword("");

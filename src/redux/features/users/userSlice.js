@@ -9,6 +9,7 @@ const initialState = {
   isLoading: false,
   isError: false,
   user: userFromStorage,
+  tokenInfo: {},
 };
 
 const userReducer = createSlice({
@@ -25,7 +26,11 @@ const userReducer = createSlice({
     }),
       addCase(getUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
-        state.user = payload;
+        state.user = payload.user;
+        state.tokenInfo = {
+          isExpired: payload.isExpired,
+          msg: payload.msg,
+        };
       }),
       addCase(getUser.rejected, (state) => {
         state.isLoading = false;

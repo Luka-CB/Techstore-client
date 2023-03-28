@@ -1,21 +1,22 @@
 .carousel {
   margin: 50px auto;
-  height: 60vh;
+  height: 80vh;
   border-radius: 15px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.267);
 
   .content {
-    height: 60vh;
+    height: 80vh;
     background-image: url("../images/carousel-bg.jpg");
     position: relative;
 
-    .slide-image,
-    .slide-image-cell {
+    .slide-image {
       position: absolute;
       left: 0;
-      width: 450px;
-      height: 300px;
+      max-width: 450px;
+      width: auto;
+      height: auto;
       margin: 50px;
+      margin-left: 100px;
       border-radius: 20px;
       box-shadow: 0 0 25px black;
 
@@ -23,14 +24,9 @@
         border-radius: 20px;
         width: 100%;
         height: 100%;
+        max-height: 450px;
         object-fit: cover;
       }
-    }
-
-    .slide-image-cell {
-      width: 270px;
-      height: 350px;
-      margin: 20px 100px;
     }
 
     .item-info {
@@ -45,8 +41,14 @@
         text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.664);
       }
 
+      #item-price {
+        font-size: 2rem;
+        color: $text-color-light;
+        text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.664);
+      }
+
       .item-description {
-        margin-top: 20px;
+        margin-top: 10px;
         width: 100%;
         font-size: 1.5rem;
         color: $text-color-light;
@@ -64,6 +66,133 @@
     .legend:hover {
       text-decoration: underline;
       cursor: pointer;
+    }
+  }
+
+  @media (max-width: 1500px) {
+    height: 60vh;
+
+    .content {
+      height: 60vh;
+
+      .slide-image {
+        max-width: 350px;
+        margin-left: 30px;
+
+        #carousel-img {
+          max-height: 350px;
+        }
+      }
+
+      .item-info {
+        width: 500px;
+
+        #item-brand {
+          font-size: 4rem;
+        }
+
+        #item-price {
+          font-size: 1.8rem;
+        }
+
+        .item-description {
+          font-size: 1.5rem;
+
+          .spec {
+            font-size: 1.7rem;
+          }
+        }
+
+        @media (max-width: 1100px) {
+          width: 300px;
+          right: 5%;
+
+          #item-brand {
+            font-size: 3rem;
+          }
+
+          #item-price {
+            font-size: 1.5rem;
+          }
+
+          .item-description {
+            font-size: 1.2rem;
+
+            .spec {
+              font-size: 1.4rem;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 900px) {
+    margin: 50px auto;
+    height: 80vh;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.267);
+
+    .content {
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .slide-image {
+        position: initial;
+        background-color: aqua;
+        max-width: none;
+        width: 90%;
+        max-height: 350px;
+        margin: 10px auto;
+        background-color: aliceblue;
+
+        #carousel-img {
+          border-radius: 20px;
+          width: 100%;
+          height: 100%;
+          max-height: 450px;
+          object-fit: cover;
+        }
+      }
+
+      .item-info {
+        position: initial;
+        width: 80%;
+
+        #item-brand {
+          font-size: 2rem;
+          color: $primary;
+          text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.664);
+        }
+
+        #item-price {
+          font-size: 1.2rem;
+          color: $text-color-light;
+          text-shadow: 2px 2px 12px rgba(0, 0, 0, 0.664);
+        }
+
+        .item-description {
+          margin-top: 10px;
+          width: 100%;
+          font-size: 1.1rem;
+          color: $text-color-light;
+          text-shadow: 1px 1px 4px black;
+          font-weight: 600;
+
+          .spec {
+            font-size: 1.3rem;
+            color: $primary;
+            text-shadow: 1px 1px 2px black;
+          }
+        }
+      }
+
+      .legend:hover {
+        text-decoration: underline;
+        cursor: pointer;
+      }
     }
   }
 }

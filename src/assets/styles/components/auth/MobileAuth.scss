@@ -1,0 +1,51 @@
+.mobile-auth-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: aliceblue;
+  z-index: 10;
+
+  #close-icon {
+    position: absolute;
+    right: 0;
+    margin: 10px;
+    font-size: 2rem;
+    color: $danger;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+
+    &:hover {
+      color: $danger-hover;
+    }
+  }
+
+  .login-wrapper {
+    height: 100%;
+
+    .notice {
+      display: flex;
+      margin-left: 15px;
+
+      span {
+        margin-left: 10px;
+        cursor: pointer;
+
+        &:hover {
+          text-decoration: underline;
+          color: $primary;
+        }
+      }
+
+      @media (max-width: 350px) {
+        flex-direction: column;
+        align-items: center;
+
+        span {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}

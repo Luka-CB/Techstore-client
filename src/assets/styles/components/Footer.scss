@@ -65,4 +65,27 @@
       }
     }
   }
+
+  @media (max-width: 1000px) {
+    flex-direction: column;
+
+    .footer-col-one {
+      width: 100%;
+    }
+
+    .border {
+      width: 100%;
+      height: 1px;
+      margin: 35px 0;
+    }
+
+    .footer-col-two,
+    .footer-col-three {
+      text-align: center;
+
+      .site {
+        margin-left: 0;
+      }
+    }
+  }
 }

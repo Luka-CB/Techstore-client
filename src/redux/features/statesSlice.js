@@ -3,8 +3,10 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   regSuccessMsg: "",
   authModal: false,
+  isSignupActive: false,
   userOptionModal: false,
-  deleteModal: false,
+  isModalOpen: false,
+  isMobNavOpen: false,
 };
 
 const statesReducer = createSlice({
@@ -20,8 +22,14 @@ const statesReducer = createSlice({
     toggleUserOptionModal: (state, { payload }) => {
       state.userOptionModal = payload;
     },
-    toggleDeleteModal: (state, { payload }) => {
-      state.deleteModal = payload;
+    toggleIsModalOpen: (state, { payload }) => {
+      state.isModalOpen = payload;
+    },
+    toggleMobNav: (state, { payload }) => {
+      state.isMobNavOpen = payload;
+    },
+    toggleSignUp: (state, { payload }) => {
+      state.isSignupActive = payload;
     },
   },
 });
@@ -30,7 +38,9 @@ export const {
   setRegSuccessMsg,
   toggleAuthModal,
   toggleUserOptionModal,
-  toggleDeleteModal,
+  toggleIsModalOpen,
+  toggleMobNav,
+  toggleSignUp,
 } = statesReducer.actions;
 
 export default statesReducer.reducer;

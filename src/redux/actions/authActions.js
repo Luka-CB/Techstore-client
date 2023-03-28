@@ -70,6 +70,27 @@ export const updateUser = createAsyncThunk(
   }
 );
 
+export const deleteUser = createAsyncThunk(
+  "DELETE_USER",
+  async (undefined, thunkAPI) => {
+    try {
+      const { data } = await axios.delete("/api/users/delete", {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
+
+      return data;
+    } catch (error) {
+      console.log(error);
+      return thunkAPI.rejectWithValue(
+        error.message && error.response.data.message
+          ? error.response.data.message
+          : error.message
+      );
+    }
+  }
+);
+
 export const logout = createAsyncThunk(
   "LOGOUT",
   async (undefined, thunkAPI) => {

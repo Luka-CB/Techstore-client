@@ -1,10 +1,23 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import DeleteModal from "../components/DeleteModal";
-import { getUserAccount, updateUser } from "../redux/actions/authActions";
-import { toggleDeleteModal } from "../redux/features/statesSlice";
-import MsgModal from "../components/MsgModal";
-import { msgModalStateHandler } from "../redux/features/msgModalSlice";
+import Dots from "../components/Dots";
+import {
+  deleteUser,
+  getUserAccount,
+  logout,
+  updateUser,
+} from "../redux/actions/authActions";
+import {
+  resetDeleteModal,
+  toggleDeleteModal,
+} from "../redux/features/deleteModalSlice";
+import {
+  msgModalStateHandler,
+  resetMsgModal,
+} from "../redux/features/msgModalSlice";
+import { toggleIsModalOpen } from "../redux/features/statesSlice";
 import { resetUpdate } from "../redux/features/users/updateSlice";
 
 const UserAccount = () => {
@@ -12,14 +25,22 @@ const UserAccount = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const { showMsgModal, msg, msgType } = useSelector((state) => state.msgModal);
-  const { deleteModal } = useSelector((state) => state.states);
   const { account } = useSelector((state) => state.account);
-  const { isLoading, isSuccess, error } = useSelector(
-    (state) => state.updateUser
-  );
+  const { isDeleteModalOpen } = useSelector((state) => state.deleteModal);
+  const {
+    isLoading: isUpdateUserLodaing,
+    isSuccess: isUpdateUserSuccess,
+    error,
+  } = useSelector((state) => state.updateUser);
+  const {
+    isLoding: isDeleteUserLoading,
+    isSuccess: isDeleteUserSuccess,
+    successMsg,
+    errorMsg,
+  } = useSelector((state) => state.deleteUser);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!account.username) {
@@ -31,7 +52,7 @@ const UserAccount = () => {
   }, [account, dispatch]);
 
   useEffect(() => {
-    if (isSuccess) {
+    if (isUpdateUserSuccess) {
       dispatch(
         msgModalStateHandler({
           state: true,
@@ -47,17 +68,59 @@ const UserAccount = () => {
       );
     }
 
-    if (isSuccess || error) {
+    if (isUpdateUserSuccess || error) {
       setTimeout(() => {
         dispatch(msgModalStateHandler({ state: false, msg: "", msgType: "" }));
         dispatch(resetUpdate());
       }, 3000);
     }
-  }, [dispatch, isSuccess, error]);
+  }, [dispatch, isUpdateUserSuccess, error]);
+
+  useEffect(() => {
+    if (isDeleteUserSuccess) {
+      dispatch(
+        msgModalStateHandler({
+          state: true,
+          msg: successMsg,
+          msgType: "success",
+        })
+      );
+      dispatch(resetDeleteModal());
+      dispatch(toggleIsModalOpen(false));
+      setTimeout(() => {
+        dispatch(logout());
+        window.location.reload();
+      }, 2500);
+    }
+  }, [isDeleteUserSuccess, dispatch]);
+
+  useEffect(() => {
+    if (errorMsg) {
+      dispatch(
+        msgModalStateHandler({
+          state: true,
+          msg: errorMsg,
+          msgType: "error",
+        })
+      );
+      dispatch(resetDeleteModal());
+      dispatch(toggleIsModalOpen(false));
+      setTimeout(() => {
+        dispatch(resetMsgModal());
+        dispatch(resetDeleteModal());
+      }, 2500);
+    }
+  }, [errorMsg, dispatch]);
 
   const submitHandler = (e) => {
     e.preventDefault();
     dispatch(updateUser({ username, email, password }));
+  };
+
+  const handleOpenDeleteModal = (e) => {
+    e.stopPropagation();
+    dispatch(toggleDeleteModal(true));
+    dispatch(toggleIsModalOpen(true));
   };
 
   return (
@@ -99,25 +162,31 @@ const UserAccount = () => {
               <span>{account.provider}</span>
             </div>
           </div>
-          <button type="submit" id="update-btn" disabled={!username}>
-            Update
+          <button
+            type="submit"
+            id="update-btn"
+            disabled={!username || isUpdateUserLodaing}
+          >
+            {isUpdateUserLodaing ? <Dots color="#d800a6" /> : "Update"}
           </button>
         </form>
 
         <button
           type="button"
           id="delete-btn"
-          onClick={() => dispatch(toggleDeleteModal(true))}
+          onClick={(e) => handleOpenDeleteModal(e)}
         >
           Delete Account
         </button>
       </div>
 
-      {deleteModal && (
-        <DeleteModal text="Are you sure? You are deleting your account, this will also delete all orders!" />
-      )}
-
-      {showMsgModal && <MsgModal classname={msgType} text={msg} />}
+      {isDeleteModalOpen ? (
+        <DeleteModal
+          text="Are you sure? You are deleting your account, this will also delete all your orders and reviews!"
+          action={() => dispatch(deleteUser())}
+          isLoading={isDeleteUserLoading}
+        />
+      ) : null}
     </div>
   );
 };

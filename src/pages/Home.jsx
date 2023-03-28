@@ -1,42 +1,82 @@
+import { useEffect, useState } from "react";
 import TechImg from "../assets/images/tech.png";
 import LastAdded from "../components/home/LastAdded";
 import SlideShow from "../components/home/SlideShow";
-import Navigation from "../components/Navigation";
-import { tvs, computers, cellPhones } from "../data";
+import Navigation from "../components/navigation/Navigation";
 import SearchHome from "../components/search/SearchHome";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getLatestAccessories,
+  getLatestCellphones,
+  getLatestComputers,
+  getLatestTvs,
+} from "../redux/actions/productActions";
+import SearchResult from "../components/search/SearchResult";
+import MobileNavigationHome from "../components/navigation/MobileNavigationHome";
 
 const Home = () => {
+  const [windowWidth, setWindowWidth] = useState("");
+
+  const { latestAccessories } = useSelector((state) => state.latestAccessories);
+  const { latestCellphones } = useSelector((state) => state.latestCellphones);
+  const { latestComputers } = useSelector((state) => state.latestComputers);
+  const { latestTvs } = useSelector((state) => state.latestTvs);
+  const { isSearchResultModalOpen } = useSelector(
+    (state) => state.searchResultModal
+  );
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getLatestAccessories());
+    dispatch(getLatestCellphones());
+    dispatch(getLatestComputers());
+    dispatch(getLatestTvs());
+  }, []);
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setWindowWidth(window.innerWidth);
+    });
+  }, [window]);
+
   return (
     <div className="container">
       <div className="landing">
-        <Navigation />
+        {windowWidth < 900 && window.innerWidth < 900 ? (
+          <MobileNavigationHome />
+        ) : (
+          <Navigation />
+        )}
         <div className="landing-info">
-          <div className="hero">
+          <div className="hero-wrapper">
+            <SearchHome />
+            {isSearchResultModalOpen ? (
+              <div className="search-result-home">
+                <SearchResult />
+              </div>
+            ) : null}
+          </div>
+          <div className="main-title">
             <div className="title-wrapper">
               <div className="top">Techstore</div>
               <div className="bottom" aria-hidden="true">
                 Techstore
               </div>
             </div>
-            <SearchHome />
+            <div className="image">
+              <img src={TechImg} alt="Tech Image" id="tech-img" />
+            </div>
           </div>
         </div>
       </div>
-      <div className="image">
-        <img src={TechImg} alt="Tech Image" id="tech-img" />
-      </div>
 
-      <SlideShow
-        content={[
-          { ...tvs[0], contentType: "tv" },
-          { ...computers[0], contentType: "computer" },
-          { ...cellPhones[0], contentType: "cell" },
-        ]}
-      />
+      <SlideShow />
 
-      <LastAdded content={tvs.slice(1, 4)} contentType="tv" />
-      <LastAdded content={computers.slice(1, 4)} contentType="computer" />
-      <LastAdded content={cellPhones.slice(1, 4)} contentType="cell" />
+      <LastAdded content={latestTvs} contentType="tvs" />
+      <LastAdded content={latestComputers} contentType="computers" />
+      <LastAdded content={latestCellphones} contentType="cellphones" />
+      <LastAdded content={latestAccessories} contentType="accessories" />
     </div>
   );
 };

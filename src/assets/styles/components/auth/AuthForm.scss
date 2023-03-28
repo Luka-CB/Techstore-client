@@ -118,4 +118,22 @@
       transform: scale(0.95);
     }
   }
+
+  @media (max-width: 800px) {
+    background-color: transparent;
+    height: 95%;
+  }
+
+  @media (max-width: 350px) {
+    height: 85%;
+    padding: 0 10px;
+
+    .auth-input {
+      background: #eee;
+      border: none;
+      height: 60px;
+      padding: 10;
+      font-size: medium;
+    }
+  }
 }
