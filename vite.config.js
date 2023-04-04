@@ -7,7 +7,11 @@ export default defineConfig({
   global: {},
   server: {
     proxy: {
-      "/api": "https://techstore-api-c4r4.onrender.com",
+      "/api": {
+        target: "https://techstore-api-u9a1.onrender.com",
+        changeOrigin: true,
+        secure: false,
+      },
     },
   },
 });

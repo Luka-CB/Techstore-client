@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "https://techstore-api-c4r4.onrender.com";
+const url = "http://localhost:5000";
 
 export const getFilters = createAsyncThunk(
   "GET_FILTERS",
   async (route, thunkAPI) => {
     try {
-      const { data } = await axios.get(`${url}/api/${route}/filters`, {
+      const { data } = await axios.get(`/api/${route}/filters`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -29,7 +29,7 @@ export const getFilteredTvProducts = createAsyncThunk(
   async ({ brand = "", type = "", size = "" }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `${url}/api/tvs/filtered?brand=${brand}&type=${type}&size=${size}`,
+        `/api/tvs/filtered?brand=${brand}&type=${type}&size=${size}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -56,7 +56,7 @@ export const getFilteredComputerProducts = createAsyncThunk(
   ) => {
     try {
       const { data } = await axios.get(
-        `${url}/api/computers/filtered?brand=${brand}&type=${type}&storageType=${storageType}&storageSize=${storageSize}&ram=${ram}`,
+        `/api/computers/filtered?brand=${brand}&type=${type}&storageType=${storageType}&storageSize=${storageSize}&ram=${ram}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -80,7 +80,7 @@ export const getFilteredCellphoneProducts = createAsyncThunk(
   async ({ brand = "", internalStorage = "", ram = "" }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `${url}/api/cellphones/filtered?brand=${brand}&internalStorage=${internalStorage}&ram=${ram}`,
+        `/api/cellphones/filtered?brand=${brand}&internalStorage=${internalStorage}&ram=${ram}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -104,7 +104,7 @@ export const getFilteredAccessoryProducts = createAsyncThunk(
   async ({ brand = "", category = "" }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `${url}/api/accessories/filtered?brand=${brand}&category=${category}`,
+        `/api/accessories/filtered?brand=${brand}&category=${category}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,

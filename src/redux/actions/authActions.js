@@ -1,11 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "https://techstore-api-c4r4.onrender.com";
+const url = "http://localhost:5000";
 
 export const register = createAsyncThunk("REGISTER", async (user, thunkAPI) => {
   try {
-    await axios.post(`${url}/api/users/register`, user, {
+    await axios.post(`/api/users/register`, user, {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     });
@@ -16,7 +16,7 @@ export const register = createAsyncThunk("REGISTER", async (user, thunkAPI) => {
 
 export const login = createAsyncThunk("LOGIN", async (user, thunkAPI) => {
   try {
-    await axios.post(`${url}/api/users/login`, user, {
+    await axios.post(`/api/users/login`, user, {
       headers: { "Content-Type": "application/json" },
       withCredentials: true,
     });
@@ -29,8 +29,10 @@ export const getUser = createAsyncThunk(
   "GET_USER",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`${url}/api/users/user`, {
-        headers: { "Content-Type": "application/json" },
+      const { data } = await axios.get(`/api/users/user`, {
+        headers: {
+          "Content-Type": "application/json",
+        },
         withCredentials: true,
       });
 
@@ -46,7 +48,7 @@ export const getUserAccount = createAsyncThunk(
   "GET_USER_ACCOUNT",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`${url}/api/users/user-account`, {
+      const { data } = await axios.get(`/api/users/user-account`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -63,7 +65,7 @@ export const updateUser = createAsyncThunk(
   "UPDATE_USER",
   async (user, thunkAPI) => {
     try {
-      await axios.put(`${url}/api/users/update`, user, {
+      await axios.put(`/api/users/update`, user, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -77,7 +79,7 @@ export const deleteUser = createAsyncThunk(
   "DELETE_USER",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.delete(`${url}/api/users/delete`, {
+      const { data } = await axios.delete(`/api/users/delete`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -99,7 +101,7 @@ export const logout = createAsyncThunk(
   async (undefined, thunkAPI) => {
     try {
       await axios.post(
-        `${url}/api/users/logout`,
+        `/api/users/logout`,
         {},
         {
           withCredentials: true,

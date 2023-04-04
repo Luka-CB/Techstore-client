@@ -1,13 +1,13 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "https://techstore-api-c4r4.onrender.com";
+const url = "http://localhost:5000";
 
 export const saveOrder = createAsyncThunk(
   "SAVE_ORDER",
   async (order, thunkAPI) => {
     try {
-      const { data } = await axios.post(`${url}/api/orders/save`, order, {
+      const { data } = await axios.post(`/api/orders/save`, order, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -28,7 +28,7 @@ export const getOrders = createAsyncThunk(
   "GET_ORDERS",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`${url}/api/orders/get-many`, {
+      const { data } = await axios.get(`/api/orders/get-many`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -49,7 +49,7 @@ export const getOrder = createAsyncThunk(
   "GET_ORDER",
   async (orderId, thunkAPI) => {
     try {
-      const { data } = await axios.get(`${url}/api/orders/get-one/${orderId}`, {
+      const { data } = await axios.get(`/api/orders/get-one/${orderId}`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -70,7 +70,7 @@ export const updatePaidState = createAsyncThunk(
   "UPDATE_PAID_STATE",
   async (updData, thunkAPI) => {
     try {
-      const { data } = await axios.put(`${url}/api/orders/update`, updData, {
+      const { data } = await axios.put(`/api/orders/update`, updData, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -91,13 +91,10 @@ export const deleteOrder = createAsyncThunk(
   "DELETE_ORDER",
   async (orderId, thunkAPI) => {
     try {
-      const { data } = await axios.delete(
-        `${url}/api/orders/delete/${orderId}`,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
+      const { data } = await axios.delete(`/api/orders/delete/${orderId}`, {
+        headers: { "Content-Type": "application/json" },
+        withCredentials: true,
+      });
 
       return data;
     } catch (error) {

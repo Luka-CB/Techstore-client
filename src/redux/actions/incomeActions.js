@@ -1,7 +1,7 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const url = "https://techstore-api-c4r4.onrender.com";
+const url = "http://localhost:5000";
 
 export const updateIncome = createAsyncThunk(
   "UPDATE_INCOME",
@@ -9,7 +9,7 @@ export const updateIncome = createAsyncThunk(
     console.log(amount);
     try {
       const { data } = await axios.put(
-        `${url}/api/incomes/update`,
+        `/api/incomes/update`,
         { amount },
         {
           headers: { "Content-Type": "application/json" },
