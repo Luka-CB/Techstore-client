@@ -10,11 +10,11 @@ const PickedCartProducts = ({ cartItems }) => {
               <img src={item.images[0].imageUrl} alt={item.name} />
             </div>
           </td>
-          <td className="item">{item.name}</td>
+          <td className="item name">{item.name}</td>
           {item.contentType === "tvs" ? (
-            <td className="item">{item.attr.size}"</td>
+            <td className="item color-size">{item.attr.size}"</td>
           ) : (
-            <td className="item">
+            <td className="item color-size">
               <div
                 title={item.attr.name}
                 id="color"
@@ -42,11 +42,11 @@ const PickedProduct = ({ item }) => {
           <img src={item.images[0].imageUrl} alt={item.name} />
         </div>
       </td>
-      <td className="item">{item.name}</td>
+      <td className="item name">{item.name}</td>
       {item.contentType === "tvs" ? (
-        <td className="item">{item.attr.size}"</td>
+        <td className="item color-size">{item.attr.size}"</td>
       ) : (
-        <td className="item">
+        <td className="item color-size">
           <div
             title={item.attr.name}
             id="color"
@@ -103,8 +103,8 @@ const OrderInfo = ({ data, originRoute }) => {
           <thead>
             <tr>
               <th>Image</th>
-              <th>Name</th>
-              <th>Color/Size</th>
+              <th className="name">Name</th>
+              <th className="color-size">Color/Size</th>
               <th>QTY</th>
               <th>Price</th>
             </tr>

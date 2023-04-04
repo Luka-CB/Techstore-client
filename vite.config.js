@@ -7,7 +7,7 @@ export default defineConfig({
   global: {},
   server: {
     proxy: {
-      "/api": "http://localhost:5000",
+      "/api": "https://techstore-api-c4r4.onrender.com",
     },
   },
 });

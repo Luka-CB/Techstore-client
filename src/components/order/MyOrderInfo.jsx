@@ -37,8 +37,8 @@ const MyOrderInfo = ({ order }) => {
           <thead>
             <tr>
               <th>Image</th>
-              <th>Name</th>
-              <th>Color/Size</th>
+              <th className="name">Name</th>
+              <th className="color-size">Color/Size</th>
               <th>QTY</th>
               <th>Price</th>
             </tr>
@@ -56,9 +56,9 @@ const MyOrderInfo = ({ order }) => {
                   </td>
                   <td className="item name">{item.name}</td>
                   {item.itemType === "tvs" ? (
-                    <td className="item">{item.size}"</td>
+                    <td className="item color-size">{item.size}"</td>
                   ) : (
-                    <td className="item">
+                    <td className="item color-size">
                       <div
                         title={item.color?.name}
                         id="color"

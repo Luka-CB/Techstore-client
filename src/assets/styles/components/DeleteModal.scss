@@ -6,12 +6,12 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 101;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fade 0.2s ease-in;
 
   .delete-modal-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 450px;
     background-color: $dark;
     padding: 20px;
@@ -19,6 +19,7 @@
     border-left: 2px solid rgb(83, 83, 83);
     border-top: 3px solid rgb(99, 99, 99);
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.267);
+    animation: zoom 0.2s linear;
 
     #delete-modal-text {
       color: aliceblue;
@@ -70,6 +71,7 @@
         justify-content: center;
 
         &:hover {
+          background-color: #7dce1317;
           border-color: $success-hover;
           color: $success-hover;
         }
@@ -86,6 +88,7 @@
         border: 1px solid $secondary;
 
         &:hover {
+          background-color: #ffa1ce15;
           border-color: $secondary-hover;
           color: $secondary-hover;
         }
@@ -94,6 +97,24 @@
           border-color: $secondary-active;
           color: $secondary-active;
           transform: scale(0.95);
+        }
+      }
+    }
+
+    @media (max-width: 500px) {
+      width: 100%;
+      min-width: 250px;
+      border-radius: unset;
+
+      .btns {
+        margin-top: 50px;
+        display: flex;
+        justify-content: space-between;
+
+        #yes-btn,
+        #no-btn {
+          width: 45%;
+          min-width: 100px;
         }
       }
     }

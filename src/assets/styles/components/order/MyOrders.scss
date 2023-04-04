@@ -1,6 +1,7 @@
 .my-orders-container {
   min-height: 100vh;
   position: relative;
+  transition: all 0.2s ease-in-out;
 
   #no-orders {
     position: absolute;
@@ -9,6 +10,7 @@
     transform: translate(-50%, -50%);
     font-size: 1.6rem;
     color: $danger;
+    transition: all 0.2s ease-in-out;
   }
 
   .card-wrapper {
@@ -18,6 +20,23 @@
     padding: 20px;
     margin: 40px 0;
     gap: 2em;
+    transition: all 0.2s ease-in-out;
+
+    @media (max-width: 1800px) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    @media (max-width: 1700px) {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @media (max-width: 1300px) {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    @media (max-width: 900px) {
+      grid-template-columns: 1fr;
+    }
 
     .card {
       background-color: rgb(3, 3, 3);
@@ -26,6 +45,7 @@
       border-radius: 10px;
       border: 1px solid rgba(141, 143, 145, 0.644);
       box-shadow: 2px 2px 8px black;
+      transition: all 0.2s ease-in-out;
 
       .card-header {
         display: flex;
@@ -34,6 +54,7 @@
         border-bottom: 1px solid gray;
         padding: 5px;
         padding-bottom: 10px;
+        transition: all 0.2s ease-in-out;
 
         .card-icon-wrapper {
           width: 50px;
@@ -43,10 +64,12 @@
           align-items: center;
           justify-content: center;
           border-radius: 50%;
+          transition: all 0.2s ease-in-out;
 
           #card-icon {
             color: aliceblue;
             font-size: 1.8rem;
+            transition: all 0.2s ease-in-out;
           }
         }
 
@@ -78,6 +101,7 @@
 
         #card-id {
           color: aliceblue;
+          transition: all 0.2s ease-in-out;
         }
       }
 
@@ -87,44 +111,53 @@
         border-bottom: 1px solid gray;
         display: flex;
         justify-content: space-around;
+        transition: all 0.2s ease-in-out;
 
         .paid,
         .delivered {
           text-align: center;
           margin-top: 20px;
+          transition: all 0.2s ease-in-out;
 
           #key {
             color: aliceblue;
+            transition: all 0.2s ease-in-out;
           }
 
           .value {
             display: flex;
             align-items: center;
+            transition: all 0.2s ease-in-out;
 
             #check-icon {
               color: $success-hover;
               font-size: 1.5rem;
+              transition: all 0.2s ease-in-out;
             }
 
             span {
               color: aliceblue;
               font-size: 2rem;
               margin-left: 10px;
+              transition: all 0.2s ease-in-out;
             }
 
             #date {
               color: aliceblue;
               margin-left: 10px;
+              transition: all 0.2s ease-in-out;
             }
           }
 
           #value {
             color: $secondary;
             margin-top: 5px;
+            transition: all 0.2s ease-in-out;
 
             #close-icon {
               color: $danger-hover;
               font-size: 1.5rem;
+              transition: all 0.2s ease-in-out;
             }
           }
         }
@@ -134,9 +167,11 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
+        transition: all 0.2s ease-in-out;
 
         #created {
           color: aliceblue;
+          transition: all 0.2s ease-in-out;
         }
 
         .delete-card {
@@ -161,6 +196,97 @@
 
             #delete-icon {
               color: $danger-hover;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 1800px) {
+        width: 400px;
+
+        .card-header {
+          .card-icon-wrapper {
+            width: 40px;
+            height: 40px;
+
+            #card-icon {
+              font-size: 1.5rem;
+            }
+          }
+
+          #card-id {
+            font-size: small;
+          }
+
+          .detail-icon-wrapper {
+            width: 40px;
+            height: 40px;
+          }
+        }
+
+        .card-body {
+          .paid,
+          .delivered {
+            #key {
+              font-size: medium;
+            }
+
+            .value {
+              #date {
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
+
+        .card-footer {
+          #created {
+            font-size: small;
+          }
+
+          .delete-card {
+            width: 40px;
+            height: 40px;
+
+            #delete-icon {
+              font-size: 1.5rem;
+            }
+          }
+        }
+      }
+
+      @media (max-width: 500px) {
+        width: 95%;
+        min-width: 250px;
+
+        @media (max-width: 400px) {
+          .card-header {
+            #card-id {
+              font-size: 0.7rem;
+            }
+
+            .card-icon-wrapper {
+              display: none;
+            }
+          }
+
+          .card-body {
+            .paid,
+            .delivered {
+              .value {
+                #check-icon {
+                  display: none;
+                }
+
+                span {
+                  display: none;
+                }
+
+                #date {
+                  margin-left: 0;
+                  margin-top: 10px;
+                }
+              }
             }
           }
         }

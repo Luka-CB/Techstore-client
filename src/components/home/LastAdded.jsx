@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const Card = ({ item, contentType }) => {
+  const navigate = useNavigate();
+
   return (
     <div
       className={contentType === "cellphones" ? "cell-card" : "card"}

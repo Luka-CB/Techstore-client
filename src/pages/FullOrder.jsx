@@ -5,6 +5,7 @@ import MyOrderInfo from "../components/order/MyOrderInfo";
 import MyPayment from "../components/order/MyPayment";
 import { Spinner } from "../components/Spinner";
 import { getOrder } from "../redux/actions/orderActions";
+import Head from "../components/Head";
 
 const FullOrder = () => {
   const { isLoading, order } = useSelector((state) => state.getOrder);
@@ -20,6 +21,7 @@ const FullOrder = () => {
 
   return (
     <div className="full-order-container">
+      <Head title={`Order | ${order._id}`} />
       <div className="order-info-wrapper">
         {isLoading ? (
           <Spinner width={80} height={80} color="#ffa1cf" />
@@ -27,6 +29,7 @@ const FullOrder = () => {
           <MyOrderInfo order={order} />
         )}
       </div>
+      <div className="divider"></div>
       <div className="payment-panel">
         <MyPayment
           orderObjId={orderId}

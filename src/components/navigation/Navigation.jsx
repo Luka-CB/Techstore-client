@@ -33,6 +33,7 @@ const Navigation = () => {
     dispatch(cleanUser());
     dispatch(resetAccount());
     dispatch(toggleUserOptionModal(false));
+    navigate("/");
   };
 
   const navigationHandler = (to) => {

@@ -1,6 +1,7 @@
 .cart-panel-container {
   background-color: $dark;
   width: 20%;
+  min-width: 350px;
   min-height: 30vh;
   margin: 50px;
   border-radius: 20px;
@@ -8,6 +9,15 @@
   border-top: 2px solid rgb(65, 65, 65);
   box-shadow: 3px 4px 8px rgba(0, 0, 0, 0.486);
   padding: 10px;
+
+  @media (max-width: 950px) {
+    width: 100%;
+    border-radius: unset;
+  }
+
+  @media (max-width: 400px) {
+    min-width: 250px;
+  }
 
   #total-items {
     color: $secondary;
@@ -111,6 +121,21 @@
         background-color: #c210102d;
         color: rgba(199, 199, 199, 0.288);
         cursor: default;
+      }
+    }
+
+    @media (max-width: 400px) {
+      flex-direction: column;
+      margin-top: 40px;
+
+      #order {
+        margin-top: 0;
+        width: 100%;
+      }
+
+      #clear {
+        margin-top: 15px;
+        width: 100%;
       }
     }
   }

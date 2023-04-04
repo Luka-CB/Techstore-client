@@ -13,6 +13,7 @@ import {
 } from "../redux/actions/productActions";
 import SearchResult from "../components/search/SearchResult";
 import MobileNavigationHome from "../components/navigation/MobileNavigationHome";
+import Head from "../components/Head";
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState("");
@@ -42,6 +43,7 @@ const Home = () => {
 
   return (
     <div className="container">
+      <Head title="Welcome | Techstore" />
       <div className="landing">
         {windowWidth < 900 && window.innerWidth < 900 ? (
           <MobileNavigationHome />

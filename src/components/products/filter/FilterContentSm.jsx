@@ -45,7 +45,7 @@ const FilterContentSm = ({ filters, pickedFilters, contentType }) => {
 
   return (
     <div className="filter-wrapper-sm">
-      <div className="filters">
+      <div className={filters?.length > 3 ? "filters-long" : "filters"}>
         {filters?.map((filter, i) => (
           <div className="filter-wrapper" key={filter.title}>
             <div

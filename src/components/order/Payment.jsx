@@ -7,9 +7,10 @@ import {
   resetMsgModal,
 } from "../../redux/features/msgModalSlice";
 import { resetSaveOrder } from "../../redux/features/order/saveOrderSlice";
-import { saveOrder, updatePaidState } from "../../redux/actions/orderActions";
+import { saveOrder } from "../../redux/actions/orderActions";
 import Dots from "../Dots";
 import { useNavigate } from "react-router-dom";
+import { updateIncome } from "../../redux/actions/incomeActions";
 
 const Payment = () => {
   const { cartItems, cartItemsInfo } = useSelector((state) => state.cart);
@@ -40,35 +41,45 @@ const Payment = () => {
     }
   }, [isSuccess, dispatch]);
 
-  const items = cartItems?.map((item) => {
-    return {
-      itemId: item.id,
-      name: item.name,
-      itemType: item.contentType,
-      qty: item.inCartQty,
-      price: item.price,
-      color: {
-        name: item.contentType !== "tvs" ? item.attr.name : "",
-        code: item.contentType !== "tvs" ? item.attr.code : "",
-      },
-      size: item.contentType === "tvs" ? item.attr.size : null,
-      imageUrl: item.images[0].imageUrl,
-    };
-  });
+  let items;
+  let item;
 
-  const item = {
-    itemId: pickedProduct.id,
-    name: pickedProduct.name,
-    itemType: pickedProduct.contentType,
-    qty: pickedProduct.pickedQty,
-    price: pickedProduct.price,
-    color: {
-      name: pickedProduct.contentType !== "tvs" ? pickedProduct.attr.name : "",
-      code: pickedProduct.contentType !== "tvs" ? pickedProduct.attr.code : "",
-    },
-    size: pickedProduct.contentType === "tvs" ? pickedProduct.attr.size : null,
-    imageUrl: pickedProduct.images[0].imageUrl,
-  };
+  if (cartItems) {
+    items = cartItems?.map((item) => {
+      return {
+        itemId: item.id,
+        name: item.name,
+        itemType: item.contentType,
+        qty: item.inCartQty,
+        price: item.price,
+        color: {
+          name: item.contentType !== "tvs" ? item.attr.name : "",
+          code: item.contentType !== "tvs" ? item.attr.code : "",
+        },
+        size: item.contentType === "tvs" ? item.attr.size : null,
+        imageUrl: item.images[0].imageUrl,
+      };
+    });
+  }
+
+  if (pickedProduct.id) {
+    item = {
+      itemId: pickedProduct.id,
+      name: pickedProduct.name,
+      itemType: pickedProduct.contentType,
+      qty: pickedProduct.pickedQty,
+      price: pickedProduct.price,
+      color: {
+        name:
+          pickedProduct.contentType !== "tvs" ? pickedProduct.attr?.name : "",
+        code:
+          pickedProduct.contentType !== "tvs" ? pickedProduct.attr?.code : "",
+      },
+      size:
+        pickedProduct.contentType === "tvs" ? pickedProduct.attr?.size : null,
+      imageUrl: pickedProduct.images[0].imageUrl,
+    };
+  }
 
   const handleSaveOrder = () => {
     dispatch(
@@ -107,6 +118,7 @@ const Payment = () => {
           payDate: details.create_time,
         })
       );
+      dispatch(updateIncome(cartItemsInfo.totalPrice));
     }
   };
 

@@ -207,6 +207,31 @@
           }
         }
       }
+
+      @media (max-width: 400px) {
+        .left {
+          background-color: rgb(46, 46, 46);
+
+          &:hover {
+            background-color: rgb(46, 46, 46);
+
+            #chevron-icon {
+              color: aliceblue;
+            }
+          }
+        }
+        .right {
+          background-color: rgb(46, 46, 46);
+
+          &:hover {
+            background-color: rgb(46, 46, 46);
+
+            #chevron-icon {
+              color: aliceblue;
+            }
+          }
+        }
+      }
     }
 
     &:hover {
@@ -215,5 +240,119 @@
         opacity: 1;
       }
     }
+  }
+
+  @media (max-width: 1400px) {
+    width: 90%;
+
+    .item-info {
+      #item-name {
+        font-size: large;
+      }
+
+      #item-year {
+        font-size: medium;
+      }
+
+      #item-category {
+        font-size: small;
+      }
+
+      #item-memory {
+        font-size: small;
+      }
+
+      #item-price {
+        font-size: small;
+      }
+    }
+
+    .item-attr {
+      width: 10%;
+
+      .color,
+      .size {
+        width: 30px;
+        height: 30px;
+        font-size: small;
+        border-radius: 3px;
+      }
+    }
+  }
+
+  @media (max-width: 1100px) {
+    width: 450px;
+    flex-direction: column-reverse;
+
+    .item-info {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+    .item-attr {
+      width: 40%;
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+    }
+
+    .item-qty {
+      margin-top: 20px;
+      width: 40%;
+      flex-direction: row;
+      justify-content: space-between;
+
+      #increase-qty {
+        margin-bottom: 0;
+      }
+
+      #decrease-qty {
+        margin-top: 0;
+      }
+    }
+
+    .item-image-wrapper {
+      width: 100%;
+
+      .item-images {
+        max-width: 250px;
+      }
+
+      .change-image-handles {
+        .left {
+          height: auto;
+
+          #chevron-icon {
+            font-size: 1.8rem;
+            color: rgb(192, 192, 192);
+          }
+
+          &:hover {
+            #chevron-icon {
+              color: rgb(253, 251, 251);
+            }
+          }
+        }
+
+        .right {
+          height: auto;
+
+          #chevron-icon {
+            font-size: 1.8rem;
+            color: rgb(192, 192, 192);
+          }
+
+          &:hover {
+            #chevron-icon {
+              color: rgb(253, 251, 251);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @media (max-width: 500px) {
+    width: 100%;
   }
 }

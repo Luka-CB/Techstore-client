@@ -22,6 +22,7 @@ import {
   resetMsgModal,
 } from "../redux/features/msgModalSlice";
 import { resetDeleteOrder } from "../redux/features/order/deleteOrderSlice";
+import Head from "../components/Head";
 
 const MyOrders = () => {
   const { isDeleteModalOpen, delData } = useSelector(
@@ -71,6 +72,7 @@ const MyOrders = () => {
 
   return (
     <div className="my-orders-container">
+      <Head title={`My Orders | ${orders?.length}`} />
       {isGetOrdersLoading ? (
         <Spinner width={80} height={80} color="#ffa1cf" />
       ) : orders?.length === 0 ? (
@@ -109,11 +111,11 @@ const MyOrders = () => {
                 </div>
                 <div className="delivered">
                   <h3 id="key">Delivered</h3>
-                  {order.isDelivered ? (
+                  {!order.isDelivered ? (
                     <div className="value">
                       <AiFillCheckCircle id="check-icon" />
                       <span>-</span>
-                      <p id="date">{order.deliverDate} ago</p>
+                      <p id="date">{order.deliverDate} about 22 hours ago</p>
                     </div>
                   ) : (
                     <p id="value">

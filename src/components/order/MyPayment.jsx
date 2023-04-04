@@ -5,11 +5,12 @@ import { AiFillCloseCircle, AiFillCheckCircle } from "react-icons/ai";
 import { BiLogOutCircle } from "react-icons/bi";
 import { useNavigate } from "react-router-dom";
 import { getOrder, updatePaidState } from "../../redux/actions/orderActions";
-import msgModalSlice, {
+import {
   msgModalStateHandler,
   resetMsgModal,
 } from "../../redux/features/msgModalSlice";
 import { resetUpdatePaidState } from "../../redux/features/order/updatePaidStateSlice";
+import { updateIncome } from "../../redux/actions/incomeActions";
 
 const MyPayment = ({ orderObjId, orderId, paymentInfo, itemsInfo }) => {
   const { isSuccess, successMsg } = useSelector(
@@ -56,6 +57,7 @@ const MyPayment = ({ orderObjId, orderId, paymentInfo, itemsInfo }) => {
           create_time: details.create_time,
         })
       );
+      dispatch(updateIncome(itemsInfo.totalPrice));
     }
   };
 

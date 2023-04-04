@@ -19,6 +19,7 @@ import {
 } from "../redux/features/msgModalSlice";
 import { toggleIsModalOpen } from "../redux/features/statesSlice";
 import { resetUpdate } from "../redux/features/users/updateSlice";
+import Head from "../components/Head";
 
 const UserAccount = () => {
   const [username, setUsername] = useState("");
@@ -125,6 +126,11 @@ const UserAccount = () => {
 
   return (
     <div className="user-account-container">
+      <Head
+        title={
+          account?.username ? `${account?.username}'s Account` : "My Account"
+        }
+      />
       <div className="account-form-container">
         <div className="user-info">
           <p className="info-text">

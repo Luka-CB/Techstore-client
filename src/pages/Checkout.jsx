@@ -7,6 +7,7 @@ import {
   clearPickedProduct,
   clearShippingData,
 } from "../redux/features/order/orderSlice";
+import Head from "../components/Head";
 
 const Checkout = () => {
   const { originRoute, pickedProduct } = useSelector((state) => state.order);
@@ -23,6 +24,7 @@ const Checkout = () => {
 
   return (
     <div className="checkout-container">
+      <Head title="Checkout" />
       <div className="col1">
         <OrderInfo
           data={originRoute === "/cart" ? cartItems : pickedProduct}
@@ -40,6 +42,7 @@ const Checkout = () => {
           </button>
         </div>
       </div>
+      <div id="divider"></div>
       <div className="col2">
         <Payment />
       </div>

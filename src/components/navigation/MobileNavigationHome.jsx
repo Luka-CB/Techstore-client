@@ -34,6 +34,7 @@ const MobileNavigationHome = () => {
     dispatch(cleanUser());
     dispatch(resetAccount());
     dispatch(toggleUserOptionModal(false));
+    navigate("/");
   };
 
   const handleOpenMobNav = (e) => {

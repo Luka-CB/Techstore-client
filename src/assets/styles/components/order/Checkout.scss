@@ -6,14 +6,30 @@
   margin: 50px auto;
   padding: 20px;
 
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
+
+  @media (max-width: 350px) {
+    padding: 0;
+  }
+
   .col1 {
     width: 70%;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.253);
     border-radius: 30px;
     padding: 20px;
 
+    @media (max-width: 1100px) {
+      width: 100%;
+    }
+
     .order-info {
       padding: 20px;
+
+      @media (max-width: 350px) {
+        padding: 0;
+      }
 
       .row1 {
         display: flex;
@@ -44,6 +60,61 @@
             }
           }
         }
+
+        @media (max-width: 900px) {
+          flex-direction: column;
+
+          .row1-col1,
+          .row1-col2 {
+            display: flex;
+            justify-content: flex-start;
+            width: 100%;
+
+            .keys {
+              width: 200px;
+            }
+          }
+
+          .row1-col2 {
+            margin-top: 20px;
+          }
+        }
+
+        @media (max-width: 600px) {
+          .row1-col1,
+          .row1-col2 {
+            .keys {
+              width: 150px;
+              .key {
+                font-size: small;
+              }
+            }
+
+            .values {
+              .value {
+                font-size: small;
+              }
+            }
+          }
+        }
+
+        @media (max-width: 450px) {
+          .row1-col1,
+          .row1-col2 {
+            .keys {
+              width: 100px;
+              .key {
+                font-size: 0.6rem;
+              }
+            }
+
+            .values {
+              .value {
+                font-size: 0.6rem;
+              }
+            }
+          }
+        }
       }
 
       hr {
@@ -60,6 +131,18 @@
               th {
                 color: $text-color-light;
                 padding: 10px;
+              }
+
+              @media (max-width: 500px) {
+                .name {
+                  display: none;
+                }
+              }
+
+              @media (max-width: 350px) {
+                .color-size {
+                  display: none;
+                }
               }
             }
           }
@@ -90,6 +173,35 @@
                     max-height: 250px;
                     object-fit: cover;
                     border-radius: 10px;
+                  }
+                }
+              }
+
+              @media (max-width: 500px) {
+                .name {
+                  display: none;
+                }
+              }
+
+              @media (max-width: 350px) {
+                .color-size {
+                  display: none;
+                }
+              }
+            }
+          }
+        }
+
+        @media (max-width: 600px) {
+          table {
+            tbody {
+              tr {
+                .item {
+                  font-size: small;
+
+                  #color {
+                    width: 30px;
+                    height: 30px;
                   }
                 }
               }
@@ -171,12 +283,42 @@
           border-color: rgb(167, 168, 168);
         }
       }
+
+      @media (max-width: 500px) {
+        flex-direction: column;
+        margin-top: 50px;
+
+        .back-btn {
+          width: 100%;
+        }
+
+        .cancel-btn {
+          margin-left: 0;
+          width: 100%;
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+
+  #divider {
+    @media (max-width: 1100px) {
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin: 50px 0;
+      background-color: aliceblue;
     }
   }
 
   .col2 {
     flex: 1;
     height: 85vh;
+
+    @media (max-width: 1100px) {
+      width: 100%;
+      height: auto;
+    }
 
     .payment-container {
       height: 100%;
@@ -268,11 +410,19 @@
         .paypal {
           margin-top: 100px;
           width: 350px;
+
+          @media (max-width: 400px) {
+            width: 250px;
+          }
         }
       }
 
       .action-btns {
         align-self: center;
+
+        @media (max-width: 1100px) {
+          margin-top: 50px;
+        }
 
         #save-btn {
           border: none;
@@ -287,6 +437,10 @@
           align-items: center;
           cursor: pointer;
           transition: all 0.2s ease-in-out;
+
+          @media (max-width: 400px) {
+            width: 250px;
+          }
 
           #save-icon {
             color: $secondary;
@@ -350,120 +504,6 @@
               #save-icon,
               span {
                 color: gray;
-              }
-            }
-          }
-        }
-
-        .btns {
-          width: 350px;
-          display: flex;
-          justify-content: space-between;
-
-          #home-btn {
-            border: none;
-            outline: none;
-            background-color: transparent;
-            border: 1px solid rgb(189, 189, 189);
-            width: 160px;
-            height: 40px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-
-            #home-icon {
-              color: rgb(189, 189, 189);
-              font-size: 1.5rem;
-              transition: all 0.2s ease-in-out;
-              margin-right: 10px;
-            }
-
-            span {
-              color: rgb(189, 189, 189);
-              transition: all 0.2s ease-in-out;
-              font-size: large;
-            }
-
-            &:hover {
-              border-color: aliceblue;
-              background-color: rgba(240, 248, 255, 0.11);
-
-              #home-icon {
-                color: aliceblue;
-              }
-
-              span {
-                color: aliceblue;
-              }
-            }
-
-            &:active {
-              border-color: rgb(142, 143, 143);
-              transform: scale(0.97);
-
-              #home-icon {
-                color: rgb(142, 143, 143);
-              }
-
-              span {
-                color: rgb(142, 143, 143);
-              }
-            }
-          }
-
-          #my-orders-btn {
-            border: none;
-            outline: none;
-            background-color: transparent;
-            border: 1px solid rgb(189, 189, 189);
-            width: 160px;
-            height: 40px;
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: all 0.2s ease-in-out;
-
-            #home-icon {
-              color: rgb(189, 189, 189);
-              font-size: 1.5rem;
-              transition: all 0.2s ease-in-out;
-              margin-right: 10px;
-            }
-
-            span {
-              color: rgb(189, 189, 189);
-              transition: all 0.2s ease-in-out;
-              font-size: large;
-            }
-
-            &:hover {
-              border-color: aliceblue;
-              background-color: rgba(240, 248, 255, 0.11);
-
-              #home-icon {
-                color: aliceblue;
-              }
-
-              span {
-                color: aliceblue;
-              }
-            }
-
-            &:active {
-              border-color: rgb(142, 143, 143);
-              transform: scale(0.97);
-
-              #home-icon {
-                color: rgb(142, 143, 143);
-              }
-
-              span {
-                color: rgb(142, 143, 143);
               }
             }
           }

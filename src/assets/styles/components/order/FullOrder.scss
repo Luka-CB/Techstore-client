@@ -4,6 +4,10 @@
   align-items: flex-start;
   margin: 50px 0;
 
+  @media (max-width: 1100px) {
+    flex-direction: column;
+  }
+
   .order-info-wrapper {
     width: 60%;
     min-height: 50vh;
@@ -12,6 +16,11 @@
     padding: 20px;
     margin-left: 50px;
     position: relative;
+
+    @media (max-width: 1100px) {
+      width: 100%;
+      margin-left: 0;
+    }
 
     .order-info {
       padding: 20px;
@@ -24,9 +33,11 @@
         .row1-col2 {
           display: flex;
           justify-content: space-between;
-          width: 320px;
+          width: 400px;
 
           .keys {
+            width: 150px;
+
             .key {
               &:not(:first-child) {
                 margin-top: 20px;
@@ -36,12 +47,67 @@
           }
 
           .values {
+            width: 250px;
+
             .value {
               &:not(:first-child) {
                 margin-top: 20px;
               }
               color: $secondary;
               text-transform: uppercase;
+            }
+          }
+        }
+
+        @media (max-width: 1400px) {
+          flex-direction: column;
+
+          @media (max-width: 1100px) {
+            align-items: center;
+
+            .row1-col1,
+            .row1-col2 {
+              width: 100%;
+
+              .keys {
+                width: 150px;
+              }
+
+              .values {
+                width: 200px;
+              }
+            }
+          }
+
+          .row1-col2 {
+            margin-top: 20px;
+          }
+
+          .row1-col1,
+          .row1-col2 {
+            .keys {
+              font-size: small;
+            }
+
+            .values {
+              font-size: small;
+            }
+          }
+        }
+
+        @media (max-width: 400px) {
+          .row1-col1,
+          .row1-col2 {
+            .keys {
+              .key {
+                font-size: 0.6rem;
+              }
+            }
+
+            .values {
+              .value {
+                font-size: 0.6rem;
+              }
             }
           }
         }
@@ -61,6 +127,18 @@
               th {
                 color: $text-color-light;
                 padding: 10px;
+              }
+
+              @media (max-width: 500px) {
+                .name {
+                  display: none;
+                }
+              }
+
+              @media (max-width: 400px) {
+                .color-size {
+                  display: none;
+                }
               }
             }
           }
@@ -99,15 +177,67 @@
                 }
               }
             }
+
+            @media (max-width: 700px) {
+              tr {
+                .item {
+                  font-size: small;
+
+                  #color {
+                    width: 30px;
+                    height: 30px;
+                  }
+                }
+              }
+            }
+
+            @media (max-width: 500px) {
+              tr {
+                .name {
+                  display: none;
+                }
+                .item {
+                  font-size: small;
+
+                  #color {
+                    width: 30px;
+                    height: 30px;
+                  }
+                }
+              }
+            }
+
+            @media (max-width: 400px) {
+              tr {
+                .color-size {
+                  display: none;
+                }
+              }
+            }
           }
         }
       }
     }
   }
 
+  .divider {
+    @media (max-width: 1100px) {
+      width: 100%;
+      height: 1px;
+      background-color: rgb(124, 124, 124);
+      margin: 50px 0;
+    }
+  }
+
   .payment-panel {
     flex: 1;
     height: 80vh;
+    margin-left: 20px;
+
+    @media (max-width: 1100px) {
+      width: 100%;
+      margin-left: 0;
+    }
 
     .payment-container {
       height: 100%;
@@ -127,6 +257,7 @@
           align-items: center;
           justify-content: space-around;
           width: 80%;
+          min-width: 450px;
           height: 200px;
           border-radius: 15px;
           padding: 10px;
@@ -149,6 +280,24 @@
               font-size: 1.2rem;
             }
           }
+
+          @media (max-width: 500px) {
+            width: 100%;
+            min-width: 250px;
+            border-radius: unset;
+
+            .keys {
+              .key {
+                font-size: small;
+              }
+            }
+
+            .values {
+              .value {
+                font-size: small;
+              }
+            }
+          }
         }
 
         .payment-info {
@@ -157,6 +306,7 @@
           align-items: center;
           justify-content: space-around;
           width: 80%;
+          min-width: 450px;
           border-radius: 15px;
           padding: 10px;
           margin-top: 40px;
@@ -186,6 +336,7 @@
               #date {
                 color: aliceblue;
                 margin-left: 10px;
+                font-size: small;
               }
             }
 
@@ -215,19 +366,53 @@
               }
             }
           }
+
+          @media (max-width: 500px) {
+            width: 100%;
+            min-width: 250px;
+            border-radius: unset;
+            flex-direction: column;
+
+            .paid {
+              #key {
+                font-size: medium;
+              }
+            }
+
+            .delivered {
+              margin-top: 50px;
+              #key {
+                font-size: medium;
+              }
+            }
+          }
         }
 
         .paypal {
           margin-top: 100px;
           width: 350px;
+
+          @media (max-width: 400px) {
+            width: 95%;
+          }
         }
       }
 
       .action-btns {
         align-self: center;
+        width: 100%;
+
+        @media (max-width: 1100px) {
+          margin-top: 50px;
+        }
 
         .btns {
           width: 350px;
+          margin: auto;
+
+          @media (max-width: 400px) {
+            width: 95%;
+          }
 
           #exit-btn {
             border: none;

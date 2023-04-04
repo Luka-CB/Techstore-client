@@ -23,6 +23,7 @@ import {
   toggleAuthModal,
   toggleIsModalOpen,
 } from "../redux/features/statesSlice";
+import Head from "../components/Head";
 
 const Details = () => {
   const [counter, setCounter] = useState(1);
@@ -178,6 +179,7 @@ const Details = () => {
 
   return (
     <div className="details-container">
+      <Head title={`${product?.name} | ${product?._id}`} />
       <div className="row1">
         <div className="gallery">
           <ProductImages images={product?.images} contentType={contentRoute} />

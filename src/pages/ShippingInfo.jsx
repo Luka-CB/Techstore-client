@@ -8,6 +8,7 @@ import {
   clearShippingData,
   setShippingData,
 } from "../redux/features/order/orderSlice";
+import Head from "../components/Head";
 
 const ShippingInfo = () => {
   const [firstName, setFirstName] = useState(
@@ -93,6 +94,7 @@ const ShippingInfo = () => {
 
   return (
     <div className="order-info-container">
+      <Head title="Provide Shipping Info" />
       <h1>Please Fill Out These Fields to Order!</h1>
       <form onSubmit={handleSubmit}>
         <div className="col1">

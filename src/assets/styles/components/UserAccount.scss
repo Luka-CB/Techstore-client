@@ -1,30 +1,36 @@
 .user-account-container {
   width: 100%;
   min-height: 100vh;
+  transition: all 0.2s ease-in-out;
 
   .account-form-container {
     display: flex;
     flex-direction: column;
     background-color: $dark;
     width: 60%;
+    min-width: 850px;
     min-height: 70vh;
     margin: 50px auto;
     border-radius: 20px;
     padding: 20px;
     box-shadow: 0 0 40px rgba(0, 0, 0, 0.397);
+    transition: all 0.2s ease-in-out;
 
     .user-info {
       padding-bottom: 10px;
       align-self: flex-end;
+      transition: all 0.2s ease-in-out;
 
       .info-text {
         color: rgba(240, 248, 255, 0.719);
         font-size: 0.8rem;
+        transition: all 0.2s ease-in-out;
 
         #date,
         #name {
           font-size: 1.1rem;
           color: $primary;
+          transition: all 0.2s ease-in-out;
         }
       }
     }
@@ -32,6 +38,7 @@
     #form-container-text {
       text-align: center;
       color: $text-color-light;
+      transition: all 0.2s ease-in-out;
     }
 
     #account-form {
@@ -39,6 +46,7 @@
       flex-direction: column;
       width: 70%;
       margin: auto;
+      transition: all 0.2s ease-in-out;
 
       .form-input {
         margin-top: 30px;
@@ -63,9 +71,15 @@
         display: flex;
         align-items: center;
         width: 100%;
+        transition: all 0.2s ease-in-out;
 
         label {
           color: $text-color-light;
+          transition: all 0.2s ease-in-out;
+
+          @media (max-width: 350px) {
+            font-size: small;
+          }
         }
 
         .provider-value {
@@ -81,6 +95,11 @@
           flex: 1;
           margin-left: 20px;
           text-transform: capitalize;
+          transition: all 0.2s ease-in-out;
+
+          @media (max-width: 350px) {
+            font-size: small;
+          }
         }
       }
 
@@ -150,6 +169,43 @@
         border-color: $danger-active;
         color: $danger-active;
         transform: scale(0.95);
+      }
+    }
+
+    @media (max-width: 900px) {
+      width: 100%;
+      min-width: 250px;
+      border-radius: unset;
+
+      #form-container-text {
+        font-size: larger;
+      }
+
+      #account-form {
+        width: 100%;
+
+        #update-btn {
+          width: 100%;
+          height: 40px;
+        }
+      }
+    }
+
+    @media (max-width: 500px) {
+      min-height: 80vh;
+
+      #form-container-text {
+        margin-top: 30px;
+      }
+
+      #account-form {
+        width: 100%;
+      }
+
+      #delete-btn {
+        margin-top: 10px;
+        width: 100%;
+        height: 40px;
       }
     }
   }
