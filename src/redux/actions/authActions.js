@@ -7,6 +7,7 @@ export const register = createAsyncThunk("REGISTER", async (user, thunkAPI) => {
   try {
     await axios.post(`${url}/api/users/register`, user, {
       headers: { "Content-Type": "application/json" },
+      withCredentials: true,
     });
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.message);

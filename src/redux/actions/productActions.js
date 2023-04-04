@@ -1,12 +1,14 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
+const url = "https://techstore-api-c4r4.onrender.com";
+
 export const getProducts = createAsyncThunk(
   "GET_PRODUCTS",
   async ({ route, searchQ = "", page = "1" }, thunkAPI) => {
     try {
       const { data } = await axios.get(
-        `/api/${route}/get-all?searchQ=${searchQ}&page=${page}`,
+        `${url}/api/${route}/get-all?searchQ=${searchQ}&page=${page}`,
         {
           headers: { "Content-Type": "application/json" },
           withCredentials: true,
@@ -29,10 +31,13 @@ export const getProduct = createAsyncThunk(
   "GET_PRODUCT",
   async ({ route, productId }, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/${route}/get-one/${productId}`, {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-      });
+      const { data } = await axios.get(
+        `${url}/api/${route}/get-one/${productId}`,
+        {
+          headers: { "Content-Type": "application/json" },
+          withCredentials: true,
+        }
+      );
 
       return data;
     } catch (error) {
@@ -50,7 +55,7 @@ export const getRandomProducts = createAsyncThunk(
   "GET_RANDOM_PRODUCTS",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/home/get-random`, {
+      const { data } = await axios.get(`${url}/api/home/get-random`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -71,7 +76,7 @@ export const getLatestAccessories = createAsyncThunk(
   "GET_LATEST_ACCESSORIES",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/home/accessories/latest`, {
+      const { data } = await axios.get(`${url}/api/home/accessories/latest`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -92,7 +97,7 @@ export const getLatestCellphones = createAsyncThunk(
   "GET_LATEST_CELLPHONES",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/home/cellphones/latest`, {
+      const { data } = await axios.get(`${url}/api/home/cellphones/latest`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -113,7 +118,7 @@ export const getLatestComputers = createAsyncThunk(
   "GET_LATEST_COMPUTERS",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/home/computers/latest`, {
+      const { data } = await axios.get(`${url}/api/home/computers/latest`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -134,7 +139,7 @@ export const getLatestTvs = createAsyncThunk(
   "GET_LATEST_TVS",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/home/tvs/latest`, {
+      const { data } = await axios.get(`${url}/api/home/tvs/latest`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
@@ -155,7 +160,7 @@ export const searchProduct = createAsyncThunk(
   "SEARCH_PRODUCT",
   async (q, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/home/search?q=${q}`, {
+      const { data } = await axios.get(`${url}/api/home/search?q=${q}`, {
         headers: { "Content-Type": "application/json" },
         withCredentials: true,
       });
