@@ -8,7 +8,7 @@ export default defineConfig({
   server: {
     proxy: {
       "/api": {
-        target: "https://techstore-api-u9a1.onrender.com",
+        target: "https://techstore-api-3jmr.onrender.com",
         changeOrigin: true,
         secure: false,
       },
