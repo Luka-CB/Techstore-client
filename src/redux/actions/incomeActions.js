@@ -1,21 +1,12 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const url = "http://localhost:5000";
+import { api } from "../../utils";
 
 export const updateIncome = createAsyncThunk(
   "UPDATE_INCOME",
   async (amount, thunkAPI) => {
     console.log(amount);
     try {
-      const { data } = await axios.put(
-        `/api/incomes/update`,
-        { amount },
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
-      );
+      const { data } = await api.put(`/api/incomes/update`, { amount });
 
       return data;
     } catch (error) {

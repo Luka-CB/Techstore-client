@@ -1,16 +1,11 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
-import axios from "axios";
-
-const url = "http://localhost:5000";
+import { api } from "../../utils";
 
 export const getFilters = createAsyncThunk(
   "GET_FILTERS",
   async (route, thunkAPI) => {
     try {
-      const { data } = await axios.get(`/api/${route}/filters`, {
-        headers: { "Content-Type": "application/json" },
-        withCredentials: true,
-      });
+      const { data } = await api.get(`/api/${route}/filters`);
 
       return data;
     } catch (error) {
@@ -28,12 +23,8 @@ export const getFilteredTvProducts = createAsyncThunk(
   "GET_FILTERED_TV_PRODUCTS",
   async ({ brand = "", type = "", size = "" }, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `/api/tvs/filtered?brand=${brand}&type=${type}&size=${size}`,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
+      const { data } = await api.get(
+        `/api/tvs/filtered?brand=${brand}&type=${type}&size=${size}`
       );
 
       return data;
@@ -55,12 +46,8 @@ export const getFilteredComputerProducts = createAsyncThunk(
     thunkAPI
   ) => {
     try {
-      const { data } = await axios.get(
-        `/api/computers/filtered?brand=${brand}&type=${type}&storageType=${storageType}&storageSize=${storageSize}&ram=${ram}`,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
+      const { data } = await api.get(
+        `/api/computers/filtered?brand=${brand}&type=${type}&storageType=${storageType}&storageSize=${storageSize}&ram=${ram}`
       );
 
       return data;
@@ -79,12 +66,8 @@ export const getFilteredCellphoneProducts = createAsyncThunk(
   "GET_FILTERED_CELLPHONE_PRODUCTS",
   async ({ brand = "", internalStorage = "", ram = "" }, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `/api/cellphones/filtered?brand=${brand}&internalStorage=${internalStorage}&ram=${ram}`,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
+      const { data } = await api.get(
+        `/api/cellphones/filtered?brand=${brand}&internalStorage=${internalStorage}&ram=${ram}`
       );
 
       return data;
@@ -103,12 +86,8 @@ export const getFilteredAccessoryProducts = createAsyncThunk(
   "GET_FILTERED_ACCESSORY_PRODUCTS",
   async ({ brand = "", category = "" }, thunkAPI) => {
     try {
-      const { data } = await axios.get(
-        `/api/accessories/filtered?brand=${brand}&category=${category}`,
-        {
-          headers: { "Content-Type": "application/json" },
-          withCredentials: true,
-        }
+      const { data } = await api.get(
+        `/api/accessories/filtered?brand=${brand}&category=${category}`
       );
 
       return data;

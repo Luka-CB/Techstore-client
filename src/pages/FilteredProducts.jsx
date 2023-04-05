@@ -15,7 +15,7 @@ import {
   usePickedCellphoneFilters,
   usePickedComputerFilters,
   usePickedTvFilters,
-} from "../utils/usePickedFilters";
+} from "../hooks/usePickedFilters";
 import Products from "../components/products/Products";
 
 const FilteredProducts = () => {
