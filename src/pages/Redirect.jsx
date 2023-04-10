@@ -7,7 +7,7 @@ import { getOauthUser } from "../redux/actions/authActions";
 import { resetOauthUser } from "../redux/features/users/oauthUserSlice";
 
 const Redirect = () => {
-  const { isSuccess, oauthUserData } = useSelector((state) => state.oauthUser);
+  const { isSuccess } = useSelector((state) => state.oauthUser);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
