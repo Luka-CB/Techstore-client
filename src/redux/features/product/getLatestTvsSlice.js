@@ -14,16 +14,17 @@ const getLatestTvsReducer = createSlice({
   reducers: {
     resetGetLatestTvs: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getLatestTvs.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getLatestTvs.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getLatestTvs.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getLatestTvs.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.latestTvs = payload;
-      }),
-      addCase(getLatestTvs.rejected, (state, { payload }) => {
+      })
+      .addCase(getLatestTvs.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

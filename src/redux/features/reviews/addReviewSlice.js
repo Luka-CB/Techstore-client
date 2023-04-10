@@ -14,16 +14,17 @@ const addReviewReducer = createSlice({
   reducers: {
     resetAddReview: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(addReview.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(addReview.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(addReview.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(addReview.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.addedReview = payload;
-      }),
-      addCase(addReview.rejected, (state, { payload }) => {
+      })
+      .addCase(addReview.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

@@ -15,11 +15,12 @@ const getOrderReducer = createSlice({
   reducers: {
     resetGetOrder: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getOrder.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getOrder.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getOrder.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getOrder.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         const modifiedOrder = {
@@ -34,8 +35,8 @@ const getOrderReducer = createSlice({
           updatedAt: formatDistanceToNow(new Date(payload.updatedAt)),
         };
         state.order = modifiedOrder;
-      }),
-      addCase(getOrder.rejected, (state, { payload }) => {
+      })
+      .addCase(getOrder.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

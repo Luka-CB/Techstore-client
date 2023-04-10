@@ -14,16 +14,17 @@ const getLatestCellphonesReducer = createSlice({
   reducers: {
     resetGetLatestCellphones: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getLatestCellphones.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getLatestCellphones.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getLatestCellphones.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getLatestCellphones.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.latestCellphones = payload;
-      }),
-      addCase(getLatestCellphones.rejected, (state, { payload }) => {
+      })
+      .addCase(getLatestCellphones.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

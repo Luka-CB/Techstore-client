@@ -7,6 +7,7 @@ import {
   setRegSuccessMsg,
   toggleSignUp,
 } from "../../redux/features/statesSlice";
+import Dots from "../Dots";
 
 const Register = ({ setAddClass, windowWidth }) => {
   const [username, setUsername] = useState("");
@@ -93,7 +94,9 @@ const Register = ({ setAddClass, windowWidth }) => {
           onChange={(e) => setConfirmPassword(e.target.value)}
           required
         />
-        <button className="auth-btn">Sign Up</button>
+        <button className="auth-btn" disabled={isLoading}>
+          {isLoading ? <Dots color="#d800a6" /> : "Sign Up"}
+        </button>
       </form>
     </>
   );

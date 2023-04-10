@@ -4,9 +4,21 @@ import { api } from "../../utils";
 export const updateIncome = createAsyncThunk(
   "UPDATE_INCOME",
   async (amount, thunkAPI) => {
-    console.log(amount);
     try {
-      const { data } = await api.put(`/api/incomes/update`, { amount });
+      const {
+        login: { user },
+      } = thunkAPI.getState();
+
+      const { data } = await api.put(
+        `/api/incomes/update`,
+        { amount },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${user.token}`,
+          },
+        }
+      );
 
       return data;
     } catch (error) {

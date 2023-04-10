@@ -14,16 +14,17 @@ const getLatestAccessoriesReducer = createSlice({
   reducers: {
     resetGetLatestAccessories: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getLatestAccessories.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getLatestAccessories.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getLatestAccessories.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getLatestAccessories.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.latestAccessories = payload;
-      }),
-      addCase(getLatestAccessories.rejected, (state, { payload }) => {
+      })
+      .addCase(getLatestAccessories.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

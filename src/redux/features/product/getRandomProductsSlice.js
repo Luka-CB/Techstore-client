@@ -14,16 +14,17 @@ const getRandomProductsReducer = createSlice({
   reducers: {
     resetGetRandomProductsProduct: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getRandomProducts.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getRandomProducts.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getRandomProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getRandomProducts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.randomProducts = payload;
-      }),
-      addCase(getRandomProducts.rejected, (state, { payload }) => {
+      })
+      .addCase(getRandomProducts.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

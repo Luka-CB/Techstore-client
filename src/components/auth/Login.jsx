@@ -7,8 +7,9 @@ import {
   toggleAuthModal,
   toggleIsModalOpen,
 } from "../../redux/features/statesSlice";
-import { getUser, login } from "../../redux/actions/authActions";
+import { login } from "../../redux/actions/authActions";
 import { resetLogin } from "../../redux/features/users/loginSlice";
+import Dots from "../Dots";
 
 const apiUrl = "http://localhost:5000/api/users/login";
 
@@ -41,7 +42,6 @@ const Login = () => {
     }
 
     if (isSuccess) {
-      dispatch(getUser());
       dispatch(toggleAuthModal(false));
       dispatch(toggleIsModalOpen());
       dispatch(resetLogin());
@@ -96,7 +96,9 @@ const Login = () => {
           required
         />
         <p className="auth-link">Forgot your password?</p>
-        <button className="auth-btn">Sign In</button>
+        <button className="auth-btn" disabled={isLoading}>
+          {isLoading ? <Dots color="#d800a6" /> : "Sign In"}
+        </button>
       </form>
     </>
   );

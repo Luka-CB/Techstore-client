@@ -14,16 +14,17 @@ const deleteUserReducer = createSlice({
   reducers: {
     resetDeleteUser: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(deleteUser.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(deleteUser.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(deleteUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(deleteUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.successMsg = payload.msg;
-      }),
-      addCase(deleteUser.rejected, (state, { payload }) => {
+      })
+      .addCase(deleteUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

@@ -15,11 +15,12 @@ const getOrdersReducer = createSlice({
   reducers: {
     resetGetOrders: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getOrders.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getOrders.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getOrders.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getOrders.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         const modifiedOrders = payload?.map((order) => {
@@ -35,8 +36,8 @@ const getOrdersReducer = createSlice({
           return { ...order, payDate, deliverDate, createdAt, updatedAt };
         });
         state.orders = modifiedOrders;
-      }),
-      addCase(getOrders.rejected, (state, { payload }) => {
+      })
+      .addCase(getOrders.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

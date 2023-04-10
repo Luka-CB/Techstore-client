@@ -9,17 +9,19 @@ import {
   toggleUserOptionModal,
 } from "../../redux/features/statesSlice";
 import { logout } from "../../redux/actions/authActions";
-import { cleanUser } from "../../redux/features/users/userSlice";
 import { resetAccount } from "../../redux/features/users/userAccountSlice";
 import SearchResult from "../search/SearchResult";
 import { clearFilter } from "../../redux/features/filters/filterSlice";
 import { resetGetFilters } from "../../redux/features/filters/getFiltersSlice";
+import { logoutLocal } from "../../redux/features/users/logoutSlice";
+import { resetUser } from "../../redux/features/users/loginSlice";
+import { resetOauthUser } from "../../redux/features/users/oauthUserSlice";
 
 const Navigation = () => {
   const dispatch = useDispatch();
 
   const { cartItemCount } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
   const { userOptionModal } = useSelector((state) => state.states);
   const { isSearchResultModalOpen } = useSelector(
     (state) => state.searchResultModal
@@ -29,11 +31,16 @@ const Navigation = () => {
   const navigate = useNavigate();
 
   const logoutHandler = () => {
-    dispatch(logout());
-    dispatch(cleanUser());
     dispatch(resetAccount());
+    dispatch(resetUser());
     dispatch(toggleUserOptionModal(false));
     navigate("/");
+    if (user.provider === "local") {
+      dispatch(logoutLocal());
+    } else {
+      dispatch(logout());
+      dispatch(resetOauthUser());
+    }
   };
 
   const navigationHandler = (to) => {

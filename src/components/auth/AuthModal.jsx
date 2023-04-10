@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
+import useWindowWidth from "../../hooks/windowWidth";
 import {
   toggleAuthModal,
   toggleIsModalOpen,
@@ -11,15 +12,10 @@ import Register from "./Register";
 
 const AuthModal = () => {
   const [addClass, setAddClass] = useState("");
-  const [windowWidth, setWindowWidth] = useState("");
+
+  const windowWidth = useWindowWidth();
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [window]);
 
   const handleCloseAuthModal = () => {
     dispatch(toggleAuthModal(false));

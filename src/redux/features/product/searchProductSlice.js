@@ -14,16 +14,17 @@ const searchProductReducer = createSlice({
   reducers: {
     resetSearchProduct: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(searchProduct.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(searchProduct.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(searchProduct.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(searchProduct.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.searchResult = payload;
-      }),
-      addCase(searchProduct.rejected, (state, { payload }) => {
+      })
+      .addCase(searchProduct.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

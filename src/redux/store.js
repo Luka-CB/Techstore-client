@@ -5,7 +5,6 @@ import msgModalSlice from "./features/msgModalSlice";
 import statesSlice from "./features/statesSlice";
 import registerSlice from "./features/users/registerSlice";
 import loginSlice from "./features/users/loginSlice";
-import userSlice from "./features/users/userSlice";
 import logoutSlice from "./features/users/logoutSlice";
 import userAccountSlice from "./features/users/userAccountSlice";
 import updateSlice from "./features/users/updateSlice";
@@ -42,6 +41,7 @@ import deleteOrderSlice from "./features/order/deleteOrderSlice";
 import deleteSlice from "./features/users/deleteSlice";
 import filterOptionPopupSlice from "./features/filters/filterOptionPopupSlice";
 import updateIncomeSlice from "./features/income/updateIncomeSlice";
+import oauthUserSlice from "./features/users/oauthUserSlice";
 
 const store = configureStore({
   reducer: {
@@ -53,8 +53,8 @@ const store = configureStore({
     states: statesSlice,
     register: registerSlice,
     login: loginSlice,
+    oauthUser: oauthUserSlice,
     logout: logoutSlice,
-    user: userSlice,
     account: userAccountSlice,
     updateUser: updateSlice,
     deleteUser: deleteSlice,

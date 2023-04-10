@@ -14,18 +14,19 @@ const userAccountReducer = createSlice({
   reducers: {
     resetAccount: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getUserAccount.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getUserAccount.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getUserAccount.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getUserAccount.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.account = {
           ...payload,
           date: formatDistanceToNow(new Date(payload.date)),
         };
-      }),
-      addCase(getUserAccount.rejected, (state) => {
+      })
+      .addCase(getUserAccount.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });

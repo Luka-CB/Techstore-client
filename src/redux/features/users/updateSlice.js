@@ -13,15 +13,16 @@ const updateUserReducer = createSlice({
   reducers: {
     resetUpdate: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(updateUser.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(updateUser.fulfilled, (state) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(updateUser.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateUser.fulfilled, (state) => {
         state.isLoading = false;
         state.isSuccess = true;
-      }),
-      addCase(updateUser.rejected, (state, { payload }) => {
+      })
+      .addCase(updateUser.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       });

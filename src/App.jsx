@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation, Navigate } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Home from "./pages/Home";
 import Footer from "./components/Footer";
 import Tv from "./pages/Tv";
@@ -15,7 +15,6 @@ import {
   toggleIsModalOpen,
   toggleUserOptionModal,
 } from "./redux/features/statesSlice";
-import { getUser } from "./redux/actions/authActions";
 import { useEffect } from "react";
 import UserAccount from "./pages/UserAccount";
 import Details from "./pages/Details";
@@ -30,6 +29,8 @@ import FullOrder from "./pages/FullOrder";
 import { toggleFilterOptionPopup } from "./redux/features/filters/filterOptionPopupSlice";
 import useWindowWidth from "./hooks/windowWidth";
 import MobileNavigation from "./components/navigation/MobileNavigation";
+import { getOauthUser } from "./redux/actions/authActions";
+import NotFound from "./pages/404";
 
 const routsToExclude = ["/", "/shipping", "/checkout"];
 
@@ -40,7 +41,7 @@ const App = () => {
   const { authModal, isModalOpen, userOptionModal } = useSelector(
     (state) => state.states
   );
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
   const { showMsgModal, msg, msgType } = useSelector((state) => state.msgModal);
   const { isSearchResultModalOpen } = useSelector(
     (state) => state.searchResultModal
@@ -52,8 +53,8 @@ const App = () => {
   const { pathname } = useLocation();
 
   useEffect(() => {
-    dispatch(getUser());
-  }, []);
+    dispatch(getOauthUser());
+  }, [dispatch]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -103,8 +104,9 @@ const App = () => {
           />
           <Route
             path="/account"
-            element={user?.id ? <UserAccount /> : <Navigate to="/" />}
+            element={user?.id ? <UserAccount /> : <NotFound />}
           />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </RouteWrapper>
       <Footer />

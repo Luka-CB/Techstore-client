@@ -6,6 +6,7 @@
   height: 100%;
   background-color: rgba(0, 0, 0, 0.445);
   z-index: 5;
+  animation: fade 0.2s ease-in;
 
   .mob-nav-container {
     background-color: rgb(238, 238, 238);
@@ -15,6 +16,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: slideLeft 0.2s linear;
 
     .mob-nav-logo {
       margin-top: 20px;

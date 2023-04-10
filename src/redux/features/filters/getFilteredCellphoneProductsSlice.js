@@ -14,16 +14,17 @@ const getFilteredCellphoneProductsReducer = createSlice({
   reducers: {
     resetGetFilteredCellphoneProducts: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getFilteredCellphoneProducts.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getFilteredCellphoneProducts.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getFilteredCellphoneProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getFilteredCellphoneProducts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.filteredCellphoneProducts = payload;
-      }),
-      addCase(getFilteredCellphoneProducts.rejected, (state, { payload }) => {
+      })
+      .addCase(getFilteredCellphoneProducts.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

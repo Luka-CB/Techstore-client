@@ -861,13 +861,7 @@ export const computers = [
         name: "Black",
         code: "#242323",
         qty: 12,
-      },
-      {
-        _id: uuid(),
-        name: "Iron Gray",
-        code: "#52595d",
-        qrty: 7,
-      },
+      }
     ],
     camera: "720p",
     weight: "1.7kg",

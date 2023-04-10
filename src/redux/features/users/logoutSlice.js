@@ -10,22 +10,27 @@ const initialState = {
 const logoutReducer = createSlice({
   name: "logoutReducer",
   initialState,
-  reducers: {},
-  extraReducers: ({ addCase }) => {
-    addCase(logout.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(logout.fulfilled, (state) => {
+  reducers: {
+    logoutLocal: () => {
+      localStorage.removeItem("techstoreUser");
+    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(logout.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(logout.fulfilled, (state) => {
         state.isLoading = false;
         state.isSuccess = true;
-      }),
-      addCase(logout.rejected, (state) => {
+      })
+      .addCase(logout.rejected, (state) => {
         state.isLoading = false;
         state.isError = true;
       });
   },
 });
 
-export const {} = logoutReducer.actions;
+export const { logoutLocal } = logoutReducer.actions;
 
 export default logoutReducer.reducer;

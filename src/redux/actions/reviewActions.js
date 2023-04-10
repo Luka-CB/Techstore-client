@@ -5,7 +5,16 @@ export const addReview = createAsyncThunk(
   "ADD_REVIEW",
   async (review, thunkAPI) => {
     try {
-      const { data } = await api.post(`/api/reviews/add`, review);
+      const {
+        login: { user },
+      } = thunkAPI.getState();
+
+      const { data } = await api.post(`/api/reviews/add`, review, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
       return data;
     } catch (error) {
@@ -41,7 +50,16 @@ export const updateReview = createAsyncThunk(
   "UPDATE_REVIEW",
   async (reviewData, thunkAPI) => {
     try {
-      const { data } = await api.put(`/api/reviews/update`, reviewData);
+      const {
+        login: { user },
+      } = thunkAPI.getState();
+
+      const { data } = await api.put(`/api/reviews/update`, reviewData, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
       return data;
     } catch (error) {
@@ -59,7 +77,16 @@ export const deleteReview = createAsyncThunk(
   "DELETE_REVIEW",
   async (reviewId, thunkAPI) => {
     try {
-      const { data } = await api.delete(`/api/reviews/delete-one/${reviewId}`);
+      const {
+        login: { user },
+      } = thunkAPI.getState();
+
+      const { data } = await api.delete(`/api/reviews/delete-one/${reviewId}`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
       return data;
     } catch (error) {

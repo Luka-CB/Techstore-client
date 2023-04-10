@@ -9,17 +9,19 @@ import {
   toggleUserOptionModal,
 } from "../../redux/features/statesSlice";
 import { logout } from "../../redux/actions/authActions";
-import { cleanUser } from "../../redux/features/users/userSlice";
 import { resetAccount } from "../../redux/features/users/userAccountSlice";
 import NavDrawer from "./NavDrawer";
 import { useNavigate } from "react-router-dom";
+import { resetUser } from "../../redux/features/users/loginSlice";
+import { logoutLocal } from "../../redux/features/users/logoutSlice";
+import { resetOauthUser } from "../../redux/features/users/oauthUserSlice";
 
 const MobileNavigationHome = () => {
   const { isMobNavOpen, userOptionModal } = useSelector(
     (state) => state.states
   );
   const { cartItemCount } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -30,11 +32,16 @@ const MobileNavigationHome = () => {
   };
 
   const logoutHandler = () => {
-    dispatch(logout());
-    dispatch(cleanUser());
     dispatch(resetAccount());
+    dispatch(resetUser());
     dispatch(toggleUserOptionModal(false));
     navigate("/");
+    if (user.provider === "local") {
+      dispatch(logoutLocal());
+    } else {
+      dispatch(logout());
+      dispatch(resetOauthUser());
+    }
   };
 
   const handleOpenMobNav = (e) => {

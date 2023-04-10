@@ -12,7 +12,7 @@ import {
 
 const CartPanel = () => {
   const { cartItems, cartItemCount } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

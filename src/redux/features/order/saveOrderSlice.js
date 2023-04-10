@@ -15,17 +15,18 @@ const saveOrderReducer = createSlice({
   reducers: {
     resetSaveOrder: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(saveOrder.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(saveOrder.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(saveOrder.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(saveOrder.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.successMsg = payload.msg;
         state.returnedOrderIds = payload.orderIds;
-      }),
-      addCase(saveOrder.rejected, (state, { payload }) => {
+      })
+      .addCase(saveOrder.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

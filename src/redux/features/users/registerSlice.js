@@ -13,15 +13,16 @@ const registerReducer = createSlice({
   reducers: {
     resetRegister: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(register.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(register.fulfilled, (state) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(register.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(register.fulfilled, (state) => {
         state.isLoading = false;
         state.isSuccess = true;
-      }),
-      addCase(register.rejected, (state, { payload }) => {
+      })
+      .addCase(register.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       });

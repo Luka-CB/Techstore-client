@@ -5,7 +5,7 @@
   "./components/home/LastAdded", "./components/Footer",
   "./components/navigation/Navigation",
   "./components/navigation/MobileNavigation",
-  "./components/navigation/MobileNaviationHome",
+  "./components/navigation/MobileNavigationHome",
   "./components/navigation/NavDrawer", "./components/About",
   "./components/search/Search", "./components/search/SearchResult",
   "./components/products/Products", "./components/products/ProductCard",
@@ -20,7 +20,8 @@
   "./components/details/UpdateReviewModal", "./components/products/Filters",
   "./components/products/FiltersSm", "./components/products/FilteredProducts",
   "./components/order/Shipping", "./components/order/Checkout",
-  "./components/order/MyOrders", "./components/order/FullOrder";
+  "./components/order/MyOrders", "./components/order/FullOrder",
+  "./components/404";
 
 * {
   margin: 0;
@@ -82,5 +83,14 @@ body {
   }
   100% {
     top: 50%;
+  }
+}
+
+@keyframes slideLeft {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 350px;
   }
 }

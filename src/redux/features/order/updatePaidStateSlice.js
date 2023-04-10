@@ -14,16 +14,17 @@ const updatePaidStateReducer = createSlice({
   reducers: {
     resetUpdatePaidState: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(updatePaidState.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(updatePaidState.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(updatePaidState.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updatePaidState.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.successMsg = payload.msg;
-      }),
-      addCase(updatePaidState.rejected, (state, { payload }) => {
+      })
+      .addCase(updatePaidState.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

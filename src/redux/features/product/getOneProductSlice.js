@@ -14,16 +14,17 @@ const getOneProductReducer = createSlice({
   reducers: {
     resetGetOneProduct: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getProduct.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getProduct.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getProduct.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getProduct.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.product = payload;
-      }),
-      addCase(getProduct.rejected, (state, { payload }) => {
+      })
+      .addCase(getProduct.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

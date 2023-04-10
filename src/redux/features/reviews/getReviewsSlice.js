@@ -37,11 +37,12 @@ const getReviewsReducer = createSlice({
       });
     },
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getReviews.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getReviews.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getReviews.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getReviews.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         const modifiedReviews = payload.map((review) => {
@@ -49,8 +50,8 @@ const getReviewsReducer = createSlice({
           return { ...review, createdAt: date + " ago" };
         });
         state.reviews = modifiedReviews;
-      }),
-      addCase(getReviews.rejected, (state, { payload }) => {
+      })
+      .addCase(getReviews.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

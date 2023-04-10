@@ -14,16 +14,17 @@ const updateIncomeReducer = createSlice({
   reducers: {
     resetUpdateIcome: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(updateIncome.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(updateIncome.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(updateIncome.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(updateIncome.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.successMsg = payload;
-      }),
-      addCase(updateIncome.rejected, (state, { payload }) => {
+      })
+      .addCase(updateIncome.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

@@ -14,16 +14,17 @@ const getFilteredComputerProductsReducer = createSlice({
   reducers: {
     resetGetFilteredComputerProducts: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getFilteredComputerProducts.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getFilteredComputerProducts.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getFilteredComputerProducts.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getFilteredComputerProducts.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.filteredComputerProducts = payload;
-      }),
-      addCase(getFilteredComputerProducts.rejected, (state, { payload }) => {
+      })
+      .addCase(getFilteredComputerProducts.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });

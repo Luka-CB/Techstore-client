@@ -13,13 +13,15 @@ import {
   toggleUserOptionModal,
 } from "../../redux/features/statesSlice";
 import { logout } from "../../redux/actions/authActions";
-import { cleanUser } from "../../redux/features/users/userSlice";
 import { resetAccount } from "../../redux/features/users/userAccountSlice";
 import NavDrawer from "./NavDrawer";
+import { resetUser } from "../../redux/features/users/loginSlice";
+import { logoutLocal } from "../../redux/features/users/logoutSlice";
+import { resetOauthUser } from "../../redux/features/users/oauthUserSlice";
 
 const MobileNavigation = () => {
   const { cartItemCount } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
   const { isMobNavOpen, userOptionModal } = useSelector(
     (state) => state.states
   );
@@ -37,10 +39,16 @@ const MobileNavigation = () => {
   };
 
   const logoutHandler = () => {
-    dispatch(logout());
-    dispatch(cleanUser());
     dispatch(resetAccount());
+    dispatch(resetUser());
     dispatch(toggleUserOptionModal(false));
+    navigate("/");
+    if (user.provider === "local") {
+      dispatch(logoutLocal());
+    } else {
+      dispatch(logout());
+      dispatch(resetOauthUser());
+    }
   };
 
   const handleOpenMobNav = (e) => {

@@ -11,17 +11,26 @@ export const register = createAsyncThunk("REGISTER", async (user, thunkAPI) => {
 
 export const login = createAsyncThunk("LOGIN", async (user, thunkAPI) => {
   try {
-    await api.post(`/api/users/login`, user);
+    const { data } = await api.post(`/api/users/login`, user);
+
+    localStorage.setItem("techstoreUser", JSON.stringify(data));
+    return data;
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response.data.message);
   }
 });
 
-export const getUser = createAsyncThunk(
-  "GET_USER",
+export const getOauthUser = createAsyncThunk(
+  "GET_OAUTH_USER",
   async (undefined, thunkAPI) => {
     try {
-      const { data } = await api.get(`/api/users/user`);
+      const {
+        login: { user },
+      } = thunkAPI.getState();
+
+      const { data } = await api.get(`/api/users/oauth/user`, {
+        withCredentials: true,
+      });
 
       localStorage.setItem("techstoreUser", JSON.stringify(data));
       return data;
@@ -34,8 +43,17 @@ export const getUser = createAsyncThunk(
 export const getUserAccount = createAsyncThunk(
   "GET_USER_ACCOUNT",
   async (undefined, thunkAPI) => {
+    const {
+      login: { user },
+    } = thunkAPI.getState();
+
     try {
-      const { data } = await api.get(`/api/users/user-account`);
+      const { data } = await api.get(`/api/users/user-account`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
       return data;
     } catch (error) {
@@ -47,9 +65,18 @@ export const getUserAccount = createAsyncThunk(
 
 export const updateUser = createAsyncThunk(
   "UPDATE_USER",
-  async (user, thunkAPI) => {
+  async (userInfo, thunkAPI) => {
+    const {
+      login: { user },
+    } = thunkAPI.getState();
+
     try {
-      await api.put(`/api/users/update`, user);
+      await api.put(`/api/users/update`, userInfo, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data.message);
     }
@@ -59,8 +86,17 @@ export const updateUser = createAsyncThunk(
 export const deleteUser = createAsyncThunk(
   "DELETE_USER",
   async (undefined, thunkAPI) => {
+    const {
+      login: { user },
+    } = thunkAPI.getState();
+
     try {
-      const { data } = await api.delete(`/api/users/delete`);
+      const { data } = await api.delete(`/api/users/delete`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
       return data;
     } catch (error) {
@@ -77,8 +113,17 @@ export const deleteUser = createAsyncThunk(
 export const logout = createAsyncThunk(
   "LOGOUT",
   async (undefined, thunkAPI) => {
+    const {
+      login: { user },
+    } = thunkAPI.getState();
+
     try {
-      await api.post(`/api/users/logout`, {});
+      await api.post(`/api/users/logout`, {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${user.token}`,
+        },
+      });
 
       localStorage.removeItem("techstoreUser");
     } catch (error) {

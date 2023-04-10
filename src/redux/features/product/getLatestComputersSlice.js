@@ -14,16 +14,17 @@ const getLatestComputersReducer = createSlice({
   reducers: {
     resetGetLatestComputers: () => initialState,
   },
-  extraReducers: ({ addCase }) => {
-    addCase(getLatestComputers.pending, (state) => {
-      state.isLoading = true;
-    }),
-      addCase(getLatestComputers.fulfilled, (state, { payload }) => {
+  extraReducers: (builder) => {
+    builder
+      .addCase(getLatestComputers.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(getLatestComputers.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
         state.latestComputers = payload;
-      }),
-      addCase(getLatestComputers.rejected, (state, { payload }) => {
+      })
+      .addCase(getLatestComputers.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.errorMsg = payload;
       });
