@@ -29,10 +29,11 @@ import FullOrder from "./pages/FullOrder";
 import { toggleFilterOptionPopup } from "./redux/features/filters/filterOptionPopupSlice";
 import useWindowWidth from "./hooks/windowWidth";
 import MobileNavigation from "./components/navigation/MobileNavigation";
-import { getOauthUser } from "./redux/actions/authActions";
 import NotFound from "./pages/404";
+import Redirect from "./pages/Redirect";
 
-const routsToExclude = ["/", "/shipping", "/checkout"];
+const routsToExcludeNavigation = ["/", "/shipping", "/checkout", "/redirect"];
+const routsToExcludeFooter = ["/redirect"];
 
 const App = () => {
   const windowWidth = useWindowWidth();
@@ -51,10 +52,6 @@ const App = () => {
   );
 
   const { pathname } = useLocation();
-
-  useEffect(() => {
-    dispatch(getOauthUser());
-  }, [dispatch]);
 
   useEffect(() => {
     if (isModalOpen) {
@@ -77,8 +74,8 @@ const App = () => {
   return (
     <div className="app" onClick={handleBgClick}>
       {authModal ? <AuthModal /> : null}
-      {routsToExclude.includes(pathname) ? null : windowWidth < 1300 &&
-        window.innerWidth < 1300 ? (
+      {routsToExcludeNavigation.includes(pathname) ? null : windowWidth <
+          1300 && window.innerWidth < 1300 ? (
         <MobileNavigation />
       ) : (
         <Navigation />
@@ -106,10 +103,11 @@ const App = () => {
             path="/account"
             element={user?.id ? <UserAccount /> : <NotFound />}
           />
+          <Route path="/redirect" element={<Redirect />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </RouteWrapper>
-      <Footer />
+      {routsToExcludeFooter.includes(pathname) ? null : <Footer />}
     </div>
   );
 };

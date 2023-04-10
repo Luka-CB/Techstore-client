@@ -4,6 +4,7 @@ import { getOauthUser } from "../../actions/authActions";
 const initialState = {
   isLoading: false,
   isSuccess: false,
+  oauthUserData: {},
   isError: false,
 };
 
@@ -21,6 +22,7 @@ const oauthUserReducer = createSlice({
       .addCase(getOauthUser.fulfilled, (state, { payload }) => {
         state.isLoading = false;
         state.isSuccess = true;
+        state.oauthUserData = payload;
       })
       .addCase(getOauthUser.rejected, (state) => {
         state.isLoading = false;

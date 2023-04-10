@@ -24,6 +24,9 @@ const loginReducer = createSlice({
     resetUser: (state) => {
       state.user = {};
     },
+    setUser: (state, { payload }) => {
+      state.user = payload;
+    },
   },
   extraReducers: (builder) => {
     builder
@@ -42,6 +45,6 @@ const loginReducer = createSlice({
   },
 });
 
-export const { resetLogin, resetUser } = loginReducer.actions;
+export const { resetLogin, resetUser, setUser } = loginReducer.actions;
 
 export default loginReducer.reducer;
