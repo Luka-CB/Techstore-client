@@ -31,7 +31,6 @@ import useWindowWidth from "./hooks/windowWidth";
 import MobileNavigation from "./components/navigation/MobileNavigation";
 import NotFound from "./pages/404";
 import Redirect from "./pages/Redirect";
-import Test from "./pages/Test";
 
 const routsToExcludeNavigation = ["/", "/shipping", "/checkout", "/redirect"];
 const routsToExcludeFooter = ["/redirect"];
@@ -105,7 +104,6 @@ const App = () => {
             element={user?.id ? <UserAccount /> : <NotFound />}
           />
           <Route path="/redirect" element={<Redirect />} />
-          <Route path="/test" element={<Test />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
       </RouteWrapper>

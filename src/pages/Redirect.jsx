@@ -4,22 +4,24 @@ import { useNavigate } from "react-router-dom";
 import Head from "../components/Head";
 import { Spinner } from "../components/Spinner";
 import { getOauthUser } from "../redux/actions/authActions";
+import { setUser } from "../redux/features/users/loginSlice";
 import { resetOauthUser } from "../redux/features/users/oauthUserSlice";
 
 const Redirect = () => {
-  const { isSuccess } = useSelector((state) => state.oauthUser);
+  const { isSuccess, oauthUserData } = useSelector((state) => state.oauthUser);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
   useEffect(() => {
     if (isSuccess) {
+      dispatch(setUser(oauthUserData));
       navigate("/");
       dispatch(resetOauthUser());
     } else {
       dispatch(getOauthUser());
     }
-  }, [dispatch, isSuccess, navigate]);
+  }, [dispatch, isSuccess, navigate, oauthUserData]);
 
   return (
     <div className="redirect-container">

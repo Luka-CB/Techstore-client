@@ -14,7 +14,6 @@ import {
 import SearchResult from "../components/search/SearchResult";
 import MobileNavigationHome from "../components/navigation/MobileNavigationHome";
 import Head from "../components/Head";
-import { useNavigate } from "react-router-dom";
 
 const Home = () => {
   const [windowWidth, setWindowWidth] = useState("");
@@ -28,7 +27,6 @@ const Home = () => {
   );
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getLatestAccessories());
@@ -74,12 +72,6 @@ const Home = () => {
           </div>
         </div>
       </div>
-      <button onClick={() => navigate("/test")}>
-        <h1>Test</h1>
-      </button>
-      <button onClick={() => navigate("/redirect")}>
-        <h1>Redirect</h1>
-      </button>
 
       <SlideShow />
 

@@ -6,3 +6,4 @@ export const api = axios.create({
 });
 
 // "https://techstore-api-3jmr.onrender.com"
+// http://localhost:5000
