@@ -12,7 +12,7 @@ const ReviewForm = ({ productId }) => {
   const { isLoading, isSuccess, addedReview } = useSelector(
     (state) => state.addReview
   );
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
 
   const dispatch = useDispatch();
 

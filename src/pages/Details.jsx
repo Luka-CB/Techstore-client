@@ -32,7 +32,7 @@ const Details = () => {
   const { isUpdReviewModalOpen } = useSelector((state) => state.updReviewModal);
   const { pickedAttr, productImages } = useSelector((state) => state.details);
   const { cartItems } = useSelector((state) => state.cart);
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();

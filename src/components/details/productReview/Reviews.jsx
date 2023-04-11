@@ -24,7 +24,7 @@ const Reviews = ({ productId }) => {
   const [reviewId, setReviewId] = useState("");
 
   const { reviews } = useSelector((state) => state.reviews);
-  const { user } = useSelector((state) => state.user);
+  const { user } = useSelector((state) => state.login);
   const { isWarningPopupOpen, warningPopupIndex, popupResponse } = useSelector(
     (state) => state.warningPopup
   );
