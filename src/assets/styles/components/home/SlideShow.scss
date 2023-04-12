@@ -7,6 +7,9 @@
   .content {
     height: 80vh;
     background-image: url("../images/carousel-bg.jpg");
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative;
 
     .slide-image {
@@ -70,10 +73,10 @@
   }
 
   @media (max-width: 1500px) {
-    height: 60vh;
+    height: 80vh;
 
     .content {
-      height: 60vh;
+      height: 80vh;
 
       .slide-image {
         max-width: 350px;
@@ -129,12 +132,12 @@
 
   @media (max-width: 900px) {
     margin: 50px auto;
-    height: 80vh;
+    height: 100vh;
     border-radius: 15px;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.267);
 
     .content {
-      height: 80vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -143,10 +146,14 @@
         position: initial;
         background-color: aqua;
         max-width: none;
-        width: 90%;
+        max-width: 450px;
         max-height: 350px;
         margin: 10px auto;
         background-color: aliceblue;
+
+        @media (max-width: 550px) {
+          max-width: 250px;
+        }
 
         #carousel-img {
           border-radius: 20px;
@@ -192,6 +199,42 @@
       .legend:hover {
         text-decoration: underline;
         cursor: pointer;
+      }
+    }
+
+    @media (max-width: 550px) {
+      height: 80vh;
+
+      .content {
+        height: 80vh;
+
+        .slide-image {
+          max-width: 250px;
+        }
+
+        .item-info {
+          width: 95%;
+          background-color: rgb(30, 30, 30);
+          border-radius: 10px;
+          padding: 10px;
+          box-shadow: 0 6px 12px black;
+
+          #item-brand {
+            font-size: 1.2rem;
+          }
+
+          #item-price {
+            font-size: small;
+          }
+
+          .item-description {
+            font-size: small;
+
+            .spec {
+              font-size: small;
+            }
+          }
+        }
       }
     }
   }

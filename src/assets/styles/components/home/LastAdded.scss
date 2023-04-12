@@ -3,6 +3,10 @@
   margin-top: 50px;
   padding-bottom: 50px;
 
+  @media (max-width: 1500px) {
+    height: 1000px;
+  }
+
   .content-wrapper {
     background-color: aliceblue;
     height: 100%;
