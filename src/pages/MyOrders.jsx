@@ -111,11 +111,11 @@ const MyOrders = () => {
                 </div>
                 <div className="delivered">
                   <h3 id="key">Delivered</h3>
-                  {!order.isDelivered ? (
+                  {order.isDelivered ? (
                     <div className="value">
                       <AiFillCheckCircle id="check-icon" />
                       <span>-</span>
-                      <p id="date">{order.deliverDate} about 22 hours ago</p>
+                      <p id="date">{order.deliverDate} ago</p>
                     </div>
                   ) : (
                     <p id="value">
