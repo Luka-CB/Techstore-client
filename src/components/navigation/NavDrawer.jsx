@@ -29,14 +29,22 @@ const NavDrawer = () => {
 
   const handleOnClickLogo = () => {
     navigate("/");
-    handleCloseMobNav();
+    handleOnClickNavlink();
   };
 
   return (
     <div className="mob-nav-bg" onClick={handleCloseMobNav}>
       <div className="mob-nav-container" onClick={(e) => e.stopPropagation()}>
-        <div className="mob-nav-logo" onClick={handleOnClickLogo}>
-          <h1>logo</h1>
+        <div className="drawer-logo">
+          <div
+            className="nav-logo-wrapper"
+            title="TechStore"
+            onClick={handleOnClickLogo}
+          >
+            <div className="nav-logo">
+              <h3>techstore</h3>
+            </div>
+          </div>
         </div>
         {windowWidth < 500 && window.innerWidth < 500 ? (
           <div className="close-btn" onClick={handleCloseMobNav}>

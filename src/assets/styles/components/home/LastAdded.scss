@@ -1,10 +1,14 @@
 .lastadded-container {
-  height: 100vh;
+  height: 130vh;
   margin-top: 50px;
   padding-bottom: 50px;
 
   @media (max-width: 1500px) {
     height: 1000px;
+  }
+
+  @media (max-width: 900px) {
+    height: 900px;
   }
 
   .content-wrapper {
@@ -40,7 +44,8 @@
 
       .card {
         background-color: aliceblue;
-        width: 500px;
+        width: 450px;
+        height: 500px;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -50,13 +55,14 @@
         transition: all 0.2s ease-in-out;
 
         .card-image {
-          width: 500px;
-          height: 350px;
+          width: 450px;
+          height: auto;
           border-radius: 15px;
 
           #card-img {
             width: 100%;
             height: 100%;
+            max-height: 350px;
             object-fit: cover;
             border-radius: 15px;
           }
@@ -99,13 +105,17 @@
 
         @media (max-width: 1500px) {
           width: 300px;
-          height: 550px;
+          height: 450px;
           padding: 0;
 
           .card-image {
             width: 300px;
             height: auto;
             max-height: 250px;
+
+            #card-img {
+              max-height: 300px;
+            }
           }
 
           .body {
@@ -118,22 +128,11 @@
         }
 
         @media (max-width: 1100px) {
-          width: 400px;
+          width: 380px;
 
           .card-image {
-            width: 400px;
+            width: 380px;
             max-height: 300px;
-          }
-        }
-
-        @media (max-width: 900px) {
-          width: 70%;
-          height: 650px;
-          min-width: 380px;
-
-          .card-image {
-            width: 100%;
-            max-height: 400px;
           }
         }
 
@@ -162,12 +161,13 @@
 
         .card-image {
           width: 450px;
-          height: 450px;
+          height: 500px;
           border-radius: 15px;
 
           #card-img {
             width: 100%;
             height: 100%;
+            max-height: 450px;
             object-fit: cover;
             border-radius: 15px;
           }
@@ -230,22 +230,22 @@
         }
 
         @media (max-width: 1100px) {
-          width: 420px;
+          width: 380px;
 
           .card-image {
-            width: 420px;
+            width: 380px;
           }
         }
 
-        @media (max-width: 900px) {
-          width: 70%;
-          min-width: 380px;
+        // @media (max-width: 900px) {
+        //   width: 70%;
+        //   min-width: 380px;
 
-          .card-image {
-            width: 100%;
-            height: 500px;
-          }
-        }
+        //   .card-image {
+        //     width: 100%;
+        //     height: 500px;
+        //   }
+        // }
 
         @media (max-width: 400px) {
           width: 95%;

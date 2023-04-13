@@ -33,42 +33,45 @@
   .products {
     margin-left: 30px;
     flex: 1;
-    position: relative;
-    min-height: 60vh;
 
-    #no-match {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      color: $danger;
-      font-size: 1.3rem;
-    }
+    .cards-wrapper {
+      position: relative;
+      min-height: 60vh;
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      justify-items: center;
-      align-items: flex-start;
-      margin: 50px 0 100px 0;
-      gap: 4rem 0;
-
-      @media (max-width: 1500px) {
-        grid-template-columns: repeat(3, 1fr);
+      #no-match {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $danger;
+        font-size: 1.3rem;
       }
 
-      @media (max-width: 1150px) {
+      .cards {
+        display: grid;
         grid-template-columns: repeat(2, 1fr);
+        justify-items: center;
+        align-items: flex-start;
+        margin: 50px 0 100px 0;
+        gap: 4rem 0;
+
+        @media (max-width: 1500px) {
+          grid-template-columns: repeat(3, 1fr);
+        }
+
+        @media (max-width: 1150px) {
+          grid-template-columns: repeat(2, 1fr);
+        }
+
+        @media (max-width: 550px) {
+          grid-template-columns: 1fr;
+        }
       }
 
-      @media (max-width: 550px) {
-        grid-template-columns: 1fr;
+      @media (max-width: 800px) {
+        width: 100%;
+        margin: 0;
       }
-    }
-
-    @media (max-width: 800px) {
-      width: 100%;
-      margin: 0;
     }
   }
 }

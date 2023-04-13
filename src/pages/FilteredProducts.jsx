@@ -106,6 +106,7 @@ const FilteredProducts = () => {
             content={filteredTvProducts}
             contentType={contentType}
             isLoading={isFilteredTvLoading}
+            isFilteredProductPage={true}
           />
         ) : null}
         {contentType === "computers" ? (
@@ -113,6 +114,7 @@ const FilteredProducts = () => {
             content={filteredComputerProducts}
             contentType={contentType}
             isLoading={isFilteredComputerLoading}
+            isFilteredProductPage={true}
           />
         ) : null}
         {contentType === "cellphones" ? (
@@ -120,6 +122,7 @@ const FilteredProducts = () => {
             content={filteredCellphoneProducts}
             contentType={contentType}
             isLoading={isFilteredCellphoneLoading}
+            isFilteredProductPage={true}
           />
         ) : null}
         {contentType === "accessories" ? (
@@ -127,6 +130,7 @@ const FilteredProducts = () => {
             content={filteredAccessoryProducts}
             contentType={contentType}
             isLoading={isFilteredAccessoryLoading}
+            isFilteredProductPage={true}
           />
         ) : null}
       </div>

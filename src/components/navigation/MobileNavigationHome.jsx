@@ -50,10 +50,24 @@ const MobileNavigationHome = () => {
     dispatch(toggleIsModalOpen(true));
   };
 
+  const handleOnClickNavlink = () => {
+    dispatch(clearFilter());
+    dispatch(resetGetFilters());
+  };
+
   return (
     <div className="mobile-navigation-home">
-      <div className="logo">
-        <h1>logo</h1>
+      <div
+        className="nav-logo-wrapper"
+        title="TechStore"
+        onClick={() => {
+          navigate("/");
+          handleOnClickNavlink();
+        }}
+      >
+        <div className="nav-logo">
+          <h3>techstore</h3>
+        </div>
       </div>
       <div className="nav-items">
         <div

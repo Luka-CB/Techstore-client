@@ -5,7 +5,9 @@ const Footer = () => {
     <div className="footer">
       <div className="footer-col-one">
         <div className="logo">
-          <h3 id="logo-text">LOGO</h3>
+          <h4 id="logo-text">
+            <span>tech</span>/store
+          </h4>
         </div>
         <div className="footer-text">
           <p>
@@ -55,7 +57,7 @@ const Footer = () => {
         </ul>
         <div className="site">
           <h3 id="site-text">
-            techstore <span>2022.</span>
+            techstore <span>{new Date().getFullYear()}.</span>
           </h3>
         </div>
       </div>

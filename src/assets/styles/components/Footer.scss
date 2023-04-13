@@ -19,6 +19,12 @@
       color: $text-color-dark;
       float: left;
       margin: 10px;
+
+      #logo-text {
+        span {
+          text-transform: uppercase;
+        }
+      }
     }
 
     .footer-text {
