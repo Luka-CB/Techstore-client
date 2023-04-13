@@ -113,13 +113,15 @@ const ProductCard = ({ data, contentType }) => {
 
   return (
     <div
-      onMouseEnter={() => data.totalQuantity !== 0 && setShowCartBtn(true)}
+      onMouseEnter={() => data.totalQty !== 0 && setShowCartBtn(true)}
       onMouseLeave={() => setShowCartBtn(false)}
-      onClick={() => navigate(`/${contentType}/details/${data._id}`)}
+      onClick={() =>
+        data.totalQty !== 0 && navigate(`/${contentType}/details/${data._id}`)
+      }
       className={
-        data.totalQuantity === 0 && contentType === "cellphones"
+        data.totalQty === 0 && contentType === "cellphones"
           ? "product-card-cell-disabled"
-          : data.totalQuantity === 0
+          : data.totalQty === 0
           ? "product-card-disabled"
           : contentType === "cellphones"
           ? "product-card-cell"
@@ -148,7 +150,7 @@ const ProductCard = ({ data, contentType }) => {
             </div>
           </div>
         )}
-        {data.totalQuantity === 0 && <h1 id="not-in-stock">not in stock</h1>}
+        {data.totalQty === 0 && <h1 id="not-in-stock">not in stock</h1>}
       </div>
       <div className="prod-card-body">
         <div className="card-body-details">

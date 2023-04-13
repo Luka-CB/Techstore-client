@@ -263,6 +263,7 @@
 .product-card-cell-disabled {
   background-color: rgb(138, 138, 138);
   box-shadow: none;
+  cursor: default;
 
   .prod-card-image {
     #img {
@@ -304,5 +305,11 @@
 
   &:hover {
     box-shadow: none;
+
+    .prod-card-body {
+      #name {
+        text-decoration: none;
+      }
+    }
   }
 }
