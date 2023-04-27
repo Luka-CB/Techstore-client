@@ -42,6 +42,7 @@ import deleteSlice from "./features/users/deleteSlice";
 import filterOptionPopupSlice from "./features/filters/filterOptionPopupSlice";
 import updateIncomeSlice from "./features/income/updateIncomeSlice";
 import oauthUserSlice from "./features/users/oauthUserSlice";
+import savedRouteSlice from "./features/savedRouteSlice";
 
 const store = configureStore({
   reducer: {
@@ -88,6 +89,7 @@ const store = configureStore({
     updatePaidState: updatePaidStateSlice,
     deleteOrder: deleteOrderSlice,
     updateIncome: updateIncomeSlice,
+    savedRoute: savedRouteSlice,
   },
 });
 

@@ -139,15 +139,17 @@
   }
 
   @media (max-width: 500px) {
-    margin-top: 40px;
+    margin-top: 30px;
 
     .search-box {
+      padding: 5px;
       margin: 0;
-      height: 70vh;
+      height: 60vh;
       min-width: 250px;
 
       #site-description {
-        font-size: small;
+        font-size: 0.6rem;
+        width: 100%;
       }
 
       .search-wrapper {

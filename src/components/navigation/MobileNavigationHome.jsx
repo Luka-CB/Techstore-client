@@ -2,6 +2,7 @@ import { TfiMenu } from "react-icons/tfi";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import logo from "../../assets/images/White-logo-no-background.png";
 import {
   toggleAuthModal,
   toggleIsModalOpen,
@@ -15,6 +16,8 @@ import { useNavigate } from "react-router-dom";
 import { resetUser } from "../../redux/features/users/loginSlice";
 import { logoutLocal } from "../../redux/features/users/logoutSlice";
 import { resetOauthUser } from "../../redux/features/users/oauthUserSlice";
+import { clearFilter } from "../../redux/features/filters/filterSlice";
+import { resetGetFilters } from "../../redux/features/filters/getFiltersSlice";
 
 const MobileNavigationHome = () => {
   const { isMobNavOpen, userOptionModal } = useSelector(
@@ -65,9 +68,7 @@ const MobileNavigationHome = () => {
           handleOnClickNavlink();
         }}
       >
-        <div className="nav-logo">
-          <h3>techstore</h3>
-        </div>
+        <img src={logo} alt="logo" id="img" />
       </div>
       <div className="nav-items">
         <div

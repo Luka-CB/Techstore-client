@@ -1,13 +1,13 @@
 import React from "react";
+import logo1 from "../assets/images/White-logo-no-background-var-2.png";
+import logo2 from "../assets/images/White-logo-no-background.png";
 
 const Footer = () => {
   return (
     <div className="footer">
       <div className="footer-col-one">
         <div className="logo">
-          <h4 id="logo-text">
-            <span>tech</span>/store
-          </h4>
+          <img src={logo1} alt="logo" id="img" />
         </div>
         <div className="footer-text">
           <p>
@@ -56,8 +56,9 @@ const Footer = () => {
           </li>
         </ul>
         <div className="site">
+          <img src={logo2} alt="logo" id="img2" />{" "}
           <h3 id="site-text">
-            techstore <span>{new Date().getFullYear()}.</span>
+            <span>{new Date().getFullYear()}.</span>
           </h3>
         </div>
       </div>

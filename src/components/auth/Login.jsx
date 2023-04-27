@@ -10,6 +10,7 @@ import {
 import { login } from "../../redux/actions/authActions";
 import { resetLogin } from "../../redux/features/users/loginSlice";
 import Dots from "../Dots";
+import { useNavigate } from "react-router-dom";
 
 const apiUrl =
   "https://techstore-server-production.up.railway.app/api/users/login";
@@ -22,8 +23,10 @@ const Login = () => {
 
   const { regSuccessMsg } = useSelector((state) => state.states);
   const { isLoading, isSuccess, isError } = useSelector((state) => state.login);
+  const { route } = useSelector((state) => state.savedRoute);
 
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const googleLoginHandler = () => {
     window.open(`${apiUrl}/google`, "_self");
@@ -46,6 +49,9 @@ const Login = () => {
     if (isSuccess) {
       dispatch(toggleAuthModal(false));
       dispatch(toggleIsModalOpen());
+      if (route) {
+        navigate(route);
+      }
       dispatch(resetLogin());
     }
 
@@ -56,7 +62,7 @@ const Login = () => {
         dispatch(resetLogin());
       }, 5000);
     }
-  }, [dispatch, regSuccessMsg, isSuccess, isError]);
+  }, [dispatch, route, regSuccessMsg, isSuccess, isError]);
 
   return (
     <>

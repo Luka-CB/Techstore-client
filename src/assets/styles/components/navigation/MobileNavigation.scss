@@ -13,17 +13,21 @@
   }
 
   @media (max-width: 500px) {
-    height: 200px;
+    height: 300px;
   }
 
   .col1 {
-    .logo {
+    .nav-logo-wrapper {
       @media (max-width: 500px) {
         margin: 0;
         position: absolute;
         top: 50%;
         left: 50%;
         transform: translate(-50%, -50%);
+
+        #img {
+          width: 100px;
+        }
       }
     }
   }

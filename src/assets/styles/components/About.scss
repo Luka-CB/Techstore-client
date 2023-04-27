@@ -1,3 +1,407 @@
 .about-container {
   min-height: 100vh;
+  display: flex;
+  align-items: center;
+  transition: all 0.3s ease-in-out;
+
+  .col1 {
+    width: 50%;
+    margin-left: 10px;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+
+    .site-info {
+      width: 550px;
+      transition: all 0.3s ease-in-out;
+
+      #title {
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        display: flex;
+        justify-content: flex-start;
+        transition: all 0.3s ease-in-out;
+      }
+
+      .description {
+        color: $text-color-light;
+        font-size: small;
+        text-indent: 20px;
+        line-height: 20px;
+        transition: all 0.3s ease-in-out;
+
+        #portfolio {
+          color: rgb(234, 177, 255);
+          font-size: medium;
+          text-transform: uppercase;
+          transition: all 0.3s ease-in-out;
+
+          &:hover {
+            color: rgb(242, 205, 255);
+          }
+        }
+      }
+
+      .image {
+        display: none;
+      }
+
+      .links {
+        margin-top: 30px;
+        transition: all 0.3s ease-in-out;
+
+        ul {
+          li {
+            color: $text-color-light;
+            margin-top: 20px;
+            transition: all 0.3s ease-in-out;
+
+            .link {
+              display: flex;
+              align-items: center;
+              transition: all 0.3s ease-in-out;
+
+              #name {
+                text-transform: capitalize;
+                transition: all 0.3s ease-in-out;
+              }
+
+              #dash {
+                margin: 0 10px;
+                font-size: large;
+                transition: all 0.3s ease-in-out;
+              }
+
+              #arrow-icon {
+                margin: 0 10px;
+                transition: all 0.3s ease-in-out;
+              }
+
+              .btn {
+                border: none;
+                outline: none;
+                background-color: transparent;
+                border: 1px solid $secondary;
+                width: 150px;
+                height: 40px;
+                border-radius: 5px;
+                cursor: pointer;
+                transition: all 0.2s ease-in-out;
+
+                a {
+                  display: flex;
+                  height: 100%;
+                  justify-content: center;
+                  align-items: center;
+                  text-decoration: none;
+
+                  #icon {
+                    margin-right: 10px;
+                    font-size: 1.5rem;
+                    color: aliceblue;
+                    transition: all 0.2s ease-in-out;
+                  }
+
+                  #btn-name {
+                    color: aliceblue;
+                    font-size: small;
+                    text-transform: uppercase;
+                    transition: all 0.2s ease-in-out;
+                  }
+                }
+
+                &:hover {
+                  background-color: #ffa1ce14;
+
+                  a {
+                    #icon {
+                      color: rgb(234, 177, 255);
+                    }
+
+                    #btn-name {
+                      color: $secondary;
+                    }
+                  }
+                }
+
+                &:active {
+                  transform: scale(0.95);
+
+                  a {
+                    #globe-icon {
+                      color: rgb(234, 177, 255);
+                    }
+
+                    #btn-name {
+                      color: $secondary-active;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 1200px) {
+      .site-info {
+        width: 550px;
+
+        .description {
+          font-size: 0.6rem;
+          line-height: 15px;
+
+          #portfolio {
+            font-size: small;
+          }
+        }
+
+        .links {
+          margin-top: 30px;
+
+          ul {
+            li {
+              color: $text-color-light;
+              margin-top: 20px;
+
+              .link {
+                #name {
+                  font-size: small;
+                }
+
+                #dash {
+                  font-size: medium;
+                }
+
+                #here {
+                  font-size: small;
+                }
+
+                #arrow-icon {
+                  font-size: small;
+                }
+
+                .btn {
+                  width: 120px;
+                  height: 35px;
+
+                  a {
+                    #icon {
+                      font-size: 1.2rem;
+                    }
+
+                    #btn-name {
+                      font-size: 0.7rem;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @media (max-width: 800px) {
+      width: 100%;
+      margin-left: 0;
+      margin: 50px 0;
+
+      .site-info {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        .description {
+          font-size: 0.6rem;
+          line-height: 15px;
+          width: 450px;
+
+          @media (max-width: 500px) {
+            width: 100%;
+          }
+        }
+
+        .image {
+          margin-top: 30px;
+          background-color: rgb(234, 177, 255);
+          width: 80%;
+          height: 60vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-top-left-radius: 300px;
+          border-bottom-left-radius: 200px;
+          border-top-right-radius: 200px;
+          border-bottom-right-radius: 300px;
+          transition: all 0.3s ease-in-out;
+
+          img {
+            width: 350px;
+            transition: all 0.3s ease-in-out;
+          }
+
+          @media (max-width: 600px) {
+            width: 100%;
+            min-width: 250px;
+
+            img {
+              width: 250px;
+            }
+          }
+
+          @media (max-width: 400px) {
+            width: 100%;
+            min-width: 250px;
+            height: 40vh;
+
+            img {
+              width: 200px;
+            }
+          }
+        }
+
+        .links {
+          width: 100%;
+
+          @media (max-width: 500px) {
+            ul {
+              list-style: none;
+
+              li {
+                .link {
+                  flex-direction: column;
+
+                  #name {
+                    font-size: medium;
+                  }
+
+                  #dash {
+                    display: none;
+                  }
+
+                  #here {
+                    display: none;
+                  }
+
+                  #arrow-icon {
+                    margin: 10px 0;
+                    font-size: medium;
+                  }
+
+                  .btn {
+                    border: none;
+                    outline: none;
+                    background-color: transparent;
+                    border: 1px solid $secondary;
+                    width: 100%;
+                    height: 40px;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    transition: all 0.2s ease-in-out;
+
+                    a {
+                      display: flex;
+                      height: 100%;
+                      justify-content: center;
+                      align-items: center;
+                      text-decoration: none;
+
+                      #icon {
+                        margin-right: 10px;
+                        font-size: 1.5rem;
+                        color: aliceblue;
+                        transition: all 0.2s ease-in-out;
+                      }
+
+                      #btn-name {
+                        color: aliceblue;
+                        font-size: small;
+                        text-transform: uppercase;
+                        transition: all 0.2s ease-in-out;
+                      }
+                    }
+
+                    &:hover {
+                      background-color: #ffa1ce14;
+
+                      a {
+                        #icon {
+                          color: rgb(234, 177, 255);
+                        }
+
+                        #btn-name {
+                          color: $secondary;
+                        }
+                      }
+                    }
+
+                    &:active {
+                      transform: scale(0.95);
+
+                      a {
+                        #globe-icon {
+                          color: rgb(234, 177, 255);
+                        }
+
+                        #btn-name {
+                          color: $secondary-active;
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .col2 {
+    background-color: rgb(234, 177, 255);
+    height: 80vh;
+    width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top-left-radius: 300px;
+    border-bottom-left-radius: 200px;
+    border-top-right-radius: 200px;
+    border-bottom-right-radius: 300px;
+    margin-right: 20px;
+    transition: all 0.3s ease-in-out;
+
+    img {
+      width: 650px;
+      transition: all 0.3s ease-in-out;
+    }
+
+    @media (max-width: 1500px) {
+      height: 70vh;
+      width: 600px;
+
+      img {
+        width: 450px;
+      }
+    }
+
+    @media (max-width: 1200px) {
+      height: 60vh;
+      width: 500px;
+
+      img {
+        width: 300px;
+      }
+    }
+
+    @media (max-width: 800px) {
+      display: none;
+    }
+  }
 }

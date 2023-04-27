@@ -5,6 +5,7 @@ import {
   clearCart,
 } from "../../redux/features/cart/cartSlice";
 import { setOriginRoute } from "../../redux/features/order/orderSlice";
+import { setRoute } from "../../redux/features/savedRouteSlice";
 import {
   toggleAuthModal,
   toggleIsModalOpen,
@@ -33,6 +34,7 @@ const CartPanel = () => {
       e.stopPropagation();
       dispatch(toggleAuthModal(true));
       dispatch(toggleIsModalOpen(true));
+      dispatch(setRoute("/shipping"));
     } else {
       navigate("/shipping");
       dispatch(

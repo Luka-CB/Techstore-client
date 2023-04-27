@@ -4,6 +4,8 @@ import { BsCart3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import { useLocation, useNavigate } from "react-router-dom";
 import SearchNav from "../search/SearchNav";
+import logo from "../../assets/images/White-logo-no-background.png";
+import logoMob from "../../assets/images/White-logo-no-background-var-2.png";
 import SearchResult from "../search/SearchResult";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -18,6 +20,9 @@ import NavDrawer from "./NavDrawer";
 import { resetUser } from "../../redux/features/users/loginSlice";
 import { logoutLocal } from "../../redux/features/users/logoutSlice";
 import { resetOauthUser } from "../../redux/features/users/oauthUserSlice";
+import useWindowWidth from "../../hooks/windowWidth";
+import { clearFilter } from "../../redux/features/filters/filterSlice";
+import { resetGetFilters } from "../../redux/features/filters/getFiltersSlice";
 
 const MobileNavigation = () => {
   const { cartItemCount } = useSelector((state) => state.cart);
@@ -28,6 +33,8 @@ const MobileNavigation = () => {
   const { isSearchResultModalOpen } = useSelector(
     (state) => state.searchResultModal
   );
+
+  const windowWidth = useWindowWidth();
 
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -73,9 +80,11 @@ const MobileNavigation = () => {
             handleOnClickNavlink();
           }}
         >
-          <div className="nav-logo">
-            <h3>techstore</h3>
-          </div>
+          {windowWidth <= 500 && window.innerWidth <= 500 ? (
+            <img src={logoMob} alt="logo mobile" id="img" />
+          ) : (
+            <img src={logo} alt="logo" id="img" />
+          )}
         </div>
       </div>
       <div className="col2">

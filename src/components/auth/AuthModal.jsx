@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { AiFillCloseCircle } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import useWindowWidth from "../../hooks/windowWidth";
+import { setRoute } from "../../redux/features/savedRouteSlice";
 import {
   toggleAuthModal,
   toggleIsModalOpen,
@@ -20,6 +21,7 @@ const AuthModal = () => {
   const handleCloseAuthModal = () => {
     dispatch(toggleAuthModal(false));
     dispatch(toggleIsModalOpen());
+    dispatch(setRoute(""));
   };
 
   return (

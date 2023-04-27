@@ -93,7 +93,7 @@ const CartModal = ({ contentType }) => {
                 <div key={size._id}>
                   {size.qty === 0 ? (
                     <div
-                      title="Product with This Size is Not In Stock"
+                      title="This Size is Not In Stock"
                       className="size-wrapper-disabled"
                     >
                       <div className="size">
@@ -122,7 +122,7 @@ const CartModal = ({ contentType }) => {
                 <div key={color._id}>
                   {color.qty === 0 ? (
                     <div
-                      title="Product with this Color is Not in Stock"
+                      title="This Color is Not in Stock"
                       className="color-disabled"
                       style={{ backgroundColor: color.code }}
                     ></div>

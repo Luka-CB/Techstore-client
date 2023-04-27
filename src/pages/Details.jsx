@@ -24,6 +24,7 @@ import {
   toggleIsModalOpen,
 } from "../redux/features/statesSlice";
 import Head from "../components/Head";
+import { setRoute } from "../redux/features/savedRouteSlice";
 
 const Details = () => {
   const [counter, setCounter] = useState(1);
@@ -150,6 +151,7 @@ const Details = () => {
       e.stopPropagation();
       dispatch(toggleAuthModal(true));
       dispatch(toggleIsModalOpen(true));
+      dispatch(setRoute("/shipping"));
     } else {
       navigate("/shipping");
       dispatch(setOriginRoute(`/${contentRoute}/details/${productId}`));

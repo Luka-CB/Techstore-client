@@ -9,6 +9,7 @@ import { resetOauthUser } from "../redux/features/users/oauthUserSlice";
 
 const Redirect = () => {
   const { isSuccess, oauthUserData } = useSelector((state) => state.oauthUser);
+  const { route } = useSelector((state) => state.savedRoute);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -16,12 +17,16 @@ const Redirect = () => {
   useEffect(() => {
     if (isSuccess) {
       dispatch(setUser(oauthUserData));
-      navigate("/");
+      if (route) {
+        navigate(route);
+      } else {
+        navigate("/");
+      }
       dispatch(resetOauthUser());
     } else {
       dispatch(getOauthUser());
     }
-  }, [dispatch, isSuccess, navigate, oauthUserData]);
+  }, [dispatch, isSuccess, route, navigate, oauthUserData]);
 
   return (
     <div className="redirect-container">

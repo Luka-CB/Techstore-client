@@ -1,5 +1,6 @@
 import React from "react";
 import useWindowWidth from "../../hooks/windowWidth";
+import logo from "../../assets/images/Black-logo-no-background.png";
 import { AiFillCloseCircle } from "react-icons/ai";
 import {
   toggleIsModalOpen,
@@ -41,9 +42,7 @@ const NavDrawer = () => {
             title="TechStore"
             onClick={handleOnClickLogo}
           >
-            <div className="nav-logo">
-              <h3>techstore</h3>
-            </div>
+            <img src={logo} alt="logo" id="img" />
           </div>
         </div>
         {windowWidth < 500 && window.innerWidth < 500 ? (

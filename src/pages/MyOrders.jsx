@@ -63,9 +63,9 @@ const MyOrders = () => {
     }
   }, [isDeleteOrderSuccess, dispatch]);
 
-  const handleOpenDeleteModal = (e, orderObjId) => {
+  const handleOpenDeleteModal = (e, orderId) => {
     e.stopPropagation();
-    dispatch(setDelData({ id: orderObjId }));
+    dispatch(setDelData({ id: orderId }));
     dispatch(toggleDeleteModal(true));
     dispatch(toggleIsModalOpen(true));
   };
@@ -85,7 +85,7 @@ const MyOrders = () => {
                 <div className="card-icon-wrapper">
                   <AiFillCreditCard id="card-icon" />
                 </div>
-                <span id="card-id">{order._id}</span>
+                <span id="card-id">{order.orderId}</span>
                 <div
                   className="detail-icon-wrapper"
                   title="See Full Order"
@@ -129,7 +129,7 @@ const MyOrders = () => {
                 <div
                   className="delete-card"
                   title="Delete Order"
-                  onClick={(e) => handleOpenDeleteModal(e, order._id)}
+                  onClick={(e) => handleOpenDeleteModal(e, order.orderId)}
                 >
                   <AiFillDelete id="delete-icon" />
                 </div>

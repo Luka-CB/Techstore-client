@@ -2,6 +2,7 @@ import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { BsCart3 } from "react-icons/bs";
 import { FaRegUserCircle } from "react-icons/fa";
 import SearchNav from "../search/SearchNav";
+import logo from "../../assets/images/White-logo-no-background.png";
 import { useDispatch, useSelector } from "react-redux";
 import {
   toggleAuthModal,
@@ -63,9 +64,7 @@ const Navigation = () => {
           handleOnClickNavlink();
         }}
       >
-        <div className="nav-logo">
-          <h3>techstore</h3>
-        </div>
+        <img src={logo} alt="logo" id="img" />
       </div>
       <nav>
         <div className="nav-links">
