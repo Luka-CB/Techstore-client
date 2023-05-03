@@ -861,7 +861,7 @@ export const computers = [
         name: "Black",
         code: "#242323",
         qty: 12,
-      }
+      },
     ],
     camera: "720p",
     weight: "1.7kg",
@@ -2351,8 +2351,10 @@ export const cellPhones = [
     selfieCamera: {
       picture: {
         type: "Dual",
-        details:
-          "8 MP, f/1.8, 28mm (wide), PDAF / 8 MP, f/2.2, 19mm (ultrawide), no AF",
+        details: [
+          "8 MP, f/1.8, 28mm (wide), PDAF",
+          "8 MP, f/2.2, 19mm (ultrawide), no AF",
+        ],
       },
       features: "Auto-HDR",
       video: "1080p@30fps",
