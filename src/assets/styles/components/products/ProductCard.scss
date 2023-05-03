@@ -49,6 +49,10 @@
         transition: all 0.2s ease-in-out;
         cursor: pointer;
 
+        @media (max-width: 1000px) {
+          visibility: visible;
+        }
+
         #chevron-icon {
           font-size: 1.3rem;
           color: rgba(0, 0, 0, 0.329);

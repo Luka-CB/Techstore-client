@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaChevronCircleLeft, FaChevronCircleRight } from "react-icons/fa";
 import { BsCart3 } from "react-icons/bs";
 import { useDispatch, useSelector } from "react-redux";
@@ -7,8 +7,11 @@ import { msgModalStateHandler } from "../../redux/features/msgModalSlice";
 import { addToCart } from "../../redux/features/cart/cartSlice";
 import { toggleIsModalOpen } from "../../redux/features/statesSlice";
 import { useNavigate } from "react-router-dom";
+import useWindowWidth from "../../hooks/windowWidth";
 
 const ProductCard = ({ data, contentType }) => {
+  const windowWidth = useWindowWidth();
+
   const [displayImage, setDisplayImage] = useState(0);
   const [showCartBtn, setShowCartBtn] = useState(false);
 
@@ -110,6 +113,14 @@ const ProductCard = ({ data, contentType }) => {
       }
     }
   };
+
+  useEffect(() => {
+    if (windowWidth < 1000 && window.innerWidth < 1000) {
+      setShowCartBtn(true);
+    } else {
+      setShowCartBtn(false);
+    }
+  }, [windowWidth]);
 
   return (
     <div

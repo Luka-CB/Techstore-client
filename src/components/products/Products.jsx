@@ -46,7 +46,7 @@ const Products = ({
             </>
           )}
         </div>
-        {isFilteredProductPage === 0 ? null : (
+        {isFilteredProductPage ? null : (
           <div className="pagination-wrapper">
             {paginationData.limit < paginationData.totalDocs ? (
               <Pagination
