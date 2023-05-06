@@ -25,11 +25,15 @@ import {
 } from "../redux/features/statesSlice";
 import Head from "../components/Head";
 import { setRoute } from "../redux/features/savedRouteSlice";
+import { Spinner } from "../components/Spinner";
+import { getReviews } from "../redux/actions/reviewActions";
 
 const Details = () => {
   const [counter, setCounter] = useState(1);
 
-  const { product, isLoading } = useSelector((state) => state.product);
+  const { product, isLoading: isGetDetailsLoading } = useSelector(
+    (state) => state.product
+  );
   const { isUpdReviewModalOpen } = useSelector((state) => state.updReviewModal);
   const { pickedAttr, productImages } = useSelector((state) => state.details);
   const { cartItems } = useSelector((state) => state.cart);
@@ -42,6 +46,7 @@ const Details = () => {
   useEffect(() => {
     if (productId) {
       dispatch(getProduct({ route: contentRoute, productId }));
+      dispatch(getReviews(productId));
     }
   }, [productId, dispatch]);
 
@@ -182,54 +187,63 @@ const Details = () => {
   return (
     <div className="details-container">
       <Head title={`${product?.name} | ${product?._id}`} />
-      <div className="row1">
-        <div className="gallery">
-          <ProductImages images={product?.images} contentType={contentRoute} />
+      {isGetDetailsLoading ? (
+        <div className="spinner">
+          <Spinner width={80} height={80} color="#ffa1cf" />
         </div>
-        <div className="info">
-          <ProductInfo
-            info={{ ...product, images: null, colors: null, sizes: null }}
-            contentType={contentRoute}
-          />
-          <ProductAttr
-            attrs={contentRoute === "tvs" ? product?.sizes : product?.colors}
-            contentType={contentRoute}
-          />
-          <div className="action-btns">
-            <div className="quantity">
-              <h4 id="label">Quantity: </h4>
-              <button
-                id="decrease-btn"
-                onClick={handleDecreaseQty}
-                disabled={counter === 1}
-              >
-                -
+      ) : (
+        <div className="row1">
+          <div className="gallery">
+            <ProductImages
+              images={product?.images}
+              contentType={contentRoute}
+            />
+          </div>
+          <div className="info">
+            <ProductInfo
+              info={{ ...product, images: null, colors: null, sizes: null }}
+              contentType={contentRoute}
+            />
+            <ProductAttr
+              attrs={contentRoute === "tvs" ? product?.sizes : product?.colors}
+              contentType={contentRoute}
+            />
+            <div className="action-btns">
+              <div className="quantity">
+                <h4 id="label">Quantity: </h4>
+                <button
+                  id="decrease-btn"
+                  onClick={handleDecreaseQty}
+                  disabled={counter === 1}
+                >
+                  -
+                </button>
+                <span id="qty">{counter}</span>
+                <button
+                  id="increase-btn"
+                  onClick={handleIncreaseQty}
+                  disabled={counter === pickedAttr?.qty}
+                >
+                  +
+                </button>
+              </div>
+              <button id="add-to-cart-btn" onClick={handleAddToCart}>
+                <BsCartPlus id="cart-icon" />
+                <span>Add to Cart</span>
               </button>
-              <span id="qty">{counter}</span>
-              <button
-                id="increase-btn"
-                onClick={handleIncreaseQty}
-                disabled={counter === pickedAttr?.qty}
-              >
-                +
+              <button id="order-btn" onClick={handleOrderNowClick}>
+                Order Now
               </button>
             </div>
-            <button id="add-to-cart-btn" onClick={handleAddToCart}>
-              <BsCartPlus id="cart-icon" />
-              <span>Add to Cart</span>
-            </button>
-            <button id="order-btn" onClick={handleOrderNowClick}>
-              Order Now
-            </button>
           </div>
         </div>
-      </div>
+      )}
       <div className="row2">
         <div className="product-reviews">
           <h2 id="title">Review This Product</h2>
           <ReviewForm productId={product._id} />
           <hr id="review-hr" />
-          <Reviews productId={product._id} />
+          <Reviews />
         </div>
       </div>
 

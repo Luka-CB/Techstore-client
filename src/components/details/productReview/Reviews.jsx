@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { AiOutlineEdit, AiOutlineDelete } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteReview, getReviews } from "../../../redux/actions/reviewActions";
+import { deleteReview } from "../../../redux/actions/reviewActions";
 import {
   msgModalStateHandler,
   resetMsgModal,
@@ -20,7 +20,7 @@ import {
 } from "../../../redux/features/warningPopupSlice";
 import WarningPopup from "../../WarningPopup";
 
-const Reviews = ({ productId }) => {
+const Reviews = () => {
   const [reviewId, setReviewId] = useState("");
 
   const { reviews } = useSelector((state) => state.reviews);
@@ -33,12 +33,6 @@ const Reviews = ({ productId }) => {
   );
 
   const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (productId) {
-      dispatch(getReviews(productId));
-    }
-  }, [productId, dispatch]);
 
   const handleShowDelWarning = (e, i, revId) => {
     e.stopPropagation();

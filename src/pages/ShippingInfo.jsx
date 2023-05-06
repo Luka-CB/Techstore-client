@@ -53,9 +53,16 @@ const ShippingInfo = () => {
   );
 
   const { originRoute } = useSelector((state) => state.order);
+  const { user } = useSelector((state) => state.login);
 
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user && user.email) {
+      setEmailAddress(user.email);
+    }
+  }, [user]);
 
   useEffect(() => {
     dispatch(
