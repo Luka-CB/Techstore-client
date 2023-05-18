@@ -12,8 +12,7 @@ import { resetLogin } from "../../redux/features/users/loginSlice";
 import Dots from "../Dots";
 import { useNavigate } from "react-router-dom";
 
-const apiUrl =
-  "https://techstore-server-production.up.railway.app/api/users/login";
+const apiUrl = "https://techstore-api-3jmr.onrender.com/api/users/login";
 const apiUrlLocal = "http://localhost:5000/api/users/login";
 
 const Login = () => {
