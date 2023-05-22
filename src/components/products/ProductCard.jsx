@@ -125,7 +125,7 @@ const ProductCard = ({ data, contentType }) => {
   return (
     <div
       onMouseEnter={() => data.totalQty !== 0 && setShowCartBtn(true)}
-      onMouseLeave={() => setShowCartBtn(false)}
+      onMouseLeave={() => windowWidth > 1000 && setShowCartBtn(false)}
       onClick={() =>
         data.totalQty !== 0 && navigate(`/${contentType}/details/${data._id}`)
       }
@@ -151,7 +151,7 @@ const ProductCard = ({ data, contentType }) => {
           alt={data.name}
           id="img"
         />
-        {data?.images?.length > 1 && (
+        {data?.images?.length > 1 && data.totalQty !== 0 && (
           <div className="change-image-arrows">
             <div className="left-arrow" onClick={previousImage}>
               <FaChevronCircleLeft id="chevron-icon" />
@@ -195,7 +195,7 @@ const ProductCard = ({ data, contentType }) => {
           )}
         </div>
 
-        {showCartBtn && (
+        {showCartBtn && data.totalQty !== 0 ? (
           <div
             className="cart-btn"
             title="Add to cart"
@@ -203,7 +203,7 @@ const ProductCard = ({ data, contentType }) => {
           >
             <BsCart3 id="cart-icon" />
           </div>
-        )}
+        ) : null}
       </div>
     </div>
   );
