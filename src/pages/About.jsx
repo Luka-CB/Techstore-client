@@ -46,20 +46,26 @@ const About = () => {
         <div className="site-info">
           <h1 id="title">techstore</h1>
           <p className="description">
-            <b>Techstore</b> is demo full-stack <b>MERN</b> e-commerce website,
-            created to feature in my <b>Portfolio</b>. You can search and view
-            technologies such as <b>TVs, Computers, Cell Phones</b> and{" "}
-            <b>Accessories</b>, you can add them to the cart. You can view each
-            product separately and add to cart from there or leave a review. you
-            can make an order and pay it with paypal. Authentication is possible
-            via local, google or facebook, after authentication you can view
-            your account and make modification to it, also you can view orders
-            you've made and pay if haven't already or delete them.
+            <b>Techstore</b> is a demo full-stack <b>MERN</b> e-commerce website
+            created to showcase in my <b>Portfolio</b>. It allows you to explore
+            and buy a variety of technologies, such as{" "}
+            <b>TVs, Computers, Cell Phones</b> and <b>Accessories</b>, You can
+            also view the details of each product, add it to your cart, and
+            leave a review. You can place an order and pay with PayPal securely
+            and conveniently. You can sign up with your email, Google, or
+            Facebook account and access your profile and order history. You can
+            also edit your account information, pay for pending orders, or
+            cancel them if you change your mind. Techstore is a modern and
+            user-friendly website that demonstrates my skills and creativity.
           </p>
           <div className="image">
             <img src={Image} alt="website image" />
           </div>
-          <Link title="view portfolio website" btnName="portfolio" link="#" />
+          <Link
+            title="view portfolio website"
+            btnName="portfolio"
+            link="https://portfolio-gamma-six-63.vercel.app"
+          />
           <Link
             title="view website code"
             btnName="github"
