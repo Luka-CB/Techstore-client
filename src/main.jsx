@@ -7,6 +7,7 @@ import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import App from "./App";
 import "./assets/styles/index.scss";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { HelmetProvider } from "react-helmet-async";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <BrowserRouter>
@@ -18,7 +19,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
               "Ad26DOqTF_fTcnD-bzLadJZc3jjbXATDrCAxi4UQFdaAfJ6wUmb7rpUR_eAH6sAUbqDIgw3R4spwGr6L",
           }}
         >
-          <App />
+          <HelmetProvider>
+            <App />
+          </HelmetProvider>
         </PayPalScriptProvider>
       </Provider>
     </React.StrictMode>
