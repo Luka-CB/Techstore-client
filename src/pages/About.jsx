@@ -16,7 +16,7 @@ const Link = ({ title, btnName, link }) => {
             <p id="name">{title}</p>
             <span id="dash">-</span>
             <b id="here">here</b>
-            {windowWidth <= 500 && window.innerWidth <= 500 ? (
+            {windowWidth <= 500 ? (
               <BsArrowDown id="arrow-icon" />
             ) : (
               <BsArrowRight id="arrow-icon" />

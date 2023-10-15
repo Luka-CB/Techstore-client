@@ -44,7 +44,7 @@ const SearchNav = () => {
 
   return (
     <>
-      {windowWidth < 800 && window.innerWidth < 800 ? (
+      {windowWidth < 800 ? (
         <div className="mob-nav-search-container">
           <input
             onClick={(e) => e.stopPropagation()}

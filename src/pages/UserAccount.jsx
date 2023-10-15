@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useNavigate } from "react-router-dom";
 import DeleteModal from "../components/DeleteModal";
 import Dots from "../components/Dots";
 import {
@@ -41,7 +40,6 @@ const UserAccount = () => {
   } = useSelector((state) => state.deleteUser);
 
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!account.username) {

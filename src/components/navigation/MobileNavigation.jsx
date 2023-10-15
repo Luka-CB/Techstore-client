@@ -80,7 +80,7 @@ const MobileNavigation = () => {
             handleOnClickNavlink();
           }}
         >
-          {windowWidth <= 500 && window.innerWidth <= 500 ? (
+          {windowWidth <= 500 ? (
             <img src={logoMob} alt="logo mobile" id="img" />
           ) : (
             <img src={logo} alt="logo" id="img" />

@@ -115,7 +115,7 @@ const ProductCard = ({ data, contentType }) => {
   };
 
   useEffect(() => {
-    if (windowWidth < 1000 && window.innerWidth < 1000) {
+    if (windowWidth < 1000) {
       setShowCartBtn(true);
     } else {
       setShowCartBtn(false);

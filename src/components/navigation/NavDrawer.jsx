@@ -45,7 +45,7 @@ const NavDrawer = () => {
             <img src={logo} alt="logo" id="img" />
           </div>
         </div>
-        {windowWidth < 500 && window.innerWidth < 500 ? (
+        {windowWidth < 500 ? (
           <div className="close-btn" onClick={handleCloseMobNav}>
             <AiFillCloseCircle id="close-icon" />
           </div>

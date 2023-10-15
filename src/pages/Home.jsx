@@ -1,55 +1,29 @@
-import { useEffect, useState } from "react";
 import TechImg from "../assets/images/tech.png";
-import LastAdded from "../components/home/LastAdded";
 import SlideShow from "../components/home/SlideShow";
 import Navigation from "../components/navigation/Navigation";
 import SearchHome from "../components/search/SearchHome";
-import { useDispatch, useSelector } from "react-redux";
-import {
-  getLatestAccessories,
-  getLatestCellphones,
-  getLatestComputers,
-  getLatestTvs,
-} from "../redux/actions/productActions";
+import { useSelector } from "react-redux";
 import SearchResult from "../components/search/SearchResult";
 import MobileNavigationHome from "../components/navigation/MobileNavigationHome";
 import Head from "../components/Head";
+import LatestTvs from "../components/home/LatestTvs";
+import useWindowWidth from "../hooks/windowWidth";
+import LatestComputers from "../components/home/LatestComputers";
+import LatestCellphones from "../components/home/LatestCellphones";
+import LatestAccessories from "../components/home/LatestAccessories";
 
 const Home = () => {
-  const [windowWidth, setWindowWidth] = useState("");
+  const windowWidth = useWindowWidth();
 
-  const { latestAccessories } = useSelector((state) => state.latestAccessories);
-  const { latestCellphones } = useSelector((state) => state.latestCellphones);
-  const { latestComputers } = useSelector((state) => state.latestComputers);
-  const { latestTvs } = useSelector((state) => state.latestTvs);
   const { isSearchResultModalOpen } = useSelector(
     (state) => state.searchResultModal
   );
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(getLatestAccessories());
-    dispatch(getLatestCellphones());
-    dispatch(getLatestComputers());
-    dispatch(getLatestTvs());
-  }, []);
-
-  useEffect(() => {
-    window.addEventListener("resize", () => {
-      setWindowWidth(window.innerWidth);
-    });
-  }, [window]);
 
   return (
     <div className="container">
       <Head title="Welcome | Techstore" />
       <div className="landing">
-        {windowWidth < 900 && window.innerWidth < 900 ? (
-          <MobileNavigationHome />
-        ) : (
-          <Navigation />
-        )}
+        {windowWidth < 900 ? <MobileNavigationHome /> : <Navigation />}
         <div className="landing-info">
           <div className="hero-wrapper">
             <SearchHome />
@@ -75,10 +49,10 @@ const Home = () => {
 
       <SlideShow />
 
-      <LastAdded content={latestTvs} contentType="tvs" />
-      <LastAdded content={latestComputers} contentType="computers" />
-      <LastAdded content={latestCellphones} contentType="cellphones" />
-      <LastAdded content={latestAccessories} contentType="accessories" />
+      <LatestTvs />
+      <LatestComputers />
+      <LatestCellphones />
+      <LatestAccessories />
     </div>
   );
 };

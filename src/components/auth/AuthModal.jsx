@@ -26,7 +26,7 @@ const AuthModal = () => {
 
   return (
     <>
-      {windowWidth < 800 && window.innerWidth < 800 ? (
+      {windowWidth < 800 ? (
         <MobileAuth
           handleCloseAuthModal={handleCloseAuthModal}
           windowWidth={windowWidth}
