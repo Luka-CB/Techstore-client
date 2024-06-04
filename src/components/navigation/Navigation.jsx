@@ -54,6 +54,8 @@ const Navigation = () => {
     dispatch(resetGetFilters());
   };
 
+  console.log(pathname);
+
   return (
     <div className={pathname !== "/" ? "navigation" : "home-navigation"}>
       <div
@@ -74,7 +76,7 @@ const Navigation = () => {
             style={({ isActive }) =>
               isActive ? { color: "#ff00c3", fontWeight: 700 } : undefined
             }
-            onClick={handleOnClickNavlink}
+            onClick={pathname !== "/tvs" && handleOnClickNavlink}
           >
             TV
           </NavLink>
@@ -84,7 +86,7 @@ const Navigation = () => {
             style={({ isActive }) =>
               isActive ? { color: "#ff00c3", fontWeight: 700 } : undefined
             }
-            onClick={handleOnClickNavlink}
+            onClick={pathname !== "/tvs" && handleOnClickNavlink}
           >
             Computers
           </NavLink>
@@ -94,7 +96,7 @@ const Navigation = () => {
             style={({ isActive }) =>
               isActive ? { color: "#ff00c3", fontWeight: 700 } : undefined
             }
-            onClick={handleOnClickNavlink}
+            onClick={pathname !== "/tvs" && handleOnClickNavlink}
           >
             Cell Phones
           </NavLink>
@@ -104,7 +106,7 @@ const Navigation = () => {
             style={({ isActive }) =>
               isActive ? { color: "#ff00c3", fontWeight: 700 } : undefined
             }
-            onClick={handleOnClickNavlink}
+            onClick={pathname !== "/tvs" && handleOnClickNavlink}
           >
             Accessories
           </NavLink>
@@ -114,7 +116,7 @@ const Navigation = () => {
             style={({ isActive }) =>
               isActive ? { color: "#ff00c3", fontWeight: 700 } : undefined
             }
-            onClick={handleOnClickNavlink}
+            onClick={pathname !== "/tvs" && handleOnClickNavlink}
           >
             About
           </NavLink>

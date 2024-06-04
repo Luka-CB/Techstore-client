@@ -7,7 +7,8 @@ import {
 } from "react-icons/cg";
 import { useDispatch } from "react-redux";
 import { useLocation, useNavigate, useSearchParams } from "react-router-dom";
-import {getProducts} from "../redux/actions/productActions"
+import { getProducts } from "../redux/actions/productActions";
+import useWindowScroll from "../hooks/useWindowScroll";
 
 const Pagination = ({ paginationData, contentType }) => {
   const navigate = useNavigate();
@@ -22,10 +23,10 @@ const Pagination = ({ paginationData, contentType }) => {
     rowCount > paginationData?.totalDocs ? paginationData?.totalDocs : rowCount
   }`;
 
-
   useEffect(() => {
     if (queryPage && queryPage !== paginationData.page) {
       dispatch(getProducts({ route: contentType, page: queryPage }));
+      useWindowScroll("up");
     }
   }, [queryPage]);
 
@@ -34,6 +35,8 @@ const Pagination = ({ paginationData, contentType }) => {
     dispatch(
       getProducts({ route: contentType, page: paginationData.totalPages })
     );
+
+    useWindowScroll("up");
   };
 
   const handleNextPage = () => {
@@ -45,6 +48,8 @@ const Pagination = ({ paginationData, contentType }) => {
     dispatch(
       getProducts({ route: contentType, page: paginationData.nextPage })
     );
+
+    useWindowScroll("up");
   };
 
   const handlePrevPage = () => {
@@ -56,11 +61,15 @@ const Pagination = ({ paginationData, contentType }) => {
     dispatch(
       getProducts({ route: contentType, page: paginationData.prevPage })
     );
+
+    useWindowScroll("up");
   };
 
   const handleFirstPage = () => {
     navigate({ pathname, search: `page=1` });
     dispatch(getProducts({ route: contentType, page: 1 }));
+
+    useWindowScroll("up");
   };
 
   return (
